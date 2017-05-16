@@ -1822,6 +1822,10 @@ svg {
     width: 38em;
   }
 }
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom {
+  visibility: visible;
+  opacity: 1;
+}
 .bootstrap-datetimepicker-widget.dropdown-menu.bottom:before, .bootstrap-datetimepicker-widget.dropdown-menu.bottom:after {
   right: auto;
   left: 12px;

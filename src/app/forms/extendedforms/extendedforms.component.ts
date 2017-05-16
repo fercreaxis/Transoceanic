@@ -27,7 +27,7 @@ export class ExtendedFormsComponent implements OnInit{
             $(".selectpicker").selectpicker();
         }
 
-        $('#datetimepicker').datetimepicker({
+        $('.datetimepicker').datetimepicker({
             icons: {
                 time: "fa fa-clock-o",
                 date: "fa fa-calendar",
@@ -37,8 +37,7 @@ export class ExtendedFormsComponent implements OnInit{
                 next: 'fa fa-chevron-right',
                 today: 'fa fa-screenshot',
                 clear: 'fa fa-trash',
-                close: 'fa fa-remove',
-                inline: true
+                close: 'fa fa-remove'
             }
          });
 

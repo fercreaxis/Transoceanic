@@ -7,7 +7,6 @@ import { FormsRoutes } from './forms.routing';
 
 import { ExtendedFormsComponent } from './extendedforms/extendedforms.component';
 import { RegularFormsComponent } from './regularforms/regularforms.component';
-import { ValidationFormsComponent } from './validationforms/validationforms.component';
 import { WizardComponent } from './wizard/wizard.component';
 
 
@@ -18,7 +17,6 @@ import { WizardComponent } from './wizard/wizard.component';
   ],
   declarations: [
       ExtendedFormsComponent,
-      ValidationFormsComponent,
       RegularFormsComponent,
       WizardComponent
   ]

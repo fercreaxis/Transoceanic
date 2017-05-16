@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import swal from 'sweetalert2'
+// import swal from 'sweetalert2'
 declare var $:any;
-
+declare var swal:any;
 @Component({
     moduleId: module.id,
     selector: 'sweetalert-cmp',
