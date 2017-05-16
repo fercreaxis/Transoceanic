@@ -37,6 +37,7 @@
 
           "../node_modules/datatables/media/js/jquery.dataTables.js",
           "../node_modules/fullcalendar/dist/fullcalendar.js",
+          "../node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.js",
 
          "../node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"
       ],

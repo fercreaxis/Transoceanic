@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, AfterViewInit } from '@angular/core';
 // import initWizard = require('../../../../assets/js/init/initWizard.js');
 
 declare var $:any;
@@ -15,7 +15,7 @@ interface FileReaderEvent extends Event {
     templateUrl: 'wizard.component.html'
 })
 
-export class WizardComponent implements OnInit, OnChanges{
+export class WizardComponent implements OnInit, OnChanges, AfterViewInit{
     readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -26,30 +26,7 @@ export class WizardComponent implements OnInit, OnChanges{
             reader.readAsDataURL(input.files[0]);
         }
     }
-    refreshAnimation($wizard, index){
-        var total_steps = $wizard.find('li').length;
-        var move_distance = $wizard.width() / total_steps;
-        var step_width = move_distance;
-        move_distance *= index;
-
-        var $current = index + 1;
-
-        if($current == 1){
-            move_distance -= 8;
-        } else if($current == total_steps){
-            move_distance += 8;
-        }
-
-        $wizard.find('.moving-tab').css('width', step_width);
-        $('.moving-tab').css({
-            'transform':'translate3d(' + move_distance + 'px, 0, 0)',
-            'transition': 'all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1)'
-
-        });
-    }
     ngOnInit(){
-        // $.getScript('../../../assets/js/plugins/jquery.bootstrap-wizard.js');
-        // initWizard();
         // Code for the Validator
         var $validator = $('.wizard-card form').validate({
     		  rules: {
@@ -103,31 +80,33 @@ export class WizardComponent implements OnInit, OnChanges{
                var $first_li = navigation.find('li:first-child a').html();
                var $moving_div = $('<div class="moving-tab">' + $first_li + '</div>');
                $('.wizard-card .wizard-navigation').append($moving_div);
-               function refreshAnimation($wizard, index){
-                   var total_steps = $wizard.find('li').length;
-                   var move_distance = $wizard.width() / total_steps;
-                   var step_width = move_distance;
-                   move_distance *= index;
 
-                   var $current = index + 1;
+            //    this.refreshAnimation($wizard, index);
+            var total_steps = $wizard.find('li').length;
+            var move_distance = $wizard.width() / total_steps;
+            var step_width = move_distance;
+            move_distance *= index;
 
-                   if($current == 1){
-                       move_distance -= 8;
-                   } else if($current == total_steps){
-                       move_distance += 8;
-                   }
+            var $current = index + 1;
 
-                   $wizard.find('.moving-tab').css('width', step_width);
-                   $('.moving-tab').css({
-                       'transform':'translate3d(' + move_distance + 'px, 0, 0)',
-                       'transition': 'all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1)'
+            if($current == 1){
+                move_distance -= 8;
+            } else if($current == total_steps){
+                move_distance += 8;
+            }
 
-                   });
-               };
+            $wizard.find('.moving-tab').css('width', step_width);
+            $('.moving-tab').css({
+                'transform':'translate3d(' + move_distance + 'px, 0, 0)',
+                'transition': 'all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1)'
+
+            });
+
                $('.moving-tab').css('transition','transform 0s');
            },
 
             onTabClick : function(tab, navigation, index){
+
                 var $valid = $('.wizard-card form').valid();
 
                 if(!$valid){
@@ -173,37 +152,39 @@ export class WizardComponent implements OnInit, OnChanges{
                     });
                 }
 
-                function refreshAnimation($wizard, index){
-                    var total_steps = $wizard.find('li').length;
-                    var move_distance = $wizard.width() / total_steps;
-                    var step_width = move_distance;
-                    move_distance *= index;
+                // this.refreshAnimation($wizard, index);
+                var total_steps = $wizard.find('li').length;
+                var move_distance = $wizard.width() / total_steps;
+                var step_width = move_distance;
+                move_distance *= index;
 
-                    var $current = index + 1;
+                var $current = index + 1;
 
-                    if($current == 1){
-                        move_distance -= 8;
-                    } else if($current == total_steps){
-                        move_distance += 8;
-                    }
+                if($current == 1){
+                    move_distance -= 8;
+                } else if($current == total_steps){
+                    move_distance += 8;
+                }
 
-                    $wizard.find('.moving-tab').css('width', step_width);
-                    $('.moving-tab').css({
-                        'transform':'translate3d(' + move_distance + 'px, 0, 0)',
-                        'transition': 'all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1)'
+                $wizard.find('.moving-tab').css('width', step_width);
+                $('.moving-tab').css({
+                    'transform':'translate3d(' + move_distance + 'px, 0, 0)',
+                    'transition': 'all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1)'
 
-                    });
-                };
+                });
             }
       	});
 
 
         // Prepare the preview for profile picture
         $("#wizard-picture").change(function(){
+
             this.readURL(this);
         });
 
         $('[data-toggle="wizard-radio"]').click(function(){
+            console.log('click');
+
             var wizard = $(this).closest('.wizard-card');
             wizard.find('[data-toggle="wizard-radio"]').removeClass('active');
             $(this).addClass('active');
@@ -222,39 +203,51 @@ export class WizardComponent implements OnInit, OnChanges{
         });
 
         $('.set-full-height').css('height', 'auto');
+
     }
 
     ngOnChanges(){
-        $('.wizard-card').each(function(){
-                var $wizard = $(this);
-                var index = $wizard.bootstrapWizard('currentIndex');
-                function refreshAnimation($wizard, index){
-                    var total_steps = $wizard.find('li').length;
-                    var move_distance = $wizard.width() / total_steps;
-                    var step_width = move_distance;
-                    move_distance *= index;
+        var input = $(this);
+        var target:EventTarget;
+        if (input.files && input.files[0]) {
+            var reader:any = new FileReader();
 
-                    var $current = index + 1;
-
-                    if($current == 1){
-                        move_distance -= 8;
-                    } else if($current == total_steps){
-                        move_distance += 8;
-                    }
-
-                    $wizard.find('.moving-tab').css('width', step_width);
-                    $('.moving-tab').css({
-                        'transform':'translate3d(' + move_distance + 'px, 0, 0)',
-                        'transition': 'all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1)'
-
-                    });
-                };
-
-                $('.moving-tab').css({
-                    'transition': 'transform 0s'
-                });
-            });
+            reader.onload = function (e) {
+                $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
     }
+    ngAfterViewInit(){
+        $('.wizard-card').each(function(){
 
+            var $wizard = $(this);
+            var index = $wizard.bootstrapWizard('currentIndex');
+            // this.refreshAnimation($wizard, index);
 
+            var total_steps = $wizard.find('li').length;
+            var move_distance = $wizard.width() / total_steps;
+            var step_width = move_distance;
+            move_distance *= index;
+
+            var $current = index + 1;
+
+            if($current == 1){
+                move_distance -= 8;
+            } else if($current == total_steps){
+                move_distance += 8;
+            }
+
+            $wizard.find('.moving-tab').css('width', step_width);
+            $('.moving-tab').css({
+                'transform':'translate3d(' + move_distance + 'px, 0, 0)',
+                'transition': 'all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1)'
+
+            });
+
+            $('.moving-tab').css({
+                'transition': 'transform 0s'
+            });
+        });
+    }
 }

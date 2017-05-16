@@ -2,6 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ROUTES } from './sidebar-routes.config';
 
 declare var $:any;
+var mda:any = {
+   misc: {
+       movingTab: '<div class="sidebar-moving-tab"/>',
+       isChild: false,
+       sidebarMenuActive: ''
+   }
+};
+
+var sidebarTimer;
 
 @Component({
     moduleId: module.id,
@@ -19,8 +28,9 @@ export class SidebarComponent implements OnInit {
     }
     ngOnInit() {
         // $.getScript('../../assets/js/sidebar-moving-tab.js');
-
         this.menuItems = ROUTES.filter(menuItem => menuItem);
+
     }
+
 
 }

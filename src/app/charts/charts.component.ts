@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import initChartsPage = require('../../../assets/js/init/initChartsPage.js');
 import * as Chartist from 'chartist';
 
 declare var $:any;
@@ -12,11 +11,13 @@ declare var $:any;
 
 export class ChartsComponent implements OnInit{
     startAnimationForLineChart(chart){
-        console.log('startAnimationForLineChart')
         var seq, delays, durations;
+        seq = 0;
+        delays = 80;
+        durations = 500;
         chart.on('draw', function(data) {
+
           if(data.type === 'line' || data.type === 'area') {
-              console.log('if');
             data.element.animate({
               d: {
                 begin: 600,
@@ -27,7 +28,6 @@ export class ChartsComponent implements OnInit{
               }
             });
           } else if(data.type === 'point') {
-              console.log('else');
                 seq++;
                 data.element.animate({
                   opacity: {
@@ -42,10 +42,12 @@ export class ChartsComponent implements OnInit{
         });
 
         seq = 0;
-    };
+    }
     startAnimationForBarChart(chart){
         var seq2, delays2, durations2;
-
+        seq2 = 0;
+        delays2 = 80;
+        durations2 = 500;
         chart.on('draw', function(data) {
           if(data.type === 'bar'){
               seq2++;
@@ -113,8 +115,7 @@ export class ChartsComponent implements OnInit{
             classNames: {
                 point: 'ct-point ct-white',
                 line: 'ct-line ct-white'
-            },
-            showPoint: false
+            }
         }
 
         var straightLinesChart = new Chartist.Line('#straightLinesChart', dataStraightLinesChart, optionsStraightLinesChart);
@@ -187,7 +188,7 @@ export class ChartsComponent implements OnInit{
 
         var colouredBarsChart = new Chartist.Line('#colouredBarsChart', dataColouredBarsChart, optionsColouredBarsChart);
 
-        // this.startAnimationForLineChart(colouredBarsChart);
+        this.startAnimationForLineChart(colouredBarsChart);
 
 
 
@@ -234,7 +235,7 @@ export class ChartsComponent implements OnInit{
         var simpleBarChart = new Chartist.Bar('#simpleBarChart', dataSimpleBarChart, optionsSimpleBarChart, responsiveOptionsSimpleBarChart);
 
         //start animation for the Emails Subscription Chart
-        // this.startAnimationForBarChart(simpleBarChart);
+        this.startAnimationForBarChart(simpleBarChart);
 
 
         var dataMultipleBarsChart = {
@@ -267,6 +268,6 @@ export class ChartsComponent implements OnInit{
         var multipleBarsChart = new Chartist.Bar('#multipleBarsChart', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
 
         //start animation for the Emails Subscription Chart
-        // this.startAnimationForBarChart(multipleBarsChart);
+        this.startAnimationForBarChart(multipleBarsChart);
     }
 }

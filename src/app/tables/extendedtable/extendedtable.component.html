@@ -170,7 +170,7 @@
                                               Total
                                           </td>
                                           <td colspan="1" class="td-price">
-                                              <small>&euro;</small>{{getTotal()}}
+                                              {{getTotal()| currency:'EUR':true:'1.2-2'}}
                                           </td>
                                           <td></td>
                                       </tr>

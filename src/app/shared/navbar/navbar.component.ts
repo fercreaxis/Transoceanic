@@ -22,6 +22,16 @@ export class NavbarComponent implements OnInit{
         }
         return true;
     }
+    OnClick(){
+        // let body = document.getElementsByTagName('body')[0];
+         $("body").toggleClass("nav-open");
+        //  $("button").toggleClass("toggled");
+         setTimeout(function(){
+             $("button").toggleClass("toggled");
+         }, 430);
+        // document.querySelector('body').classList.add('nav-open');
+        // document.querySelector('body').classList.remove('nav-open');
+    }
     ngOnInit(){
         this.listTitles = ROUTES.filter(listTitle => listTitle);
     }

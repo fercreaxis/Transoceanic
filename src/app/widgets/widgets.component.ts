@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { TableData } from '../lbd/lbd-table/lbd-table.component';
 
 declare var $: any;
@@ -12,7 +12,7 @@ declare interface Task {
     templateUrl: 'widgets.component.html'
 })
 
-export class WidgetsComponent implements OnInit{
+export class WidgetsComponent implements OnInit, AfterViewInit{
     public tableData: TableData;
     public tasks1: Task[];
     public tasks2: Task[];
@@ -53,9 +53,15 @@ export class WidgetsComponent implements OnInit{
              checked: true
            },
            { title: 'Sign contract for \'What are conference organizers afraid of?\'', checked: false }
-         ];
+       ];
+
+    }
+
+    ngAfterViewInit(){
         //  Activate the tooltips
         $('[rel="tooltip"]').tooltip();
     }
+
+
 
 }

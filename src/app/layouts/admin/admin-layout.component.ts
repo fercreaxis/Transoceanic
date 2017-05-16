@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { NavItem, NavItemType } from '../../lbd/lbd.module';
+import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 
 @Component({
   selector: 'app-layout',
@@ -9,8 +10,10 @@ import { NavItem, NavItemType } from '../../lbd/lbd.module';
 
 export class AdminLayoutComponent implements OnInit {
     public navItems: NavItem[];
-
-    constructor() {}
+    location: Location;
+    constructor(location:Location) {
+        this.location = location;
+    }
     ngOnInit() {
         this.navItems = [
           { type: NavItemType.NavbarLeft, title: 'Dashboard', iconClass: 'fa fa-dashboard' },
@@ -60,5 +63,14 @@ export class AdminLayoutComponent implements OnInit {
           },
           { type: NavItemType.NavbarLeft, title: 'Log out' }
         ];
+    }
+    public isMap(){
+        // console.log(this.location.prepareExternalUrl(this.location.path()));
+        if(this.location.prepareExternalUrl(this.location.path()) == '/maps/fullscreen'){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

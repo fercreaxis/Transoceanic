@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// import initFullCalendar = require('../../../assets/js/init/initFullCalendar.js');
 import swal from 'sweetalert2';
-
+import * as Ps from 'perfect-scrollbar';
 declare var $: any;
+// var Ps = require('perfect-scrollbar');
 
 @Component({
     moduleId: module.id,
@@ -12,7 +12,6 @@ declare var $: any;
 
 export class CalendarComponent implements OnInit{
     ngOnInit(){
-        // initFullCalendar();
         var $calendar = $('#fullCalendar');
 
         var today = new Date();
@@ -24,7 +23,8 @@ export class CalendarComponent implements OnInit{
             viewRender: function(view, element) {
                 // We make sure that we activate the perfect scrollbar when the view isn't on Month
                 if (view.name != 'month'){
-                    $(element).find('.fc-scroller').perfectScrollbar();
+                    var fc_scroller = (<HTMLScriptElement[]><any>document.getElementsByClassName('fc-scroller'))[0];
+                    Ps.initialize(fc_scroller);
                 }
             },
             header: {
