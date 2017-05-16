@@ -26,7 +26,6 @@
           "../node_modules/arrive/src/arrive.js",
           "../node_modules/moment/moment.js",
           "../node_modules/chartist/dist/chartist.js",
-          "../node_modules/jquery-validation/dist/jquery.validate.js",
           "../node_modules/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js",
 
           "../node_modules/bootstrap-notify/bootstrap-notify.js",
