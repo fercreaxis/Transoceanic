@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import swal from 'sweetalert2';
+declare var swal: any;
 import * as Ps from 'perfect-scrollbar';
 declare var $: any;
 // var Ps = require('perfect-scrollbar');
