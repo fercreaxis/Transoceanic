@@ -1,6 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-// import * as Ps from 'perfect-scrollbar';
 
 declare var $:any;
 @Component({

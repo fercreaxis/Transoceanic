@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy, ViewChild, HostListener } from '@angular/
 import { Router, NavigationEnd } from '@angular/router';
 import { NavItem, NavItemType } from '../../lbd/lbd.module';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
-import * as Ps from 'perfect-scrollbar';
+
+declare var $: any;
 
 @Component({
   selector: 'app-layout',
@@ -18,10 +19,10 @@ export class AdminLayoutComponent implements OnInit {
     ngOnInit() {
 
         var isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
-        if (isWindows){
+        if (!isWindows){
            // if we are on windows OS we activate the perfectScrollbar function
-           var fc_scroller = (<HTMLScriptElement[]><any>document.getElementsByClassName('main-panel'))[0];
-           Ps.initialize(fc_scroller);
+            var $main_panel = $('.main-panel');
+            $main_panel.perfectScrollbar();
         }
         this.navItems = [
           { type: NavItemType.NavbarLeft, title: 'Dashboard', iconClass: 'fa fa-dashboard' },
