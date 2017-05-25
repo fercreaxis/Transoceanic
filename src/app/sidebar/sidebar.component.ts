@@ -28,14 +28,11 @@ export class SidebarComponent implements OnInit {
         return true;
     }
     ngOnInit() {
-        // $.getScript('../../assets/js/sidebar-moving-tab.js');
-
         var isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
         if (isWindows){
            // if we are on windows OS we activate the perfectScrollbar function
             var $sidebar = $('.sidebar-wrapper');
             $sidebar.perfectScrollbar();
-
         }
         this.menuItems = ROUTES.filter(menuItem => menuItem);
 
