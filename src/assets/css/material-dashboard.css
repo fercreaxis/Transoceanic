@@ -1229,7 +1229,7 @@ div.dataTables_wrapper div.dataTables_filter label {
 div.dataTables_wrapper div.dataTables_filter input {
   margin-left: 0.5em;
   display: inline-block;
-  width: auto;
+  width: 100%;
 }
 
 div.dataTables_wrapper div.dataTables_info {
@@ -1381,14 +1381,6 @@ div.dataTables_scrollHead table.table-bordered {
 
 div.table-responsive > div.dataTables_wrapper > div.row {
   margin: 0;
-}
-
-div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:first-child {
-  padding-left: 0;
-}
-
-div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:last-child {
-  padding-right: 0;
 }
 
 table.dataTable .btn-simple.btn-icon {
@@ -1636,6 +1628,18 @@ div.dtr-modal div.dtr-modal-background {
 
   table > thead > tr > th {
     width: 60px !important;
+  }
+
+  div.dataTables_wrapper div.dataTables_length select,
+  div.dataTables_wrapper div.dataTables_length label,
+  div.dataTables_wrapper div.dataTables_length div.form-group,
+  div.dataTables_wrapper div.dataTables_filter input,
+  div.dataTables_wrapper div.dataTables_filter label {
+    width: 100%;
+  }
+
+  div.dataTables_wrapper div.dataTables_filter input {
+    margin-left: 0;
   }
 }
 @media all and (min-width: 520px) and (max-width: 730px) {

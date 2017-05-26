@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import initDataTable = require('../../../../assets/js/init/initDataTable.js');
+//var bootstrap = require( 'datatables.net-bs' )( window, $ );
 
 declare var $:any;
 @Component({
@@ -10,7 +10,6 @@ declare var $:any;
 
 export class DataTableComponent implements OnInit{
     ngOnInit(){
-        // initDataTable();
 
         $('#datatables').DataTable({
             "pagingType": "full_numbers",
