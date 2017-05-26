@@ -19,7 +19,7 @@ export class AdminLayoutComponent implements OnInit {
     ngOnInit() {
 
         var isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
-        if (!isWindows){
+        if (isWindows){
            // if we are on windows OS we activate the perfectScrollbar function
             var $main_panel = $('.main-panel');
             $main_panel.perfectScrollbar();
