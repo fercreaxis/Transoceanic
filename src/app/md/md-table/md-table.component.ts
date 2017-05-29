@@ -6,11 +6,11 @@ export interface TableData {
 }
 
 @Component({
-  selector: 'lbd-table',
-  templateUrl: './lbd-table.component.html',
+  selector: 'md-table',
+  templateUrl: './md-table.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LbdTableComponent {
+export class MdTableComponent {
   @Input()
   public title: string;
 

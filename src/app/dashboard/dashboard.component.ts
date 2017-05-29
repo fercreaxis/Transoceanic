@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { TableData } from '../lbd/lbd-table/lbd-table.component';
+import { TableData } from '../md/md-table/md-table.component';
 
 import * as Chartist from 'chartist';
 
