@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 
 declare var $:any;
-
+declare var storeReset:any;
 @Component({
     moduleId: module.id,
     selector: 'charts-cmp',
@@ -65,9 +65,37 @@ export class ChartsComponent implements OnInit{
 
         seq2 = 0;
     }
+    resetFnc;
+    onZoom(chart, reset) {
+      this.resetFnc = reset;
+    }
     ngOnInit(){
         // initChartsPage();
         /* ----------==========    Rounded Line Chart initialization    ==========---------- */
+        var data = {
+          series: [[
+            { x: 1, y: 100 },
+            { x: 2, y: 50 },
+            { x: 3, y: 25 },
+            { x: 4, y: 66 },
+            { x: 5, y: 30 },
+            { x: 6, y: 22 }
+          ]]
+        };
+
+        var options = {
+          axisX: {
+            type: Chartist.AutoScaleAxis
+          },
+          axisY: {
+            type: Chartist.AutoScaleAxis
+          },
+          plugins: [
+            Chartist.plugins.zoom({ onZoom: this.onZoom })
+          ]
+        };
+
+        var chart = new Chartist.Line('.ct-chart', data, options);
 
         var dataRoundedLineChart = {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
@@ -150,10 +178,9 @@ export class ChartsComponent implements OnInit{
           height: '300px'
         };
 
-
         var colouredRoundedLineChart = new Chartist.Line('#colouredRoundedLineChart', dataColouredRoundedLineChart, optionsColouredRoundedLineChart);
 
-        // this.startAnimationForLineChart(colouredRoundedLineChart);
+        this.startAnimationForLineChart(colouredRoundedLineChart);
 
 
         /*  **************** Coloured Rounded Line Chart - Line Chart ******************** */
