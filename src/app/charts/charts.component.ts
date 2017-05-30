@@ -65,9 +65,8 @@ export class ChartsComponent implements OnInit{
 
         seq2 = 0;
     }
-    resetFnc;
-    onZoom(chart, reset) {
-      this.resetFnc = reset;
+    storeReset(reset) {
+        console.log(reset);
     }
     ngOnInit(){
         // initChartsPage();
@@ -90,9 +89,11 @@ export class ChartsComponent implements OnInit{
           axisY: {
             type: Chartist.AutoScaleAxis
           },
-          plugins: [
-            Chartist.plugins.zoom({ onZoom: this.onZoom })
-          ]
+        //   plugins: [
+        //     Chartist.plugins.zoom({
+        //     onZoom : function(chart, reset) { storeReset(reset); },
+        //     })
+        // ]
         };
 
         var chart = new Chartist.Line('.ct-chart', data, options);
