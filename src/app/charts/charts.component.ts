@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+// require('chartist-plugin-zoom');
 
 declare var $:any;
-declare var storeReset:any;
 @Component({
     moduleId: module.id,
     selector: 'charts-cmp',
@@ -91,7 +91,7 @@ export class ChartsComponent implements OnInit{
           },
         //   plugins: [
         //     Chartist.plugins.zoom({
-        //     onZoom : function(chart, reset) { storeReset(reset); },
+        //     onZoom : function(chart, reset) { this.storeReset(reset); },
         //     })
         // ]
         };

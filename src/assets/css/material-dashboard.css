@@ -9036,6 +9036,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   position: relative;
   z-index: 3;
   padding-top: 15vh;
+  min-height: calc(100vh - 80px);
 }
 .register-page .footer .container {
   padding: 0;
@@ -11382,6 +11383,8 @@ footer .btn {
     margin-top: 4px;
     width: 40px;
     height: 40px;
+    display: block !important;
+    float: right;
   }
 
   .bar1,
@@ -11756,7 +11759,7 @@ footer .btn {
     display: block;
   }
 
-  .sidebar-pages .navbar-header {
+  .navbar-header {
     float: none;
   }
 
@@ -11777,13 +11780,8 @@ footer .btn {
   .navbar > .container-fluid .navbar-brand {
     margin-left: 0;
   }
-
-  .navbar-header .collapse,
-  .navbar-toggle {
-    display: none !important;
-  }
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .main-panel .content {
     padding-left: 0;
     padding-right: 0;

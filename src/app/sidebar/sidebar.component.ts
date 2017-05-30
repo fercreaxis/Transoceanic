@@ -105,14 +105,10 @@ export class SidebarComponent implements OnInit, AfterViewInit {
         mda.misc.sidebarMenuActive = $('.sidebar .nav-container > .nav > li.active > a:not([data-toggle="collapse"]');
 
         if(mda.misc.sidebarMenuActive.length != 0){
-            console.log('if')
             this.setMovingTabPosition(mda.misc.sidebarMenuActive);
         } else {
-            console.log('else')
-
             mda.misc.sidebarMenuActive = $('.sidebar .nav-container .nav > li.active .collapse li.active > a');
             mda.misc.isChild = true;
-            console.log(mda.misc.sidebarMenuActive)
             this.setParentCollapse();
         }
 
