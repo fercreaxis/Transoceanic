@@ -16,7 +16,7 @@ export const ROUTES: RouteInfo[] = [
 
     { path: '/forms/regular', title: 'Regular Forms', icon:'pe-7s-note2' },
     { path: '/forms/extended', title: 'Extended Forms', icon:'pe-7s-note2' },
-    { path: '/forms/extended', title: 'Extended Forms', icon:'pe-7s-note2' },
+    { path: '/forms/validation', title: 'Validation Forms', icon:'pe-7s-note2' },
     { path: '/forms/wizard', title: 'Wizard', icon:'pe-7s-note2' },
 
     { path: '/tables/regular', title: 'Regular Tables', icon:'pe-7s-news-paper' },

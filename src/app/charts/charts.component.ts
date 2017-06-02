@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
-// require('chartist-plugin-zoom');
-
+import 'chartist-plugin-zoom';
 declare var $:any;
 @Component({
     moduleId: module.id,
