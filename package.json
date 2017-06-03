@@ -39,7 +39,7 @@
     "datatables.net-bs": "1.10.12",
     "datatables.net-responsive": "^2.1.1",
     "domready": "^1.0.8",
-    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "eonasdan-bootstrap-datetimepicker": "4.17.47",
     "fullcalendar": "^3.4.0",
     "googleapis": "^19.0.0",
     "jasny-bootstrap": "^3.1.3",
