@@ -45,7 +45,9 @@
          "../node_modules/jasny-bootstrap/dist/js/jasny-bootstrap.min.js",
          "../src/assets/js/plugins/sweetalert2.min.js",
 
-         "../src/assets/js/core/jquery.validate.min.js"
+         "../src/assets/js/core/jquery.validate.min.js",
+         "../src/assets/js/plugins/jquery.sharrre.js"
+
 
       ],
       "environmentSource": "environments/environment.ts",
