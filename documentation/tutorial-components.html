@@ -1714,6 +1714,10 @@ md-pro-angular-cli
                                 Besides all this customisation, we have an extra navbar.
                                 <code>.navbar-transparent</code> is a special class that you can to use if you want the navbar to be transparent.
                             </p>
+                            <p class="space-top">
+                                <b>Navbar Fixed:</b> please go <b>app/layouts/admin/admin-layout.component.html</b> and move the <code>&lt;navbar-cmp&gt;&lt;/navbar-cmp&gt;</code> outside of div with class <code>.main-panel</code>. Then go to <b>app/shared/navbar/navbar.component.html</b> and add the class <code>.navbar-dashboard-fixed-top</code>.
+
+                            </p>
                         </div>
                         <!-- end row -->
                         <!-- nav pills row -->
@@ -2924,20 +2928,15 @@ $(&#x27;.main-panel&#x27;).perfectScrollbar('update');
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 
-
 <!-- Sweet Alert 2 plugin -->
 <script src="../src/assets/js/plugins/sweetalert2.min.js"></script>
 
 <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<!-- <script src="../assets/js/plugins/jasny-bootstrap.min.js"></script> -->
+<script src="../node_modules/jasny-bootstrap/dist/js/jasny-bootstrap.min.js",></script>
 
-<!-- Forms Validations Plugin -->
-<script src="../src/assets/js/core/jquery.validate.min.js"></script>
+<!-- Material Dashboard documentation methods -->
+<script src="js/documentation.js"></script>
 
-<!-- Material Dashboard javascript methods -->
-<!-- <script src="../assets/js/material-dashboard.js"></script> -->
-
-<!-- <script src="../assets/js/init/initMenu.js"></script> -->
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <!-- <script src="../assets/js/demo.js"></script> -->
 <script type="text/javascript">

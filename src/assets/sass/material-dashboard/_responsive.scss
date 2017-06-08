@@ -47,6 +47,18 @@
     .close-layer{
         display: none;
     }
+
+    .wrapper .navbar-dashboard-fixed{
+        width: calc(100% - 260px);
+        right: 0;
+        left: auto;
+    }
+
+    .sidebar-mini{
+        .wrapper .navbar-dashboard-fixed{
+            width: calc(100% - 80px);
+        }
+    }
 }
 
 /*          Changes for small display      */
