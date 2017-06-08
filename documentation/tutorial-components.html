@@ -248,36 +248,16 @@
                                 The
                                 <b>Material Dashboard Pro</b> is built on top of Bootstrap 3, so you can safely use it on your existing or new Bootstrap project. No line of code from Bootstrap 3 was changed, so you don't have to worry about undesired effects in your work.
                             </p>
-                            <ul role="tablist" class="nav nav-tabs">
-                                <li role="presentation" class="active">
-                                    <a href="#angular2" data-toggle="tab">Commands for Angular2</a>
-                                </li>
-                                <li>
-                                    <a href="#angular-cli" data-toggle="tab">Commands for Angular CLI</a>
-                                </li>
+                            <ul>
+                                <li><p>Install NodeJs from <a href="https://nodejs.org/en" target="_blank">NodeJs Official Page</a></p></li>
+                                <li><p>Open Terminal</p></li>
+                                <li><p>Go to your file project</p></li>
+                                <li><p>Run in terminal:<pre>npm install -g @angular/cli</pre></p></li>
+                                <li><p>Then:<pre>npm install</pre></p></li>
+                                <li><p>And: <pre>ng serve</pre></p></li>
+                                <li><p>Navigate to: <a href="http://localhost:4200/" target="_blank">http://localhost:4200/</a></p></li>
                             </ul>
-                            <div class="tab-content">
-                                <div id="angular2" class="tab-pane active">
-                                    <ul>
-                                        <li><p>Install NodeJs from <a href="https://nodejs.org/en" target="_blank">NodeJs Official Page</a></p></li>
-                                        <li><p>Open Terminal</p></li>
-                                        <li><p>Go to your file project</p></li>
-                                        <li><p>Run in terminal:<pre>npm install</pre></p></li>
-                                        <li><p>And: <pre>npm start</pre></p></li>
-                                    </ul>
-                                </div>
-                                <div id="angular-cli" class="tab-pane">
-                                    <ul>
-                                        <li><p>Install NodeJs from <a href="https://nodejs.org/en" target="_blank">NodeJs Official Page</a></p></li>
-                                        <li><p>Open Terminal</p></li>
-                                        <li><p>Go to your file project</p></li>
-                                        <li><p>Run in terminal:<pre>npm install -g @angular/cli</pre></p></li>
-                                        <li><p>Then:<pre>npm install</pre></p></li>
-                                        <li><p>And: <pre>ng serve</pre></p></li>
-                                        <li><p>Navigate to: <a href="http://localhost:4200/" target="_blank">http://localhost:4200/</a></p></li>
-                                    </ul>
-                                </div>
-                            </div>
+
                         </div>
                         <div class="tim-row">
                             <h2 class="text-left">File Structure</h2>
@@ -285,234 +265,15 @@
                             <p>
                                 Once you have downloaded the archive and opened it, you will find the following structure:
                             </p>
-                            <ul role="tablist" class="nav nav-tabs">
-                                <li role="presentation" class="active">
-                                    <a href="#file-structure" data-toggle="tab">Angular2</a>
-                                </li>
-                                <li>
-                                    <a href="#file-structure-cli" data-toggle="tab">Angular CLI</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div id="file-structure" class="tab-pane active">
-                                    <pre>
-md-pro-angular2
-├── LICENSE.pdf
-├── README.md
-├── app
-│   ├── app.component.html
-│   ├── app.component.js
-│   ├── app.component.js.map
-│   ├── app.component.ts
-│   ├── app.module.js
-│   ├── app.module.js.map
-│   ├── app.module.ts
-│   ├── dashboard
-│   │   ├── calendar
-│   │   │   ├── calendar.component.html
-│   │   │   ├── calendar.component.js
-│   │   │   ├── calendar.component.js.map
-│   │   │   └── calendar.component.ts
-│   │   ├── charts
-│   │   │   ├── charts.component.html
-│   │   │   ├── charts.component.js
-│   │   │   ├── charts.component.js.map
-│   │   │   └── charts.component.ts
-│   │   ├── components
-│   │   │   ├── buttons
-│   │   │   │   ├── buttons.component.html
-│   │   │   │   ├── buttons.component.js
-│   │   │   │   ├── buttons.component.js.map
-│   │   │   │   └── buttons.component.ts
-│   │   │   ├── grid
-│   │   │   │   ├── grid.component.html
-│   │   │   │   ├── grid.component.js
-│   │   │   │   ├── grid.component.js.map
-│   │   │   │   └── grid.component.ts
-│   │   │   ├── icons
-│   │   │   │   ├── icons.component.html
-│   │   │   │   ├── icons.component.js
-│   │   │   │   ├── icons.component.js.map
-│   │   │   │   └── icons.component.ts
-│   │   │   ├── notifications
-│   │   │   │   ├── notifications.component.html
-│   │   │   │   ├── notifications.component.js
-│   │   │   │   ├── notifications.component.js.map
-│   │   │   │   └── notifications.component.ts
-│   │   │   ├── panels
-│   │   │   │   ├── panels.component.html
-│   │   │   │   ├── panels.component.js
-│   │   │   │   ├── panels.component.js.map
-│   │   │   │   └── panels.component.ts
-│   │   │   ├── sweetalert
-│   │   │   │   ├── sweetalert.component.html
-│   │   │   │   ├── sweetalert.component.js
-│   │   │   │   ├── sweetalert.component.js.map
-│   │   │   │   └── sweetalert.component.ts
-│   │   │   └── typography
-│   │   │       ├── typography.component.html
-│   │   │       ├── typography.component.js
-│   │   │       ├── typography.component.js.map
-│   │   │       └── typography.component.ts
-│   │   ├── dashboard.component.html
-│   │   ├── dashboard.component.js
-│   │   ├── dashboard.component.js.map
-│   │   ├── dashboard.component.ts
-│   │   ├── dashboard.module.js
-│   │   ├── dashboard.module.js.map
-│   │   ├── dashboard.module.ts
-│   │   ├── dashboard.routes.js
-│   │   ├── dashboard.routes.js.map
-│   │   ├── dashboard.routes.ts
-│   │   ├── forms
-│   │   │   ├── extendedforms
-│   │   │   │   ├── extendedforms.component.html
-│   │   │   │   ├── extendedforms.component.js
-│   │   │   │   ├── extendedforms.component.js.map
-│   │   │   │   └── extendedforms.component.ts
-│   │   │   ├── regularforms
-│   │   │   │   ├── regularforms.component.html
-│   │   │   │   ├── regularforms.component.js
-│   │   │   │   ├── regularforms.component.js.map
-│   │   │   │   └── regularforms.component.ts
-│   │   │   ├── validationforms
-│   │   │   │   ├── validationforms.component.html
-│   │   │   │   ├── validationforms.component.js
-│   │   │   │   ├── validationforms.component.js.map
-│   │   │   │   └── validationforms.component.ts
-│   │   │   └── wizard
-│   │   │       ├── wizard.component.html
-│   │   │       ├── wizard.component.js
-│   │   │       ├── wizard.component.js.map
-│   │   │       └── wizard.component.ts
-│   │   ├── home
-│   │   │   ├── home.component.html
-│   │   │   ├── home.component.js
-│   │   │   ├── home.component.js.map
-│   │   │   └── home.component.ts
-│   │   ├── maps
-│   │   │   ├── fullscreenmap
-│   │   │   │   ├── fullscreenmap.component.html
-│   │   │   │   ├── fullscreenmap.component.js
-│   │   │   │   ├── fullscreenmap.component.js.map
-│   │   │   │   └── fullscreenmap.component.ts
-│   │   │   ├── googlemaps
-│   │   │   │   ├── googlemaps.component.html
-│   │   │   │   ├── googlemaps.component.js
-│   │   │   │   ├── googlemaps.component.js.map
-│   │   │   │   └── googlemaps.component.ts
-│   │   │   └── vectormaps
-│   │   │       ├── vectormaps.component.html
-│   │   │       ├── vectormaps.component.js
-│   │   │       ├── vectormaps.component.js.map
-│   │   │       └── vectormaps.component.ts
-│   │   ├── pages
-│   │   │   ├── timeline
-│   │   │   │   ├── timeline.component.html
-│   │   │   │   ├── timeline.component.js
-│   │   │   │   ├── timeline.component.js.map
-│   │   │   │   └── timeline.component.ts
-│   │   │   └── user
-│   │   │       ├── user.component.html
-│   │   │       ├── user.component.js
-│   │   │       ├── user.component.js.map
-│   │   │       └── user.component.ts
-│   │   ├── tables
-│   │   │   ├── datatable.net
-│   │   │   │   ├── datatable.component.html
-│   │   │   │   ├── datatable.component.js
-│   │   │   │   ├── datatable.component.js.map
-│   │   │   │   └── datatable.component.ts
-│   │   │   ├── extendedtable
-│   │   │   │   ├── extendedtable.component.html
-│   │   │   │   ├── extendedtable.component.js
-│   │   │   │   ├── extendedtable.component.js.map
-│   │   │   │   └── extendedtable.component.ts
-│   │   │   └── regulartable
-│   │   │       ├── regulartable.component.html
-│   │   │       ├── regulartable.component.js
-│   │   │       ├── regulartable.component.js.map
-│   │   │       └── regulartable.component.ts
-│   │   └── widgets
-│   │       ├── widgets.component.html
-│   │       ├── widgets.component.js
-│   │       ├── widgets.component.js.map
-│   │       └── widgets.component.ts
-│   ├── main.js
-│   ├── main.js.map
-│   ├── main.ts
-│   ├── shared
-│   │   ├── footer
-│   │   │   ├── footer.component.html
-│   │   │   ├── footer.component.js
-│   │   │   ├── footer.component.js.map
-│   │   │   ├── footer.component.ts
-│   │   │   ├── footer.module.js
-│   │   │   ├── footer.module.js.map
-│   │   │   └── footer.module.ts
-│   │   └── navbar
-│   │       ├── navbar.component.html
-│   │       ├── navbar.component.js
-│   │       ├── navbar.component.js.map
-│   │       ├── navbar.component.ts
-│   │       ├── navbar.module.js
-│   │       ├── navbar.module.js.map
-│   │       └── navbar.module.ts
-│   └── sidebar
-│       ├── sidebar-routes.config.js
-│       ├── sidebar-routes.config.js.map
-│       ├── sidebar-routes.config.ts
-│       ├── sidebar.component.html
-│       ├── sidebar.component.js
-│       ├── sidebar.component.js.map
-│       ├── sidebar.component.ts
-│       ├── sidebar.metadata.js
-│       ├── sidebar.metadata.js.map
-│       ├── sidebar.metadata.ts
-│       ├── sidebar.module.js
-│       ├── sidebar.module.js.map
-│       └── sidebar.module.ts
-├── assets
-│   ├── css
-│   │   ├── bootstrap.min.css
-│   │   ├── demo.css
-│   │   ├── material-dashboard.css
-│   │   └── material-dashboard.css.map
-│   ├── img
-│   ├── js
-│   │   ├── core
-│   │   ├── demo.js
-│   │   ├── init
-│   │   ├── material-dashboard-angular.js
-│   │   ├── plugins
-│   │   └── sidebar-moving-tab.js
-│   └── sass
-│       ├── material-dashboard
-│       └── material-dashboard.scss
-├── changelog.txt
-├── documentation
-│   ├── css
-│   │   └── demo-documentation.css
-│   └── tutorial-components.html
-├── index.html
-├── lock.html
-├── login.html
-├── package.json
-├── pricing.html
-├── register.html
-├── systemjs.config.js
-└── tsconfig.json
-                                    </pre>
-                                </div>
-                                <div id="file-structure-cli" class="tab-pane">
-                                    <pre>
+
+                            <pre>
 md-pro-angular-cli
 ├── LICENSE.pdf
 ├── README.md
 ├── angular-cli.json
 ├── documentation
 │   ├── css
-│   │   └── demo-documentation.css
+│   ├── js
 │   └── tutorial-components.html
 ├── e2e
 ├── karma.conf.js
@@ -567,11 +328,16 @@ md-pro-angular-cli
 │   │   │   ├── extendedforms
 │   │   │   │   ├── extendedforms.component.html
 │   │   │   │   └── extendedforms.component.ts
+│   │   │   ├── equal-validator.directive.ts
 │   │   │   ├── forms.module.ts
 │   │   │   ├── forms.routing.ts
 │   │   │   ├── regularforms
 │   │   │   │   ├── regularforms.component.html
 │   │   │   │   └── regularforms.component.ts
+│   │   │   ├── validationforms
+│   │   │   │   ├── password-validator.component.ts
+│   │   │   │   ├── validationforms.component.html
+│   │   │   │   └── validationforms.component.ts
 │   │   │   └── wizard
 │   │   │       ├── wizard.component.html
 │   │   │       └── wizard.component.ts
@@ -582,27 +348,6 @@ md-pro-angular-cli
 │   │   │   └── auth
 │   │   │       ├── auth-layout.component.html
 │   │   │       └── auth-layout.component.ts
-│   │   ├── lbd
-│   │   │   ├── lbd-chart
-│   │   │   │   ├── lbd-chart.component.html
-│   │   │   │   └── lbd-chart.component.ts
-│   │   │   ├── lbd-footer
-│   │   │   │   ├── lbd-footer.component.html
-│   │   │   │   └── lbd-footer.component.ts
-│   │   │   ├── lbd-navbar
-│   │   │   │   ├── lbd-navbar.component.html
-│   │   │   │   └── lbd-navbar.component.ts
-│   │   │   ├── lbd-navbar-items
-│   │   │   │   ├── lbd-navbar-items.component.html
-│   │   │   │   └── lbd-navbar-items.component.ts
-│   │   │   ├── lbd-table
-│   │   │   │   ├── lbd-table.component.html
-│   │   │   │   └── lbd-table.component.ts
-│   │   │   ├── lbd.module.ts
-│   │   │   └── services
-│   │   │       ├── mobile-sidebar-toggle.service.ts
-│   │   │       ├── navbar-title.service.ts
-│   │   │       └── notification.service.ts
 │   │   ├── main.ts
 │   │   ├── maps
 │   │   │   ├── fullscreenmap
@@ -616,6 +361,10 @@ md-pro-angular-cli
 │   │   │   └── vectormaps
 │   │   │       ├── vectormaps.component.html
 │   │   │       └── vectormaps.component.ts
+│   │   ├── md
+│   │   │   └── md-table
+│   │   │       ├── md-table.component.html
+│   │   │       └── md-table.component.ts
 │   │   ├── pages
 │   │   │   ├── lock
 │   │   │   │   ├── lock.component.html
@@ -707,8 +456,6 @@ md-pro-angular-cli
 ├── tslint.json
 ├── typings
 └── typings.json</pre>
-                                </div>
-                            </div>
 
                         </div>
                         <div class="tim-row">
