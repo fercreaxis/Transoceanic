@@ -87,7 +87,19 @@ export class AdminLayoutComponent implements OnInit {
           { type: NavItemType.NavbarLeft, title: 'Log out' }
         ];
 
+        this.initFixedPluginDemo();
 
+    }
+    public isMap(){
+        if(this.location.prepareExternalUrl(this.location.path()) == '/maps/fullscreen'){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public initFixedPluginDemo(){
         //fixed plugin
         var $sidebar = $('.sidebar');
         var $sidebar_img_container = $sidebar.find('.sidebar-background');
@@ -107,7 +119,7 @@ export class AdminLayoutComponent implements OnInit {
         }
 
         $('.fixed-plugin a').click(function(event){
-          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          // Alex: if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
             if($(this).hasClass('switch-trigger')){
                 if(event.stopPropagation){
                     event.stopPropagation();
@@ -123,7 +135,6 @@ export class AdminLayoutComponent implements OnInit {
 
             $(this).siblings().removeClass('active');
             $(this).addClass('active');
-            console.log('active color');
             var new_color = $(this).data('color');
 
             if($sidebar.length != 0){
@@ -142,7 +153,6 @@ export class AdminLayoutComponent implements OnInit {
         $('.fixed-plugin .background-color span').click(function(){
             $(this).siblings().removeClass('active');
             $(this).addClass('active');
-            console.log('background color');
             var new_color = $(this).data('color');
 
             if($sidebar.length != 0){
@@ -192,9 +202,7 @@ export class AdminLayoutComponent implements OnInit {
             var $input = $(this);
 
             if($input.is(':checked')){
-                console.log('primul if');
                 if($sidebar_img_container.length != 0){
-                    console.log('if dashboard');
                     $sidebar_img_container.fadeIn('fast');
                     $sidebar.attr('data-image','#');
                 }
@@ -206,9 +214,7 @@ export class AdminLayoutComponent implements OnInit {
 
                 var background_image = true;
             } else {
-                console.log('else');
                 if($sidebar_img_container.length != 0){
-                    console.log('else dashboard');
                     $sidebar.removeAttr('data-image');
                     $sidebar_img_container.fadeOut('fast');
                 }
@@ -251,44 +257,5 @@ export class AdminLayoutComponent implements OnInit {
             },1000);
 
         });
-
-        $('#twitter').sharrre({
-          share: {
-            twitter: true
-          },
-          enableHover: false,
-          enableTracking: false,
-          buttons: { twitter: {via: 'CreativeTim'}},
-          click: function(api, options){
-            api.simulateClick();
-            api.openPopup('twitter');
-          },
-          template: '<i class="fa fa-twitter"></i> &middot; 45',
-          url: 'http://md-pro-angular2.creative-tim.com/'
-        });
-
-        $('#facebook').sharrre({
-          share: {
-            facebook: true
-          },
-          enableHover: false,
-          enableTracking: false,
-          click: function(api, options){
-            api.simulateClick();
-            api.openPopup('facebook');
-          },
-          template: '<i class="fa fa-facebook-square"></i> &middot; 50',
-          url: 'http://md-pro-angular2.creative-tim.com/'
-        });
-
-    }
-    public isMap(){
-        // console.log(this.location.prepareExternalUrl(this.location.path()));
-        if(this.location.prepareExternalUrl(this.location.path()) == '/maps/fullscreen'){
-            return true;
-        }
-        else {
-            return false;
-        }
     }
 }
