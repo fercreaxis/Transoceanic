@@ -471,12 +471,16 @@ html * {
   position: relative;
   padding-top: 15vh;
 }
-
+.page-header{
+    min-height: 400px;
+}
 .page-header .title{
     font-weight: 700;
-    font-family: "Roboto Slab", "Times New Roman", serif;
     line-height: 1.15em;
-    color: #fff;
+    color: #FFFFFF;
+}
+.page-header .title small{
+    color: #FFFFFF;
 }
 
 .section {

@@ -14,10 +14,12 @@ declare var $:any;
 
 export class DataTableComponent implements OnInit{
     public dataTable: DataTable;
+
     ngOnInit(){
         this.dataTable = {
             headerRow: [ 'Name', 'Position', 'Office', 'Age', 'Date', 'Actions' ],
             footerRow: [ 'Name', 'Position', 'Office', 'Age', 'Start Date', 'Actions' ],
+
             dataRows: [
                 ['Airi Satou', 'Andrew Mike', 'Develop', '2013', '99,225',''],
                 ['Angelica Ramos', 'John Doe', 'Design', '2012', '89,241', 'btn-round'],
@@ -62,6 +64,9 @@ export class DataTableComponent implements OnInit{
             ]
          };
 
+    }
+
+    ngAfterViewInit(){
         $('#datatables').DataTable({
             "pagingType": "full_numbers",
             "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],

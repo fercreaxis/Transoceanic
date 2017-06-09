@@ -58,38 +58,41 @@
                         <div class="card-header card-header-icon" data-background-color="rose">
                             <i class="material-icons">assignment</i>
                         </div>
-                        <h4 class="card-title">Regular Table with Colors</h4>
-                        <div class="card-content table-responsive table-full-width">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                      <th *ngFor="let cell of tableData3.headerRow">{{ cell }}</th>
-                                    </tr>
-                                </thead>
-                              <tbody>
-                                      <tr class="success">
-                                          <td *ngFor="let cell of tableData3.dataRows[0]">{{cell}}</td>
-                                      </tr>
-                                      <tr>
-                                          <td *ngFor="let cell of tableData3.dataRows[1]">{{cell}}</td>
-                                      </tr>
-                                      <tr class="info">
-                                          <td *ngFor="let cell of tableData3.dataRows[2]">{{cell}}</td>
-                                      </tr>
-                                      <tr>
-                                          <td *ngFor="let cell of tableData3.dataRows[3]">{{cell}}</td>
-                                      </tr>
-                                      <tr class="danger">
-                                          <td *ngFor="let cell of tableData3.dataRows[4]">{{cell}}</td>
-                                      </tr>
-                                      <tr>
-                                          <td *ngFor="let cell of tableData3.dataRows[5]">{{cell}}</td>
-                                      </tr>
-                                      <tr class="warning">
-                                          <td *ngFor="let cell of tableData3.dataRows[6]">{{cell}}</td>
-                                      </tr>
-                              </tbody>
-                            </table>
+                        <div class="card-content table-full-width">
+                            <h4 class="card-title">Regular Table with Colors</h4>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                          <th *ngFor="let cell of tableData3.headerRow">{{ cell }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                          <tr class="success">
+                                              <td *ngFor="let cell of tableData3.dataRows[0]">{{cell}}</td>
+                                          </tr>
+                                          <tr>
+                                              <td *ngFor="let cell of tableData3.dataRows[1]">{{cell}}</td>
+                                          </tr>
+                                          <tr class="info">
+                                              <td *ngFor="let cell of tableData3.dataRows[2]">{{cell}}</td>
+                                          </tr>
+                                          <tr>
+                                              <td *ngFor="let cell of tableData3.dataRows[3]">{{cell}}</td>
+                                          </tr>
+                                          <tr class="danger">
+                                              <td *ngFor="let cell of tableData3.dataRows[4]">{{cell}}</td>
+                                          </tr>
+                                          <tr>
+                                              <td *ngFor="let cell of tableData3.dataRows[5]">{{cell}}</td>
+                                          </tr>
+                                          <tr class="warning">
+                                              <td *ngFor="let cell of tableData3.dataRows[6]">{{cell}}</td>
+                                          </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
                     </div>
                 </div>
