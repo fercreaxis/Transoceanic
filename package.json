@@ -11,7 +11,8 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "postinstall": "ng build --aot -prod"
   },
   "engines": {
     "node": "6.9.2",
@@ -54,14 +55,14 @@
     "twitter-bootstrap-wizard": "^1.2.0",
     "validate": "^3.0.1",
     "web-animations-js": "^2.2.2",
-    "zone.js": "^0.7.6"
-  },
-  "devDependencies": {
+    "zone.js": "^0.7.6",
     "@types/bootstrap": "^3.3.32",
     "@types/chartist": "^0.9.34",
     "@types/jasmine": "2.5.38",
     "@types/jquery": "^1.10.31",
-    "@types/node": "^6.0.73",
+    "@types/node": "^6.0.73"
+  },
+  "devDependencies": {
     "codelyzer": "~2.0.0",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
