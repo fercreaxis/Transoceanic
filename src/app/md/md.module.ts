@@ -38,4 +38,4 @@ export interface NavItem {
     MdTableComponent,
   ]
 })
-export class LbdModule { }
+export class MdModule { }
