@@ -1939,7 +1939,7 @@ svg {
 .bootstrap-datetimepicker-widget table.table-condensed tr > td {
   text-align: center;
 }
-.bootstrap-datetimepicker-widget table td > div, .bootstrap-datetimepicker-widget table th > div {
+.bootstrap-datetimepicker-widget table td, .bootstrap-datetimepicker-widget table th {
   text-align: center;
 }
 .bootstrap-datetimepicker-widget table th {
@@ -1987,41 +1987,43 @@ svg {
 .bootstrap-datetimepicker-widget table thead tr:first-child th:hover span, .bootstrap-datetimepicker-widget table thead tr:first-child th.picker-switch:hover {
   background: #eeeeee;
 }
-.bootstrap-datetimepicker-widget table td > div {
+.bootstrap-datetimepicker-widget table td {
   border-radius: 3px;
   height: 54px;
   line-height: 54px;
   width: 54px;
   text-align: center;
+  padding: 6px 0;
 }
-.bootstrap-datetimepicker-widget table td.cw > div {
+.bootstrap-datetimepicker-widget table td.cw {
   font-size: .8em;
   height: 20px;
   line-height: 20px;
   color: #999999;
 }
-.bootstrap-datetimepicker-widget table td.day > div {
+.bootstrap-datetimepicker-widget table td.day {
   height: 30px;
   line-height: 30px;
   width: 30px;
   text-align: center;
-  padding: 0px;
+  padding: 4px 0px;
+  border-radius: 50%;
+  position: relative;
+}
+.bootstrap-datetimepicker-widget table td.minute, .bootstrap-datetimepicker-widget table td.hour {
   border-radius: 50%;
 }
-.bootstrap-datetimepicker-widget table td.minute > div, .bootstrap-datetimepicker-widget table td.hour > div {
-  border-radius: 50%;
-}
-.bootstrap-datetimepicker-widget table td.day:hover > div, .bootstrap-datetimepicker-widget table td.hour:hover > div, .bootstrap-datetimepicker-widget table td.minute:hover > div, .bootstrap-datetimepicker-widget table td.second:hover > div {
+.bootstrap-datetimepicker-widget table td.day:hover, .bootstrap-datetimepicker-widget table td.hour:hover, .bootstrap-datetimepicker-widget table td.minute:hover, .bootstrap-datetimepicker-widget table td.second:hover {
   background: #eeeeee;
   cursor: pointer;
 }
-.bootstrap-datetimepicker-widget table td.old > div, .bootstrap-datetimepicker-widget table td.new > div {
+.bootstrap-datetimepicker-widget table td.old, .bootstrap-datetimepicker-widget table td.new {
   color: #999999;
 }
-.bootstrap-datetimepicker-widget table td.today > div {
+.bootstrap-datetimepicker-widget table td.today {
   position: relative;
 }
-.bootstrap-datetimepicker-widget table td.today > div:before {
+.bootstrap-datetimepicker-widget table td.today:before {
   content: '';
   display: inline-block;
   border: 0 0 7px 7px solid transparent;
@@ -2031,15 +2033,15 @@ svg {
   bottom: 4px;
   right: 4px;
 }
-.bootstrap-datetimepicker-widget table td.active > div, .bootstrap-datetimepicker-widget table td.active:hover > div {
+.bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover {
   background-color: #9c27b0;
   color: #FFFFFF;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
 }
-.bootstrap-datetimepicker-widget table td.active.today:before > div {
+.bootstrap-datetimepicker-widget table td.active.today:before {
   border-bottom-color: #FFFFFF;
 }
-.bootstrap-datetimepicker-widget table td.disabled > div, .bootstrap-datetimepicker-widget table td.disabled:hover > div {
+.bootstrap-datetimepicker-widget table td.disabled, .bootstrap-datetimepicker-widget table td.disabled:hover {
   background: none;
   color: #eeeeee;
   cursor: not-allowed;
@@ -2091,6 +2093,8 @@ svg {
 .table-condensed > thead > tr > th {
   padding: 1px;
   text-align: center;
+  z-index: 1;
+  cursor: pointer;
 }
 
 /*!
@@ -4860,7 +4864,8 @@ select.selectpicker {
   position: absolute;
   display: inline-block;
   right: 15px;
-  font-size: 16px;
+  font-size: 12px;
+  top: 12px;
 }
 
 .bootstrap-select.btn-group.show-tick .dropdown-menu li a span.text {
@@ -7158,7 +7163,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
   transition: all 370ms linear;
 }
 
-.animation-transition-fast, .bootstrap-datetimepicker-widget table td > div, .bootstrap-datetimepicker-widget table th > div, .bootstrap-datetimepicker-widget table th, .bootstrap-datetimepicker-widget table td span, .panel .panel-heading i, .navbar {
+.animation-transition-fast, .bootstrap-datetimepicker-widget table td, .bootstrap-datetimepicker-widget table th, .bootstrap-datetimepicker-widget table td span, .panel .panel-heading i, .navbar {
   -webkit-transition: all 150ms ease 0s;
   -moz-transition: all 150ms ease 0s;
   -o-transition: all 150ms ease 0s;
@@ -12266,5 +12271,3 @@ footer .btn {
     top: 80px;
   }
 }
-
-/*# sourceMappingURL=material-dashboard.css.map */
