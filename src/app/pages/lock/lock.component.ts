@@ -3,14 +3,13 @@ import { Component, OnInit } from '@angular/core';
 declare var $:any;
 
 @Component({
-    moduleId:module.id,
     selector: 'lock-cmp',
     templateUrl: './lock.component.html'
 })
 
 export class LockComponent implements OnInit{
     test : Date = new Date();
-    
+
     checkFullPageBackgroundImage(){
         var $page = $('.full-page');
         var image_src = $page.data('image');

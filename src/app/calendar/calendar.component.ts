@@ -3,7 +3,6 @@ declare var swal: any;
 declare var $: any;
 
 @Component({
-    moduleId: module.id,
     selector: 'calendar-cmp',
     templateUrl: 'calendar.component.html'
 })

@@ -17,7 +17,6 @@ export interface TableData2 {
 }
 
 @Component({
-    moduleId: module.id,
     selector: 'extended-table-cmp',
     templateUrl: 'extendedtable.component.html'
 })

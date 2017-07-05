@@ -9,7 +9,6 @@ interface marker {
 	draggable?: boolean;
 }
 @Component({
-    moduleId: module.id,
     selector: 'fullscreen-map-cmp',
     templateUrl: 'fullscreenmap.component.html',
     animations: [

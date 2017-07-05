@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TableData } from '../../md/md-table/md-table.component';
 
 @Component({
-    moduleId: module.id,
     selector: 'regular-table-cmp',
     templateUrl: 'regulartable.component.html'
 })

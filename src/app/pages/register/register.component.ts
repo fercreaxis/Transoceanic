@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 declare var $:any;
 
 @Component({
-    moduleId:module.id,
     selector: 'register-cmp',
     templateUrl: './register.component.html'
 })

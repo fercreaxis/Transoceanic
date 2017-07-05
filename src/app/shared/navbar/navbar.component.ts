@@ -9,7 +9,6 @@ var misc:any ={
 }
 declare var $: any;
 @Component({
-    moduleId: module.id,
     selector: 'navbar-cmp',
     templateUrl: 'navbar.component.html'
 })

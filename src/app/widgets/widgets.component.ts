@@ -7,7 +7,6 @@ declare interface Task {
   checked: boolean;
 }
 @Component({
-    moduleId: module.id,
     selector: 'widgets-cmp',
     templateUrl: 'widgets.component.html'
 })
