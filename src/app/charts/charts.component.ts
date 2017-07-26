@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import * as Chartist from 'chartist';
-import 'chartist-plugin-zoom';
+
 declare var $:any;
+
 @Component({
     selector: 'charts-cmp',
     templateUrl: './charts.component.html'
