@@ -1,5 +1,4 @@
-import { Component, OnInit, OnChanges, AfterViewInit } from '@angular/core';
-// import initWizard = require('../../../../assets/js/init/initWizard.js');
+import { Component, OnInit, OnChanges, AfterViewInit, SimpleChanges } from '@angular/core';
 
 declare var $:any;
 interface FileReaderEventTarget extends EventTarget {
@@ -206,7 +205,7 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit{
 
     }
 
-    ngOnChanges(){
+    ngOnChanges(changes: SimpleChanges){
         var input = $(this);
         var target:EventTarget;
         if (input.files && input.files[0]) {
