@@ -20,8 +20,7 @@ import { DataTableComponent } from './datatable.net/datatable.component';
   declarations: [
       ExtendedTableComponent,
       DataTableComponent,
-      RegularTableComponent,
-      
+      RegularTableComponent
   ]
 })
 

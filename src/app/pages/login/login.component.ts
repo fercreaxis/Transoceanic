@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 
-declare var $:any;
+declare var $: any;
 
 @Component({
-    selector: 'login-cmp',
+    selector: 'app-login-cmp',
     templateUrl: './login.component.html'
 })
 
-export class LoginComponent implements OnInit{
-    test : Date = new Date();
+export class LoginComponent implements OnInit {
+    test: Date = new Date();
 
-    checkFullPageBackgroundImage(){
-        var $page = $('.full-page');
-        var image_src = $page.data('image');
+    checkFullPageBackgroundImage() {
+        const $page = $('.full-page');
+        const image_src = $page.data('image');
 
-        if(image_src !== undefined){
-            var image_container = '<div class="full-page-background" style="background-image: url(' + image_src + ') "/>'
+        if (image_src !== undefined) {
+            const image_container = '<div class="full-page-background" style="background-image: url(' + image_src + ') "/>';
             $page.append(image_container);
         }
     };
-    ngOnInit(){
+    ngOnInit() {
         this.checkFullPageBackgroundImage();
 
-        setTimeout(function(){
+        setTimeout(function() {
             // after 1000 ms we add the class animated to the login/register card
             $('.card').removeClass('card-hidden');
-        }, 700)
+        }, 700);
     }
 }

@@ -11,13 +11,13 @@ export const TablesRoutes: Routes = [
         path: 'regular',
         component: RegularTableComponent
     }]
-    },{
+    }, {
     path: '',
     children: [ {
       path: 'extended',
       component: ExtendedTableComponent
     }]
-    },{
+    }, {
       path: '',
       children: [ {
         path: 'datatables.net',

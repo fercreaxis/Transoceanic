@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'user-cmp',
+    selector: 'app-user-cmp',
     templateUrl: 'user.component.html'
-    })
+})
 
-    export class UserComponent{ }
+export class UserComponent {}

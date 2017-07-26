@@ -1,37 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 
 
-declare var require: any
+declare const require: any;
 
-declare var $:any;
+declare const $: any;
 
 @Component({
-    selector: 'extendedforms-cmp',
+    selector: 'app-extendedforms-cmp',
     templateUrl: 'extendedforms.component.html'
 })
 
-export class ExtendedFormsComponent implements OnInit{
+export class ExtendedFormsComponent implements OnInit {
     ngOnInit() {
-
         // Init Tags Input
-        if($(".tagsinput").length != 0){
-            $(".tagsinput").tagsinput();
+        if ($('.tagsinput').length !== 0) {
+            $('.tagsinput').tagsinput();
         }
 
         //  Init Bootstrap Select Picker
-        if($(".selectpicker").length != 0){
-            $(".selectpicker").selectpicker({
-                iconBase: "fa",
-                tickIcon: "fa-check"
+        if ($('.selectpicker').length !== 0) {
+            $('.selectpicker').selectpicker({
+                iconBase: 'fa',
+                tickIcon: 'fa-check'
             });
         }
 
         $('.datetimepicker').datetimepicker({
             icons: {
-                time: "fa fa-clock-o",
-                date: "fa fa-calendar",
-                up: "fa fa-chevron-up",
-                down: "fa fa-chevron-down",
+                time: 'fa fa-clock-o',
+                date: 'fa fa-calendar',
+                up: 'fa fa-chevron-up',
+                down: 'fa fa-chevron-down',
                 previous: 'fa fa-chevron-left',
                 next: 'fa fa-chevron-right',
                 today: 'fa fa-screenshot',
@@ -43,10 +42,10 @@ export class ExtendedFormsComponent implements OnInit{
          $('.datepicker').datetimepicker({
             format: 'MM/DD/YYYY',
             icons: {
-                time: "fa fa-clock-o",
-                date: "fa fa-calendar",
-                up: "fa fa-chevron-up",
-                down: "fa fa-chevron-down",
+                time: 'fa fa-clock-o',
+                date: 'fa fa-calendar',
+                up: 'fa fa-chevron-up',
+                down: 'fa fa-chevron-down',
                 previous: 'fa fa-chevron-left',
                 next: 'fa fa-chevron-right',
                 today: 'fa fa-screenshot',
@@ -56,13 +55,13 @@ export class ExtendedFormsComponent implements OnInit{
          });
 
          $('.timepicker').datetimepicker({
-//          format: 'H:mm',    // use this format if you want the 24hours timepicker
-            format: 'h:mm A',    //use this format if you want the 12hours timpiecker with AM/PM toggle
+// format: 'H:mm',    // use this format if you want the 24hours timepicker
+            format: 'h:mm A',    // use this format if you want the 12hours timpiecker with AM/PM toggle
             icons: {
-                time: "fa fa-clock-o",
-                date: "fa fa-calendar",
-                up: "fa fa-chevron-up",
-                down: "fa fa-chevron-down",
+                time: 'fa fa-clock-o',
+                date: 'fa fa-calendar',
+                up: 'fa fa-chevron-up',
+                down: 'fa fa-chevron-down',
                 previous: 'fa fa-chevron-left',
                 next: 'fa fa-chevron-right',
                 today: 'fa fa-screenshot',
@@ -71,9 +70,9 @@ export class ExtendedFormsComponent implements OnInit{
             }
          });
 
-        var noUiSlider = require('nouislider');
+        const noUiSlider = require('nouislider');
 
-        var sliderDouble = document.getElementById('sliderDouble');
+        const sliderDouble = document.getElementById('sliderDouble');
         noUiSlider.create(sliderDouble, {
              start: [20, 60] ,
              connect: true,
@@ -83,10 +82,10 @@ export class ExtendedFormsComponent implements OnInit{
              }
          });
 
-        var sliderRegular = document.getElementById('sliderRegular');
+        const sliderRegular = document.getElementById('sliderRegular');
         noUiSlider.create(sliderRegular, {
             start: 40,
-             connect: "lower",
+             connect: 'lower',
              range: {
                  min: 0,
                  max: 100

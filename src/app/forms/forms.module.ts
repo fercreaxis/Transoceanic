@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EqualValidator } from './equal-validator.directive';
 
 import { FormsRoutes } from './forms.routing';
 
@@ -23,8 +22,7 @@ import { WizardComponent } from './wizard/wizard.component';
       ExtendedFormsComponent,
       RegularFormsComponent,
       ValidationFormsComponent,
-      WizardComponent,
-      EqualValidator
+      WizardComponent
   ]
 })
 
