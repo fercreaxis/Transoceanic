@@ -64,38 +64,8 @@ export class ChartsComponent implements OnInit{
 
         seq2 = 0;
     }
-    storeReset(reset) {
-        console.log(reset);
-    }
     ngOnInit(){
-        // initChartsPage();
         /* ----------==========    Rounded Line Chart initialization    ==========---------- */
-        var data = {
-          series: [[
-            { x: 1, y: 100 },
-            { x: 2, y: 50 },
-            { x: 3, y: 25 },
-            { x: 4, y: 66 },
-            { x: 5, y: 30 },
-            { x: 6, y: 22 }
-          ]]
-        };
-
-        var options = {
-          axisX: {
-            type: Chartist.AutoScaleAxis
-          },
-          axisY: {
-            type: Chartist.AutoScaleAxis
-          },
-        //   plugins: [
-        //     Chartist.plugins.zoom({
-        //     onZoom : function(chart, reset) { this.storeReset(reset); },
-        //     })
-        // ]
-        };
-
-        var chart = new Chartist.Line('.ct-chart', data, options);
 
         var dataRoundedLineChart = {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
