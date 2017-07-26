@@ -3,7 +3,6 @@ import * as Chartist from 'chartist';
 import 'chartist-plugin-zoom';
 declare var $:any;
 @Component({
-    moduleId: module.id,
     selector: 'charts-cmp',
     templateUrl: './charts.component.html'
 })

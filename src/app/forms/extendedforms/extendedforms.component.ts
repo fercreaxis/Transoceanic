@@ -6,7 +6,6 @@ declare var require: any
 declare var $:any;
 
 @Component({
-    moduleId: module.id,
     selector: 'extendedforms-cmp',
     templateUrl: 'extendedforms.component.html'
 })

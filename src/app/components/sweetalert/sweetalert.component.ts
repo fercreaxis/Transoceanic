@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 declare var $:any;
 declare var swal:any;
 @Component({
-    moduleId: module.id,
     selector: 'sweetalert-cmp',
     templateUrl: 'sweetalert.component.html'
 })

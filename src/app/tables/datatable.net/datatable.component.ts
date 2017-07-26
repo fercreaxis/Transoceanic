@@ -7,7 +7,6 @@ declare interface DataTable {
 }
 declare var $:any;
 @Component({
-    moduleId: module.id,
     selector: 'data-table-cmp',
     templateUrl: 'datatable.component.html'
 })

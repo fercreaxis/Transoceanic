@@ -9,7 +9,6 @@ interface FileReaderEvent extends Event {
     getMessage():string;
 }
 @Component({
-    moduleId: module.id,
     selector: 'wizard-cmp',
     templateUrl: 'wizard.component.html'
 })
