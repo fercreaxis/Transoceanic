@@ -1,7 +1,10 @@
 import { Component, OnInit, OnDestroy, ViewChild, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { NavItem, NavItemType } from '../../md/md.module';
+import { Subscription } from 'rxjs/Subscription';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
+import 'rxjs/add/operator/filter';
+import { NavbarComponent } from '../../shared/navbar/navbar.component';
 
 declare var $: any;
 var mda: any = {
@@ -26,12 +29,20 @@ var md:any ={
 
 export class AdminLayoutComponent implements OnInit {
     public navItems: NavItem[];
+    private _router: Subscription;
+    url: string;
     location: Location;
-    constructor(location:Location) {
-        this.location = location;
+    @ViewChild('sidebar') sidebar;
+    @ViewChild(NavbarComponent) navbar: NavbarComponent;
+    constructor( private router: Router, location:Location ) {
+      this.location = location;
     }
     ngOnInit() {
-
+        this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe(event => {
+          this.url = event.url;
+          this.navbar.sidebarClose();
+        console.log(this.navbar);
+        });
         var isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
         if (isWindows){
            // if we are on windows OS we activate the perfectScrollbar function

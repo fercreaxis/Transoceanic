@@ -69,20 +69,31 @@ export class NavbarComponent implements OnInit{
         }
         return true;
     }
-    sidebarToggle(){
+    sidebarOpen(){
         var toggleButton = this.toggleButton;
         var body = document.getElementsByTagName('body')[0];
+        setTimeout(function(){
+            toggleButton.classList.add('toggled');
+        },500);
+        body.classList.add('nav-open');
+        this.sidebarVisible = true;
+    }
+    sidebarClose(){
+        var body = document.getElementsByTagName('body')[0];
+        this.toggleButton.classList.remove('toggled');
+        this.sidebarVisible = false;
+        body.classList.remove('nav-open');
+    }
+    sidebarToggle(){
+        // var toggleButton = this.toggleButton;
+        // var body = document.getElementsByTagName('body')[0];
+
+        console.log('fac toggle sidebar');
 
         if(this.sidebarVisible == false){
-            setTimeout(function(){
-                toggleButton.classList.add('toggled');
-            },500);
-            body.classList.add('nav-open');
-            this.sidebarVisible = true;
+            this.sidebarOpen();
         } else {
-            this.toggleButton.classList.remove('toggled');
-            this.sidebarVisible = false;
-            body.classList.remove('nav-open');
+            this.sidebarClose();
         }
     }
 
