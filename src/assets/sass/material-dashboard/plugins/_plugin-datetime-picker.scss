@@ -30,7 +30,6 @@
 .bootstrap-datetimepicker-widget {
     list-style: none;
 
-
     a{
         .btn{
             &:hover{
@@ -419,6 +418,17 @@
             line-height: 27px;
         }
     }
+    .datepicker-decades{
+        table{
+            td{
+                span.active{
+                        background-color: transparent;
+                        color: rgba(0,0,0, 0.87);
+                }
+            }
+        }
+    }
+
 }
 
 .input-group.date {

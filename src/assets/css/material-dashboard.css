@@ -2080,6 +2080,10 @@ svg {
   height: 27px;
   line-height: 27px;
 }
+.bootstrap-datetimepicker-widget .datepicker-decades table td span.active {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.87);
+}
 
 .input-group.date .input-group-addon {
   cursor: pointer;
