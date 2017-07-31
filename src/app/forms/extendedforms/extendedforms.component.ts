@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
 
 declare const require: any;
@@ -16,7 +16,11 @@ export class ExtendedFormsComponent implements OnInit {
         if ($('.tagsinput').length !== 0) {
             $('.tagsinput').tagsinput();
         }
-
+        $(".datetimepicker").on("dp.change", function(e: any) {
+            if ($(this).val() !== undefined || $(this).val() !== null || $(this).val() !== '') {
+                $(this).parent().removeClass('is-empty');
+            }
+       });
         //  Init Bootstrap Select Picker
         if ($('.selectpicker').length !== 0) {
             $('.selectpicker').selectpicker({
@@ -69,6 +73,8 @@ export class ExtendedFormsComponent implements OnInit {
                 close: 'fa fa-remove'
             }
          });
+
+
 
         const noUiSlider = require('nouislider');
 

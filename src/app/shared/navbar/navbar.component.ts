@@ -18,10 +18,10 @@ export class NavbarComponent implements OnInit {
     private listTitles: any[];
     location: Location;
     private nativeElement: Node;
-    private toggleButton;
+    private toggleButton: any;
     private sidebarVisible: boolean;
 
-    @ViewChild('navbar-cmp') button;
+    @ViewChild('navbar-cmp') button: any;
 
     constructor(location: Location, private renderer: Renderer, private element: ElementRef) {
         this.location = location;
