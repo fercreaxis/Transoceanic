@@ -11,6 +11,9 @@ declare const $: any;
 })
 
 export class ExtendedFormsComponent implements OnInit {
+    simpleSlider = 40;
+    doubleSlider = [20, 60];
+
     ngOnInit() {
         // Init Tags Input
         if ($('.tagsinput').length !== 0) {
@@ -73,29 +76,5 @@ export class ExtendedFormsComponent implements OnInit {
                 close: 'fa fa-remove'
             }
          });
-
-
-
-        const noUiSlider = require('nouislider');
-
-        const sliderDouble = document.getElementById('sliderDouble');
-        noUiSlider.create(sliderDouble, {
-             start: [20, 60] ,
-             connect: true,
-             range: {
-                 min: 0,
-                 max: 100
-             }
-         });
-
-        const sliderRegular = document.getElementById('sliderRegular');
-        noUiSlider.create(sliderRegular, {
-            start: 40,
-             connect: 'lower',
-             range: {
-                 min: 0,
-                 max: 100
-             }
-        });
     }
 }

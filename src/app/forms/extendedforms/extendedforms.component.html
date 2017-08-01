@@ -197,8 +197,9 @@
                             </div>
                             <div class="col-md-6">
                                 <legend>Sliders</legend>
-                                <div id="sliderRegular" class="slider"></div>
-                                <div id="sliderDouble" class="slider slider-info"></div>
+                                <nouislider [connect]="false" [min]="0" [max]="100" [step]="1" [(ngModel)]="simpleSlider" [tooltips]="true" class="slider"></nouislider>
+                                <br>
+                                <nouislider class="slider slider-info" [connect]="true" [min]="0" [max]="100" [step]="1" [(ngModel)]="doubleSlider" [tooltips]="true"></nouislider>
                             </div>
                         </div>
                         <div class="row">

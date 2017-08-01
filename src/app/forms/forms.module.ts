@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NouisliderModule } from 'ng2-nouislider';
 
 import { FormsRoutes } from './forms.routing';
 
@@ -16,7 +17,8 @@ import { WizardComponent } from './wizard/wizard.component';
     CommonModule,
     RouterModule.forChild(FormsRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NouisliderModule
   ],
   declarations: [
       ExtendedFormsComponent,
