@@ -76,6 +76,7 @@ export class NavbarComponent implements OnInit {
             toggleButton.classList.add('toggled');
         }, 500);
         body.classList.add('nav-open');
+
         this.sidebarVisible = true;
     };
     sidebarClose() {
