@@ -688,3 +688,18 @@
         }
     }
 }
+
+.hide-sidebar{
+    .sidebar{
+        @extend .animation-transition-general;
+
+        @include transform-translate-x(-260px);
+    }
+
+    .main-panel{
+        width: 100%;
+    }
+}
+.animation{
+    @extend .animation-transition-general;
+}

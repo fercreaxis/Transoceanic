@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    @ViewChild('navbar-cmp') button: any;
+    @ViewChild('app-navbar-cmp') button: any;
 
     constructor(location: Location, private renderer: Renderer, private element: ElementRef) {
         this.location = location;
@@ -37,6 +37,9 @@ export class NavbarComponent implements OnInit {
         if ($('body').hasClass('sidebar-mini')) {
             misc.sidebar_mini_active = true;
         }
+        if ($('body').hasClass('hide-sidebar')) {
+            misc.hide_sidebar_active = true;
+        }
         $('#minimizeSidebar').click(function() {
             const $btn = $(this);
 
@@ -49,6 +52,37 @@ export class NavbarComponent implements OnInit {
                     $('body').addClass('sidebar-mini');
 
                     misc.sidebar_mini_active = true;
+                }, 300);
+            }
+
+            // we simulate the window Resize so the charts will get updated in realtime.
+            const simulateWindowResize = setInterval(function() {
+                window.dispatchEvent(new Event('resize'));
+            }, 180);
+
+            // we stop the simulation of Window Resize after the animations are completed
+            setTimeout(function() {
+                clearInterval(simulateWindowResize);
+            }, 1000);
+        });
+        $('#hideSidebar').click(function() {
+            const $btn = $(this);
+
+            if (misc.hide_sidebar_active === true) {
+                setTimeout(function() {
+                    $('body').removeClass('hide-sidebar');
+                    misc.hide_sidebar_active = false;
+                }, 300);
+                setTimeout(function () {
+                    $('.sidebar').removeClass('animation');
+                }, 600);
+                $('.sidebar').addClass('animation');
+
+            } else {
+                setTimeout(function() {
+                    $('body').addClass('hide-sidebar');
+                    // $('.sidebar').addClass('animation');
+                    misc.hide_sidebar_active = true;
                 }, 300);
             }
 

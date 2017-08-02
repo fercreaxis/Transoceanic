@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { TableData } from '../md/md-table/md-table.component';
+import { LegendItem, ChartType } from '../md/md-chart/md-chart.component';
 
 import * as Chartist from 'chartist';
 
@@ -12,12 +13,12 @@ declare const $: any;
 export class DashboardComponent implements OnInit, AfterViewInit {
   // constructor(private navbarTitleService: NavbarTitleService, private notificationService: NotificationService) { }
   public tableData: TableData;
-  startAnimationForLineChart(chart) {
-      let seq, delays, durations;
+  startAnimationForLineChart(chart: any) {
+      let seq: any, delays: any, durations: any;
       seq = 0;
       delays = 80;
       durations = 500;
-      chart.on('draw', function(data) {
+      chart.on('draw', function(data: any) {
 
         if (data.type === 'line' || data.type === 'area') {
           data.element.animate({
@@ -45,12 +46,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
       seq = 0;
   }
-  startAnimationForBarChart(chart) {
-      let seq2, delays2, durations2;
+  startAnimationForBarChart(chart: any) {
+      let seq2: any, delays2: any, durations2: any;
       seq2 = 0;
       delays2 = 80;
       durations2 = 500;
-      chart.on('draw', function(data) {
+      chart.on('draw', function(data: any) {
         if (data.type === 'bar') {
             seq2++;
             data.element.animate({
