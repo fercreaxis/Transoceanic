@@ -699,6 +699,15 @@
     .main-panel{
         width: 100%;
     }
+
+    &.sidebar-mini{
+        
+        .sidebar{
+            @extend .animation-transition-general;
+
+            @include transform-translate-x(-80px);
+        }
+    }
 }
 .animation{
     @extend .animation-transition-general;

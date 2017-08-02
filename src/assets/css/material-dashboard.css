@@ -5978,6 +5978,13 @@ h2.title {
 .hide-sidebar .main-panel {
   width: 100%;
 }
+.hide-sidebar.sidebar-mini .sidebar {
+  -webkit-transform: translate3d(-80px, 0, 0);
+  -moz-transform: translate3d(-80px, 0, 0);
+  -o-transform: translate3d(-80px, 0, 0);
+  -ms-transform: translate3d(-80px, 0, 0);
+  transform: translate3d(-80px, 0, 0);
+}
 
 .btn,
 .navbar .navbar-nav > li > a.btn {
@@ -7116,7 +7123,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 }
 
 /*           Animations              */
-.animation-transition-general, .sidebar .logo .simple-text, .sidebar .logo .logo-normal, .sidebar .user .photo, .sidebar .user a, .hide-sidebar .sidebar, .animation, .login-page .card-login, .lock-page .card-profile {
+.animation-transition-general, .sidebar .logo .simple-text, .sidebar .logo .logo-normal, .sidebar .user .photo, .sidebar .user a, .hide-sidebar .sidebar, .hide-sidebar.sidebar-mini .sidebar, .animation, .login-page .card-login, .lock-page .card-profile {
   -webkit-transition: all 300ms linear;
   -moz-transition: all 300ms linear;
   -o-transition: all 300ms linear;
@@ -9037,6 +9044,95 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
  * bootstrap-tagsinput v0.8.0
  *
  */
+.ng2-tag-input.filled-theme {
+  display: block;
+  position: relative;
+  cursor: text;
+  border-bottom: 1px solid #cecece;
+}
+.ng2-tag-input.filled-theme:focus {
+  outline: 0;
+}
+.ng2-tag-input.filled-theme.ng2-tag-input--dropping {
+  opacity: 0.7;
+}
+.ng2-tag-input.filled-theme.ng2-tag-input--loading {
+  border: none;
+}
+.ng2-tag-input.filled-theme.ng2-tag-input--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ng2-tag-input.filled-theme tag {
+  font-weight: 500;
+  font-size: 0.75em;
+  color: #FFFFFF;
+  border-radius: 12px;
+  margin: 8px 3px 5px 0px;
+  padding: 5px 8px;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  height: 24px;
+  white-space: nowrap;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  background-color: #00bcd4;
+}
+.ng2-tag-input.filled-theme tag.readonly {
+  cursor: default;
+}
+.ng2-tag-input.filled-theme tag.readonly:focus, .ng2-tag-input.filled-theme tag:focus {
+  outline: 0;
+}
+.ng2-tag-input.filled-theme tag.tag--editing {
+  cursor: text;
+}
+.ng2-tag-input.filled-theme tag[_ngcontent-c1]:not(:focus):not(.tag--editing):not(:active):not(.readonly):hover {
+  background: #00bcd4;
+  color: #ffffff;
+}
+.ng2-tag-input.filled-theme tag[_nghost-c3]:hover, .ng2-tag-input.filled-theme tag:hover [_nghost-c3] {
+  -webkit-transition: all 150ms ease-in;
+  -moz-transition: all 150ms ease-in;
+  -o-transition: all 150ms ease-in;
+  -ms-transition: all 150ms ease-in;
+  transition: all 150ms ease-in;
+}
+.ng2-tag-input.filled-theme tag[_nghost-c3]:hover svg, .ng2-tag-input.filled-theme tag:hover [_nghost-c3] svg, .ng2-tag-input.filled-theme tag[_nghost-c3]:hover delete-icon, .ng2-tag-input.filled-theme tag:hover [_nghost-c3] delete-icon {
+  display: block;
+  right: 10px;
+}
+.ng2-tag-input.filled-theme tag[_ngcontent-c1]:not(.readonly):not(.tag--editing):active, .ng2-tag-input.filled-theme tag[_ngcontent-c1]:not(.readonly):not(.tag--editing):focus {
+  background: #00bcd4;
+  color: #fff;
+}
+
+.ng2-tag-input.filled-theme tag delete-icon {
+  display: none;
+  text-align: right;
+  transform: none;
+}
+.ng2-tag-input.filled-theme tag delete-icon path {
+  fill: #ffffff;
+}
+.ng2-tag-input.filled-theme tag delete-icon svg {
+  vertical-align: middle;
+  height: 13px;
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 5px;
+}
+
+tag-input {
+  display: inline-block;
+  padding: 4px 6px;
+  max-width: 100%;
+  line-height: 22px;
+}
+
 .bootstrap-tagsinput {
   display: inline-block;
   padding: 4px 6px;
@@ -9118,6 +9214,10 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .bootstrap-tagsinput .tag [data-role="remove"]:after {
   content: "x";
   padding: 0px 2px;
+}
+
+[_nghost-c6] {
+  display: none;
 }
 
 .timeline {

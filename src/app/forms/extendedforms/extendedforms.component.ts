@@ -13,12 +13,8 @@ declare const $: any;
 export class ExtendedFormsComponent implements OnInit {
     simpleSlider = 40;
     doubleSlider = [20, 60];
-
+    regularItems = ['Pizza', 'Pasta', 'Parmesan'];
     ngOnInit() {
-        // Init Tags Input
-        if ($('.tagsinput').length !== 0) {
-            $('.tagsinput').tagsinput();
-        }
         $(".datetimepicker").on("dp.change", function(e: any) {
             if ($(this).val() !== undefined || $(this).val() !== null || $(this).val() !== '') {
                 $(this).parent().removeClass('is-empty');

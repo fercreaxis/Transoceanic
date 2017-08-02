@@ -41,8 +41,6 @@ export class NavbarComponent implements OnInit {
             misc.hide_sidebar_active = true;
         }
         $('#minimizeSidebar').click(function() {
-            const $btn = $(this);
-
             if (misc.sidebar_mini_active === true) {
                 $('body').removeClass('sidebar-mini');
                 misc.sidebar_mini_active = false;
@@ -66,8 +64,6 @@ export class NavbarComponent implements OnInit {
             }, 1000);
         });
         $('#hideSidebar').click(function() {
-            const $btn = $(this);
-
             if (misc.hide_sidebar_active === true) {
                 setTimeout(function() {
                     $('body').removeClass('hide-sidebar');

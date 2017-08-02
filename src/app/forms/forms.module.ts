@@ -3,6 +3,8 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NouisliderModule } from 'ng2-nouislider';
+import { TagInputModule } from 'ngx-chips';
+import { SelectModule } from 'ng2-select';
 
 import { FormsRoutes } from './forms.routing';
 
@@ -18,7 +20,8 @@ import { WizardComponent } from './wizard/wizard.component';
     RouterModule.forChild(FormsRoutes),
     FormsModule,
     ReactiveFormsModule,
-    NouisliderModule
+    NouisliderModule,
+    TagInputModule
   ],
   declarations: [
       ExtendedFormsComponent,
