@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NouisliderModule } from 'ng2-nouislider';
 import { TagInputModule } from 'ngx-chips';
 import { SelectModule } from 'ng2-select';
+import { MdDatepickerModule, MdInputModule, MdNativeDateModule } from '@angular/material';
+import { DatepickerModule } from 'angular2-material-datepicker'
 
 import { FormsRoutes } from './forms.routing';
 
@@ -21,7 +23,11 @@ import { WizardComponent } from './wizard/wizard.component';
     FormsModule,
     ReactiveFormsModule,
     NouisliderModule,
-    TagInputModule
+    TagInputModule,
+    MdDatepickerModule,
+    MdInputModule,
+    MdNativeDateModule,
+    DatepickerModule
   ],
   declarations: [
       ExtendedFormsComponent,

@@ -7,12 +7,25 @@
                         <i class="material-icons">today</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Datetime Picker</h4>
-                        <div class="form-group label-floating">
-                            <label class="control-label">Datetime Picker</label>
-                            <input type="text" class="form-control datetimepicker"  />
-                        </div>
+                        <h4 class="card-title">Datepicker I</h4>
+                            <div class="checkbox" >
+                                <label>
+                                    <input type="checkbox" name="optionsCheckboxes" [(ngModel)]="touch"> Use touch UI
+                                </label>
+                            </div>
+                            <button [mdDatepickerToggle]="resultPicker"></button>
+                            <md-input-container>
+                              <input mdInput
+                                     [mdDatepicker]="resultPicker"
+                                     placeholder="Pick a date">
+                            </md-input-container>
+                            <md-datepicker
+                                #resultPicker
+                                [touchUi]="touch"
+                                [startView]="'month'">
+                            </md-datepicker>
                     </div>
+
                 </div>
             </div>
             <div class="col-md-4">
@@ -21,11 +34,17 @@
                         <i class="material-icons">library_books</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Datetime Picker</h4>
-                        <div class="form-group label-floating">
-                            <label class="control-label">Date Picker</label>
-                            <input type="text" class="form-control datepicker" value="10/10/2016" />
-                        </div>
+                        <h4 class="card-title">Datepicker I</h4>
+                            <button [mdDatepickerToggle]="resultPicker1"></button>
+                            <md-input-container>
+                              <input mdInput
+                                     [mdDatepicker]="resultPicker1"
+                                     placeholder="Pick a date">
+                            </md-input-container>
+                            <md-datepicker
+                                #resultPicker1
+                                [startView]="'year'">
+                            </md-datepicker>
                     </div>
                 </div>
             </div>
@@ -35,10 +54,10 @@
                         <i class="material-icons">av_timer</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Datetime Picker</h4>
+                        <h4 class="card-title">Datepicker II</h4>
                         <div class="form-group">
-                            <label class="control-label">Time Picker</label>
-                            <input type="text" class="form-control timepicker" value="14:00" />
+                            <material-datepicker accentColor="#9c27b0" [(date)]="yourModelDate" class="form-control label-floating"></material-datepicker>
+
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { DateAdapter } from '@angular/material';
 
 
 declare const require: any;
@@ -7,19 +8,19 @@ declare const $: any;
 
 @Component({
     selector: 'app-extendedforms-cmp',
-    templateUrl: 'extendedforms.component.html'
+    templateUrl: 'extendedforms.component.html',
+    styles: [`md-calendar {
+      width: 300px;
+  }`]
 })
 
 export class ExtendedFormsComponent implements OnInit {
     simpleSlider = 40;
     doubleSlider = [20, 60];
     regularItems = ['Pizza', 'Pasta', 'Parmesan'];
+    touch: boolean;
+    
     ngOnInit() {
-        $(".datetimepicker").on("dp.change", function(e: any) {
-            if ($(this).val() !== undefined || $(this).val() !== null || $(this).val() !== '') {
-                $(this).parent().removeClass('is-empty');
-            }
-       });
         //  Init Bootstrap Select Picker
         if ($('.selectpicker').length !== 0) {
             $('.selectpicker').selectpicker({
@@ -28,19 +29,19 @@ export class ExtendedFormsComponent implements OnInit {
             });
         }
 
-        $('.datetimepicker').datetimepicker({
-            icons: {
-                time: 'fa fa-clock-o',
-                date: 'fa fa-calendar',
-                up: 'fa fa-chevron-up',
-                down: 'fa fa-chevron-down',
-                previous: 'fa fa-chevron-left',
-                next: 'fa fa-chevron-right',
-                today: 'fa fa-screenshot',
-                clear: 'fa fa-trash',
-                close: 'fa fa-remove'
-            }
-         });
+        // $('.datetimepicker').datetimepicker({
+        //     icons: {
+        //         time: 'fa fa-clock-o',
+        //         date: 'fa fa-calendar',
+        //         up: 'fa fa-chevron-up',
+        //         down: 'fa fa-chevron-down',
+        //         previous: 'fa fa-chevron-left',
+        //         next: 'fa fa-chevron-right',
+        //         today: 'fa fa-screenshot',
+        //         clear: 'fa fa-trash',
+        //         close: 'fa fa-remove'
+        //     }
+        //  });
 
          $('.datepicker').datetimepicker({
             format: 'MM/DD/YYYY',
@@ -54,7 +55,8 @@ export class ExtendedFormsComponent implements OnInit {
                 today: 'fa fa-screenshot',
                 clear: 'fa fa-trash',
                 close: 'fa fa-remove'
-            }
+            },
+            debug: true
          });
 
          $('.timepicker').datetimepicker({
@@ -73,4 +75,7 @@ export class ExtendedFormsComponent implements OnInit {
             }
          });
     }
+    myFunc(val) {
+    console.log('value is changed to ' + val);
+  }
 }
