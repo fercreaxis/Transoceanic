@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EqualValidator } from './equal-validator.directive';
+import { NouisliderModule } from 'ng2-nouislider';
+import { TagInputModule } from 'ngx-chips';
+import { SelectModule } from 'ng2-select';
+import { MdDatepickerModule, MdInputModule, MdNativeDateModule } from '@angular/material';
+import { DatepickerModule } from 'angular2-material-datepicker'
 
 import { FormsRoutes } from './forms.routing';
 
@@ -17,14 +21,19 @@ import { WizardComponent } from './wizard/wizard.component';
     CommonModule,
     RouterModule.forChild(FormsRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NouisliderModule,
+    TagInputModule,
+    MdDatepickerModule,
+    MdInputModule,
+    MdNativeDateModule,
+    DatepickerModule
   ],
   declarations: [
       ExtendedFormsComponent,
       RegularFormsComponent,
       ValidationFormsComponent,
-      WizardComponent,
-      EqualValidator
+      WizardComponent
   ]
 })
 

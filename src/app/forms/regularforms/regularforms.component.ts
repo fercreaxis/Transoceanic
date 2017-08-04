@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
-declare var $:any;
+declare var $: any;
 
 @Component({
-    moduleId: module.id,
-    selector: 'regularforms-cmp',
+    selector: 'app-regularforms-cmp',
     templateUrl: 'regularforms.component.html'
 })
 
-export class RegularFormsComponent implements OnInit{
-
-    ngOnInit(){
-    }
-}
+export class RegularFormsComponent {}

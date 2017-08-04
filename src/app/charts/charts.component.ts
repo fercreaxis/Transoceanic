@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+
 import * as Chartist from 'chartist';
-import 'chartist-plugin-zoom';
-declare var $:any;
+
+declare const $: any;
+
 @Component({
-    moduleId: module.id,
-    selector: 'charts-cmp',
+    selector: 'app-charts-cmp',
     templateUrl: './charts.component.html'
 })
 
-export class ChartsComponent implements OnInit{
-    startAnimationForLineChart(chart){
-        var seq, delays, durations;
+export class ChartsComponent implements OnInit {
+    startAnimationForLineChart(chart) {
+        let seq, delays, durations;
         seq = 0;
         delays = 80;
         durations = 500;
         chart.on('draw', function(data) {
 
-          if(data.type === 'line' || data.type === 'area') {
+          if (data.type === 'line' || data.type === 'area') {
             data.element.animate({
               d: {
                 begin: 600,
@@ -26,7 +27,7 @@ export class ChartsComponent implements OnInit{
                 easing: Chartist.Svg.Easing.easeOutQuint
               }
             });
-          } else if(data.type === 'point') {
+          } else if (data.type === 'point') {
                 seq++;
                 data.element.animate({
                   opacity: {
@@ -42,13 +43,13 @@ export class ChartsComponent implements OnInit{
 
         seq = 0;
     }
-    startAnimationForBarChart(chart){
-        var seq2, delays2, durations2;
+    startAnimationForBarChart(chart) {
+        let seq2, delays2, durations2;
         seq2 = 0;
         delays2 = 80;
         durations2 = 500;
         chart.on('draw', function(data) {
-          if(data.type === 'bar'){
+          if (data.type === 'bar') {
               seq2++;
               data.element.animate({
                 opacity: {
@@ -64,47 +65,17 @@ export class ChartsComponent implements OnInit{
 
         seq2 = 0;
     }
-    storeReset(reset) {
-        console.log(reset);
-    }
-    ngOnInit(){
-        // initChartsPage();
+    ngOnInit() {
         /* ----------==========    Rounded Line Chart initialization    ==========---------- */
-        var data = {
-          series: [[
-            { x: 1, y: 100 },
-            { x: 2, y: 50 },
-            { x: 3, y: 25 },
-            { x: 4, y: 66 },
-            { x: 5, y: 30 },
-            { x: 6, y: 22 }
-          ]]
-        };
 
-        var options = {
-          axisX: {
-            type: Chartist.AutoScaleAxis
-          },
-          axisY: {
-            type: Chartist.AutoScaleAxis
-          },
-        //   plugins: [
-        //     Chartist.plugins.zoom({
-        //     onZoom : function(chart, reset) { this.storeReset(reset); },
-        //     })
-        // ]
-        };
-
-        var chart = new Chartist.Line('.ct-chart', data, options);
-
-        var dataRoundedLineChart = {
+        const dataRoundedLineChart = {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
             series: [
                 [12, 17, 7, 17, 23, 18, 38]
             ]
         };
 
-        var optionsRoundedLineChart: any = {
+        const optionsRoundedLineChart: any = {
             lineSmooth: Chartist.Interpolation.cardinal({
                 tension: 10
             }),
@@ -115,38 +86,39 @@ export class ChartsComponent implements OnInit{
             high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
             chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
             showPoint: false,
-            showLine: true,
+            showLine: true
+        };
 
-        }
-
-        var RoundedLineChart = new Chartist.Line('#roundedLineChart', dataRoundedLineChart, optionsRoundedLineChart);
+        const RoundedLineChart = new Chartist.Line('#roundedLineChart', dataRoundedLineChart, optionsRoundedLineChart);
 
         this.startAnimationForLineChart(RoundedLineChart);
 
 
         /*  **************** Straight Lines Chart - single line with points ******************** */
 
-        var dataStraightLinesChart = {
-          labels: ['\'07','\'08','\'09', '\'10', '\'11', '\'12', '\'13', '\'14', '\'15'],
+        const dataStraightLinesChart = {
+          labels: ['\'07', '\'08', '\'09', '\'10', '\'11', '\'12', '\'13', '\'14', '\'15'],
           series: [
             [10, 16, 8, 13, 20, 15, 20, 34, 30]
           ]
         };
 
-        var optionsStraightLinesChart:any = {
+        const optionsStraightLinesChart: any = {
             lineSmooth: Chartist.Interpolation.cardinal({
                 tension: 0
             }),
             low: 0,
-            high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+            high: 50, // creative tim: we recommend you to set the high sa the biggest value +
+            // something for a better look
             chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
             classNames: {
                 point: 'ct-point ct-white',
                 line: 'ct-line ct-white'
             }
-        }
+        };
 
-        var straightLinesChart = new Chartist.Line('#straightLinesChart', dataStraightLinesChart, optionsStraightLinesChart);
+        const straightLinesChart = new Chartist.Line('#straightLinesChart', dataStraightLinesChart,
+         optionsStraightLinesChart);
 
         this.startAnimationForLineChart(straightLinesChart);
 
@@ -154,14 +126,14 @@ export class ChartsComponent implements OnInit{
         /*  **************** Coloured Rounded Line Chart - Line Chart ******************** */
 
 
-        var dataColouredRoundedLineChart = {
-          labels: ['\'06','\'07','\'08','\'09', '\'10', '\'11', '\'12', '\'13', '\'14','\'15'],
+        const dataColouredRoundedLineChart = {
+          labels: ['\'06', '\'07', '\'08', '\'09', '\'10', '\'11', '\'12', '\'13', '\'14', '\'15'],
           series: [
             [287, 480, 290, 554, 690, 690, 500, 752, 650, 900, 944]
           ]
         };
 
-        var optionsColouredRoundedLineChart: any = {
+        const optionsColouredRoundedLineChart: any = {
           lineSmooth: Chartist.Interpolation.cardinal({
               tension: 10
           }),
@@ -178,7 +150,8 @@ export class ChartsComponent implements OnInit{
           height: '300px'
         };
 
-        var colouredRoundedLineChart = new Chartist.Line('#colouredRoundedLineChart', dataColouredRoundedLineChart, optionsColouredRoundedLineChart);
+        const colouredRoundedLineChart = new Chartist.Line('#colouredRoundedLineChart', dataColouredRoundedLineChart,
+         optionsColouredRoundedLineChart);
 
         this.startAnimationForLineChart(colouredRoundedLineChart);
 
@@ -186,8 +159,8 @@ export class ChartsComponent implements OnInit{
         /*  **************** Coloured Rounded Line Chart - Line Chart ******************** */
 
 
-        var dataColouredBarsChart = {
-          labels: ['\'06','\'07','\'08','\'09', '\'10', '\'11', '\'12', '\'13', '\'14','\'15'],
+        const dataColouredBarsChart = {
+          labels: ['\'06', '\'07', '\'08', '\'09', '\'10', '\'11', '\'12', '\'13', '\'14', '\'15'],
           series: [
             [287, 385, 490, 554, 586, 698, 695, 752, 788, 846, 944],
             [67, 152, 143,  287, 335, 435, 437, 539, 542, 544, 647],
@@ -195,7 +168,7 @@ export class ChartsComponent implements OnInit{
           ]
         };
 
-        var optionsColouredBarsChart: any = {
+        const optionsColouredBarsChart: any = {
           lineSmooth: Chartist.Interpolation.cardinal({
               tension: 10
           }),
@@ -213,7 +186,8 @@ export class ChartsComponent implements OnInit{
         };
 
 
-        var colouredBarsChart = new Chartist.Line('#colouredBarsChart', dataColouredBarsChart, optionsColouredBarsChart);
+        const colouredBarsChart = new Chartist.Line('#colouredBarsChart', dataColouredBarsChart,
+         optionsColouredBarsChart);
 
         this.startAnimationForLineChart(colouredBarsChart);
 
@@ -221,12 +195,12 @@ export class ChartsComponent implements OnInit{
 
         /*  **************** Public Preferences - Pie Chart ******************** */
 
-        var dataPreferences = {
-            labels: ['62%','32%','6%'],
+        const dataPreferences = {
+            labels: ['62%', '32%', '6%'],
             series: [62, 32, 6]
         };
 
-        var optionsPreferences = {
+        const optionsPreferences = {
             height: '230px'
         };
 
@@ -234,21 +208,21 @@ export class ChartsComponent implements OnInit{
 
         /*  **************** Simple Bar Chart - barchart ******************** */
 
-        var dataSimpleBarChart = {
+        const dataSimpleBarChart = {
           labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
           series: [
             [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
           ]
         };
 
-        var optionsSimpleBarChart = {
+        const optionsSimpleBarChart = {
           seriesBarDistance: 10,
           axisX: {
             showGrid: false
           }
         };
 
-        var responsiveOptionsSimpleBarChart: any = [
+        const responsiveOptionsSimpleBarChart: any = [
           ['screen and (max-width: 640px)', {
             seriesBarDistance: 5,
             axisX: {
@@ -259,13 +233,14 @@ export class ChartsComponent implements OnInit{
           }]
         ];
 
-        var simpleBarChart = new Chartist.Bar('#simpleBarChart', dataSimpleBarChart, optionsSimpleBarChart, responsiveOptionsSimpleBarChart);
+        const simpleBarChart = new Chartist.Bar('#simpleBarChart', dataSimpleBarChart, optionsSimpleBarChart,
+         responsiveOptionsSimpleBarChart);
 
-        //start animation for the Emails Subscription Chart
+        // start animation for the Emails Subscription Chart
         this.startAnimationForBarChart(simpleBarChart);
 
 
-        var dataMultipleBarsChart = {
+        const dataMultipleBarsChart = {
           labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
           series: [
             [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
@@ -273,7 +248,7 @@ export class ChartsComponent implements OnInit{
           ]
         };
 
-        var optionsMultipleBarsChart = {
+        const optionsMultipleBarsChart = {
             seriesBarDistance: 10,
             axisX: {
                 showGrid: false
@@ -281,7 +256,7 @@ export class ChartsComponent implements OnInit{
             height: '300px'
         };
 
-        var responsiveOptionsMultipleBarsChart: any = [
+        const responsiveOptionsMultipleBarsChart: any = [
           ['screen and (max-width: 640px)', {
             seriesBarDistance: 5,
             axisX: {
@@ -292,9 +267,10 @@ export class ChartsComponent implements OnInit{
           }]
         ];
 
-        var multipleBarsChart = new Chartist.Bar('#multipleBarsChart', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
+        const multipleBarsChart = new Chartist.Bar('#multipleBarsChart', dataMultipleBarsChart,
+         optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
 
-        //start animation for the Emails Subscription Chart
+        // start animation for the Emails Subscription Chart
         this.startAnimationForBarChart(multipleBarsChart);
     }
 }

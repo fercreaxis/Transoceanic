@@ -2,17 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { TableData } from '../../md/md-table/md-table.component';
 
 @Component({
-    moduleId: module.id,
-    selector: 'regular-table-cmp',
+    selector: 'app-regular-table-cmp',
     templateUrl: 'regulartable.component.html'
 })
 
-export class RegularTableComponent implements OnInit{
+export class RegularTableComponent implements OnInit {
     public tableData1: TableData;
     public tableData2: TableData;
     public tableData3: TableData;
 
-    ngOnInit(){
+    ngOnInit() {
         this.tableData1 = {
             headerRow: [ 'Name', 'Country', 'City', 'Salary'],
             dataRows: [
@@ -27,7 +26,7 @@ export class RegularTableComponent implements OnInit{
          this.tableData2 = {
              headerRow: [ 'ID', 'Name',  'Salary', 'Country', 'City' ],
              dataRows: [
-                 ['1', 'Dakota Rice','$36,738', 'Niger', 'Oud-Turnhout' ],
+                 ['1', 'Dakota Rice', '$36,738', 'Niger', 'Oud-Turnhout' ],
                  ['2', 'Minerva Hooper', '$23,789', 'Curaçao', 'Sinaai-Waas'],
                  ['3', 'Sage Rodriguez', '$56,142', 'Netherlands', 'Baileux' ],
                  ['4', 'Philip Chaney', '$38,735', 'Korea, South', 'Overland Park' ],
@@ -38,7 +37,7 @@ export class RegularTableComponent implements OnInit{
           this.tableData3 = {
               headerRow: [ 'ID', 'Name',  'Salary', 'Country', 'City' ],
               dataRows: [
-                  ['1', 'Dakota Rice (Success)','$36,738', 'Niger', 'Oud-Turnhout' ],
+                  ['1', 'Dakota Rice (Success)', '$36,738', 'Niger', 'Oud-Turnhout' ],
                   ['2', 'Minerva Hooper', '$23,789', 'Curaçao', 'Sinaai-Waas'],
                   ['3', 'Sage Rodriguez (Info)', '$56,142', 'Netherlands', 'Baileux' ],
                   ['4', 'Philip Chaney', '$38,735', 'Korea, South', 'Overland Park' ],

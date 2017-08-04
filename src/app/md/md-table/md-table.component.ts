@@ -6,7 +6,7 @@ export interface TableData {
 }
 
 @Component({
-  selector: 'md-table',
+  selector: 'app-md-table',
   templateUrl: './md-table.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

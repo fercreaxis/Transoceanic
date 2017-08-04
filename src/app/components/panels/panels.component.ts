@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-    moduleId: module.id,
-    selector: 'panels-cmp',
+    selector: 'app-panels-cmp',
     templateUrl: 'panels.component.html'
 })
 
-export class PanelsComponent{}
+export class PanelsComponent {}

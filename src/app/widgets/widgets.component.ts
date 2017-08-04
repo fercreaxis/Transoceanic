@@ -7,18 +7,17 @@ declare interface Task {
   checked: boolean;
 }
 @Component({
-    moduleId: module.id,
-    selector: 'widgets-cmp',
+    selector: 'app-widgets-cmp',
     templateUrl: 'widgets.component.html'
 })
 
-export class WidgetsComponent implements OnInit, AfterViewInit{
+export class WidgetsComponent implements OnInit, AfterViewInit {
     public tableData: TableData;
     public tasks1: Task[];
     public tasks2: Task[];
     public tasks3: Task[];
 
-    ngOnInit(){
+    ngOnInit() {
         this.tableData = {
             headerRow: ['ID', 'Name', 'Salary', 'Country'],
             dataRows: [
@@ -38,8 +37,9 @@ export class WidgetsComponent implements OnInit, AfterViewInit{
            { title: 'Create 4 Invisible User Experiences you Never Knew About', checked: false }
          ];
          this.tasks2 = [
-             {
-                title: 'Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit',
+            {
+                title: `Flooded: One year later, assessing what was lost and
+                 what was found when a ravaging rain swept through metro Detroit`,
                 checked: true
             },
 
@@ -57,7 +57,7 @@ export class WidgetsComponent implements OnInit, AfterViewInit{
 
     }
 
-    ngAfterViewInit(){
+    ngAfterViewInit() {
         //  Activate the tooltips
         $('[rel="tooltip"]').tooltip();
     }
