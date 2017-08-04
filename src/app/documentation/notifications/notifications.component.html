@@ -1,0 +1,35 @@
+<div class="tim-row" id="notification-row">
+        <h2> Notifications
+<small>v3.1.5</small>
+        </h2>
+        <legend></legend>
+        <p>
+        The new Light Bootstrap Dashboard notification are looking fresh and clean. They go great with the navbar. They come with 4 classes, each for a different color: <code>.alert-info</code> <code>.alert-success</code>, <code>.alert-warning</code>, <code>alert-danger</code>.
+        <br /><br />
+        If you want to use add special animations for them, we integrated a third party plugin called Bootstrap Notify. To see the original repository for it, check it out <a href="https://github.com/mouse0270/bootstrap-notify">here</a>. Out friend Robert McIntosh did a wonderful job. If you want to see a coded example, you can see it below.
+        </p>
+        <button class="btn btn-default" onclick="showNotification('top','right')">Top Right Notification</button>
+
+<pre class="prettyprint">
+&lt;!-- button to trigger the action --&gt;
+&lt;button class=&quot;btn btn-default&quot; onclick=&quot;showNotification(&#39;top&#39;,&#39;right&#39;)&quot;&gt;Top Right Notification&lt;/button&gt;
+
+&lt;!-- javascript --&gt;
+function showNotification(from, align){{'{'}}
+	color = Math.floor((Math.random() * 4) + 1);
+
+	$.notify({{'{'}}
+    	icon: &quot;pe-7s-gift&quot;,
+    	message: &quot;Welcome to &lt;b&gt;Light Bootstrap Dashboard&lt;/b&gt; - a beautiful freebie for every web developer.&quot;
+
+    {{'}'}},{{'{'}}
+        type: type[color],
+        timer: 4000,
+        placement: {{'{'}}
+            from: from,
+            align: align
+        {{'}'}}
+    {{'}'}});
+}
+</pre>
+</div>

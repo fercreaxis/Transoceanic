@@ -1,0 +1,32 @@
+<div class="tim-row" id="sliders-row">
+        <h2> Sliders
+        </h2>
+        <legend></legend>
+        <p>We restyled jQuery UI slider, while keeping the design consistent.</p>
+
+        <div id="slider-default" class="slider-info"></div>
+        <br>
+        <div id="slider-range" class="slider-success"></div>
+<pre class="prettyprint">
+&lt;!-- Markup --&gt;
+&lt;div id=&quot;slider-default&quot; class=&quot;slider-info&quot;&gt;&lt;/div&gt;
+
+&lt;div id=&quot;slider-range&quot; class=&quot;slider-success&quot;&gt;&lt;/div&gt;
+
+&lt;!-- Javascript --&gt;
+$( &quot;#slider-range&quot; ).slider({{'{'}}
+	range: true,
+	min: 0,
+	max: 500,
+	values: [ 75, 300 ],
+{{'}'}});
+
+$( &quot;#slider-default&quot; ).slider({{'{'}}
+	value: 70,
+	orientation: &quot;horizontal&quot;,
+	range: &quot;min&quot;,
+	animate: true
+{{'}'}});
+
+</pre>
+</div>

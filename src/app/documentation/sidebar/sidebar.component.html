@@ -1,0 +1,158 @@
+<div class="tim-row" id="sidebar-row">
+        <h2> Sidebar
+        </h2>
+        <legend></legend>
+        <p>
+            We have created the class <code>.sidebar</code> for navigation. It contains the company title, a photo of the logged in user with options inside a dropdown, and a list of all the pages. Every element in the list of pages can have a sublist of pages. <br />
+            If you want the sidebar to have the background as a solid color, you can use the <code>data-color</code> attribute and add the color you like: <code>data-color="blue | azure | green | orange | red | purple"</code>.<br />
+            If you want the background to have a picture, you ca activate it like this: <code>data-image="../../assets/img/sidebar-2.jpg"</code>.<br />
+            You can see the fully-coded example for the sidebar inside the dashboard below, which has a background image and the color purple.
+			<br /><br />
+			If you want to use the Sidebar Mini (a sidebar which contains only icons) you should add the class <code>.sidebar-mini</code> to the <code>&lt;body&gt;</code> tag of the page.
+        </p>
+<pre class="prettyprint">
+&lt;div class=&quot;sidebar&quot; data-color=&quot;purple&quot; data-image=&quot;../assets/img/sidebar-2.jpg&quot;&gt;
+
+	&lt;div class=&quot;sidebar-wrapper&quot;&gt;
+        &lt;div class=&quot;logo&quot;&gt;
+            &lt;a href=&quot;http://www.creative-tim.com&quot; class=&quot;logo-text&quot;&gt;
+                Creative Tim
+            &lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;user&quot;&gt;
+            &lt;div class=&quot;photo&quot;&gt;
+                &lt;img src=&quot;../assets/img/faces/face-3.jpg&quot; /&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;info&quot;&gt;
+                &lt;a data-toggle=&quot;collapse&quot; href=&quot;#collapseExample&quot; class=&quot;collapsed&quot;&gt;
+                    Tania Andrew
+                    &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;
+                &lt;/a&gt;
+                &lt;div class=&quot;collapse&quot; id=&quot;collapseExample&quot;&gt;
+                    &lt;ul class=&quot;nav&quot;&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;My Profile&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Edit Profile&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Settings&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;ul class=&quot;nav&quot;&gt;
+            &lt;li class=&quot;active&quot;&gt;
+                &lt;a href=&quot;dashboard.html&quot;&gt;
+                    &lt;i class=&quot;pe-7s-graph&quot;&gt;&lt;/i&gt;
+                    &lt;p&gt;Dashboard&lt;/p&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a data-toggle=&quot;collapse&quot; href=&quot;#componentsExamples&quot;&gt;
+                    &lt;i class=&quot;pe-7s-plugin&quot;&gt;&lt;/i&gt;
+                    &lt;p&gt;Components
+                       &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;
+                    &lt;/p&gt;
+                &lt;/a&gt;
+                &lt;div class=&quot;collapse&quot; id=&quot;componentsExamples&quot;&gt;
+                    &lt;ul class=&quot;nav&quot;&gt;
+                        &lt;li&gt;&lt;a href=&quot;components/buttons.html&quot;&gt;Buttons&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;components/grid.html&quot;&gt;Grid System&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;components/icons.html&quot;&gt;Icons&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;components/notifications.html&quot;&gt;Notifications&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;components/panels.html&quot;&gt;Panels&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;components/sweet-alert.html&quot;&gt;Sweet Alert&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;components/typography.html&quot;&gt;Typography&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a data-toggle=&quot;collapse&quot; href=&quot;#formsExamples&quot;&gt;
+                    &lt;i class=&quot;pe-7s-note2&quot;&gt;&lt;/i&gt;
+                    &lt;p&gt;Forms
+                       &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;
+                    &lt;/p&gt;
+                &lt;/a&gt;
+                &lt;div class=&quot;collapse&quot; id=&quot;formsExamples&quot;&gt;
+                    &lt;ul class=&quot;nav&quot;&gt;
+                        &lt;li&gt;&lt;a href=&quot;forms/regular.html&quot;&gt;Regular Forms&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;forms/extended.html&quot;&gt;Extended Forms&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;forms/validation.html&quot;&gt;Validation Forms&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;forms/wizard.html&quot;&gt;Wizard&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a data-toggle=&quot;collapse&quot; href=&quot;#tablesExamples&quot;&gt;
+                    &lt;i class=&quot;pe-7s-news-paper&quot;&gt;&lt;/i&gt;
+                    &lt;p&gt;Tables
+                       &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;
+                    &lt;/p&gt;
+                &lt;/a&gt;
+                &lt;div class=&quot;collapse&quot; id=&quot;tablesExamples&quot;&gt;
+                    &lt;ul class=&quot;nav&quot;&gt;
+                        &lt;li&gt;&lt;a href=&quot;tables/regular.html&quot;&gt;Regular Tables&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;tables/extended.html&quot;&gt;Extended Tables&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;tables/bootstrap-table.html&quot;&gt;Bootstrap Table&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a data-toggle=&quot;collapse&quot; href=&quot;#mapsExamples&quot;&gt;
+                    &lt;i class=&quot;pe-7s-map-marker&quot;&gt;&lt;/i&gt;
+                    &lt;p&gt;Maps
+                       &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;
+                    &lt;/p&gt;
+                &lt;/a&gt;
+                &lt;div class=&quot;collapse&quot; id=&quot;mapsExamples&quot;&gt;
+                    &lt;ul class=&quot;nav&quot;&gt;
+                        &lt;li&gt;&lt;a href=&quot;maps/google.html&quot;&gt;Google Maps&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;maps/vector.html&quot;&gt;Vector Maps&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;maps/fullscreen.html&quot;&gt;Full Screen Map&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a href=&quot;calendar.html&quot;&gt;
+                    &lt;i class=&quot;pe-7s-graph1&quot;&gt;&lt;/i&gt;
+                    &lt;p&gt;Charts&lt;/p&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a href=&quot;calendar.html&quot;&gt;
+                    &lt;i class=&quot;pe-7s-date&quot;&gt;&lt;/i&gt;
+                    &lt;p&gt;Calendar&lt;/p&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+            &lt;li&gt;
+                &lt;a data-toggle=&quot;collapse&quot; href=&quot;#pagesExamples&quot;&gt;
+                    &lt;i class=&quot;pe-7s-gift&quot;&gt;&lt;/i&gt;
+                    &lt;p&gt;Pages
+                       &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;
+                    &lt;/p&gt;
+                &lt;/a&gt;
+                &lt;div class=&quot;collapse&quot; id=&quot;pagesExamples&quot;&gt;
+                    &lt;ul class=&quot;nav&quot;&gt;
+                        &lt;li&gt;&lt;a href=&quot;pages/login.html&quot;&gt;Login Page&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;pages/register.html&quot;&gt;Register Page&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;pages/lock.html&quot;&gt;Lock Screen Page&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;tables/bootstrap-table.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;tables/bootstrap-table.html&quot;&gt;404 Page&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;tables/bootstrap-table.html&quot;&gt;503 Page&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;More coming soon...&lt;/a&gt;&lt;/li&gt;
+
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+</div>

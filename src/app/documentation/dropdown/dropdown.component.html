@@ -1,0 +1,153 @@
+<!-- dropdown row -->
+<div class="tim-row" id="dropdown-row">
+    <h2> Dropdown </h2>
+    <legend></legend>
+    <p> We are very proud to present the dropdown which has a subtle animation.
+        <b>IMPORTANT!</b> The focus state is
+        <b>Purple</b> by default and, on the dropdowns from the navbars, they will take the colour of the parent navbar.</p>
+    <div class="row">
+        <div class="col-md-3">
+            <span class="dropdown">
+                <button href="#pablo" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                    Regular
+                    <b class="caret"></b>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#pablo">Action</a>
+                    </li>
+                    <li>
+                        <a href="#pablo">Another action</a>
+                    </li>
+                    <li>
+                        <a href="#pablo">Something else here</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#pablo">Separated link</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#pablo">One more separated link</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <div class="col-md-3">
+            <span class="dropdown">
+                <button href="#pablo" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                    <img src="../../../assets/img/flags/US.png" /> Flags
+                    <b class="caret"></b>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#pablo">
+                            <img src="../../../assets/img/flags/DE.png" /> Deutsch</a>
+                    </li>
+                    <li>
+                        <a href="#pablo">
+                            <img src="../../../assets/img/flags/GB.png" /> English(UK)</a>
+                    </li>
+                    <li>
+                        <a href="#pablo">
+                            <img src="../../../assets/img/flags/FR.png" /> Français</a>
+                    </li>
+                    <li>
+                        <a href="#pablo">
+                            <img src="../../../assets/img/flags/RO.png" /> Română</a>
+                    </li>
+                    <li>
+                        <a href="#pablo">
+                            <img src="../../../assets/img/flags/IT.png" /> Italiano</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#pablo">
+                            <img src="../../../assets/img/flags/ES.png" /> Español
+                            <span class="label label-default">soon</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pablo">
+                            <img src="../../../assets/img/flags/BR.png" /> Português
+                            <span class="label label-default">soon</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pablo">
+                            <img src="../../../assets/img/flags/JP.png" /> 日本語
+                            <span class="label label-default">soon</span>
+                        </a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+    </div>
+    <pre class="prettyprint">
+&lt;div class=&quot;dropdown&quot;&gt;
+&lt;button href=&quot;#&quot; class=&quot;btn dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; aria-expanded=&quot;true&quot; &gt;
+Regular
+&lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;
+&lt;/button&gt;
+&lt;ul class=&quot;dropdown-menu&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;One more separated link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+</div>
+<!-- end row -->
+<!-- dropup row -->
+<div class="tim-row" id="dropup-row">
+    <h2> Dropup </h2>
+    <legend></legend>
+    <p>We restyled the dropup and added a different animation for the opening. You can see the full implementation below.</p>
+    <div class="col-sm-12">
+        <span class="dropup">
+            <button href="#pablo" class="dropdown-toggle btn btn-primary btn-round" data-toggle="dropdown">Dropup
+                <b class="caret"></b>
+            </button>
+            <!--                                  You can add classes for different colours on the next element -->
+            <ul class="dropdown-menu dropdown-primary dropdown-menu-left">
+                <li class="dropdown-header">Dropdown header</li>
+                <li>
+                    <a href="#pablo">Action</a>
+                </li>
+                <li>
+                    <a href="#pablo">Another action</a>
+                </li>
+                <li>
+                    <a href="#pablo">Something else here</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#pablo">Separated link</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#pablo">One more separated link</a>
+                </li>
+            </ul>
+        </span>
+    </div>
+    <pre class="prettyprint">
+&lt;span class=&quot;dropup&quot;&gt;
+&lt;button href=&quot;#&quot; class=&quot;dropdown-toggle btn btn-primary btn-round&quot; data-toggle=&quot;dropdown&quot;&gt;Dropup &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;&lt;/button&gt;
+&lt;ul class=&quot;dropdown-menu dropdown-primary dropdown-menu-right&quot;&gt;
+&lt;li class=&quot;dropdown-header&quot;&gt;Dropdown header&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;One more separated link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/span&gt;
+</pre>
+</div>
