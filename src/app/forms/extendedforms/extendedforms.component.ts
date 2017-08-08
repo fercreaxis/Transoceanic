@@ -19,7 +19,13 @@ export class ExtendedFormsComponent implements OnInit {
     doubleSlider = [20, 60];
     regularItems = ['Pizza', 'Pasta', 'Parmesan'];
     touch: boolean;
-    
+    selectedValue: string;
+
+      foods = [
+        {value: 'steak-0', viewValue: 'Steak'},
+        {value: 'pizza-1', viewValue: 'Pizza'},
+        {value: 'tacos-2', viewValue: 'Tacos'}
+      ];
     ngOnInit() {
         //  Init Bootstrap Select Picker
         if ($('.selectpicker').length !== 0) {
