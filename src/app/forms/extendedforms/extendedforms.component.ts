@@ -20,7 +20,18 @@ export class ExtendedFormsComponent implements OnInit {
     regularItems = ['Pizza', 'Pasta', 'Parmesan'];
     touch: boolean;
     selectedValue: string;
+    currentPokemon: string[];
+    pokemonTheme = 'primary';
 
+    pokemon = [
+      {value: 'bulbasaur-0', viewValue: 'Bulbasaur'},
+      {value: 'charizard-1', viewValue: 'Charizard'},
+      {value: 'squirtle-2', viewValue: 'Squirtle'},
+      {value: 'pikachu-3', viewValue: 'Pikachu'},
+      {value: 'eevee-4', viewValue: 'Eevee'},
+      {value: 'ditto-5', viewValue: 'Ditto'},
+      {value: 'psyduck-6', viewValue: 'Psyduck'},
+    ];
       foods = [
         {value: 'steak-0', viewValue: 'Steak'},
         {value: 'pizza-1', viewValue: 'Pizza'},

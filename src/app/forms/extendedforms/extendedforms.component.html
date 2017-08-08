@@ -56,7 +56,7 @@
                     <div class="card-content">
                         <h4 class="card-title">Datepicker II</h4>
                         <div class="form-group">
-                            <material-datepicker accentColor="#9c27b0" [(date)]="yourModelDate" class="form-control label-floating"></material-datepicker>
+                            <material-datepicker accentColor="#9c27b0" class="form-control label-floating"></material-datepicker>
 
                         </div>
                     </div>
@@ -85,6 +85,26 @@
                             </div>
                             <div class="col-md-6">
                                 <legend>Customisable Select</legend>
+                                <form>
+                                    <md-select multiple [color]="pokemonTheme" placeholder="Pokemon" [(ngModel)]="currentPokemon" name="creature">
+                                      <md-option *ngFor="let creature of pokemon" [value]="creature.value">
+                                        {{ creature.viewValue }}
+                                      </md-option>
+                                    </md-select>
+                                     <p> Selected value: {{currentPokemon}} </p>
+                                  <!-- <md-select placeholder="Favorite food" [(ngModel)]="selectedValue" name="food">
+                                    <md-option *ngFor="let food of foods" [value]="food.value">
+                                      {{food.viewValue}}
+                                    </md-option>
+                                  </md-select>
+
+                                  <p> Selected value: {{selectedValue}} </p> -->
+                                  <md-select [color]="pokemonTheme" placeholder="Pokemon" name="creature" ngClass="btn btn-primary btn-round simple">
+                                    <md-option *ngFor="let creature of pokemon" [value]="creature.value">
+                                      {{ creature.viewValue }}
+                                    </md-option>
+                                  </md-select>
+                                </form>
                                 <div class="row">
                                     <div class="col-lg-5 col-md-6 col-sm-3">
                                         <select class="selectpicker" data-style="btn btn-primary btn-round" title="Single Select" data-size="7">
