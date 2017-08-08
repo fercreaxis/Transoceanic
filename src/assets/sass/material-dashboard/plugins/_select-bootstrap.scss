@@ -1,3 +1,59 @@
+body {
+  .mat-select-panel {
+    background-color: #ffffff;
+  }
+  .mat-select-trigger, .mat-option {
+    font-size: 16px;
+  }
+  .mat-select-trigger {
+    height: 22px;
+    //margin: 13px 0;
+
+    margin: 1em 0;
+    padding-bottom: 6px;
+  }
+  .mat-select-placeholder {
+    line-height: normal;
+    padding: 0;
+  }
+  .mat-select-value {
+    bottom: 6px;
+  }
+  .mat-select-value-text {
+    //line-height: normal;
+  }
+  .mat-select-placeholder.mat-floating-placeholder {
+    top: -15px!important;
+    left: 0!important;
+  }
+  .mat-select-underline {
+    bottom: 1px;
+  }
+  .app-dark .mat-select-panel {
+    background-color: #ffffff;
+  }
+}
+.mat-option {
+    color: rgba(0, 0, 0, 0.87);
+}
+.mat-option {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    line-height: 48px;
+    height: 48px;
+    padding: 0 16px;
+    text-align: left;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+}
+.mat-option {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+}
 /*!
  * Bootstrap-select v1.11.2 (http://silviomoreto.github.io/bootstrap-select)
  *
