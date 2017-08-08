@@ -1,7 +1,7 @@
 /*!
 
  =========================================================
- * Material Dashboard PRO Angular CLI - V1.2.1
+ * Material Dashboard PRO Angular CLI - V1.4.0-beta.0
  =========================================================
 
  * Product Page: https://www.creative-tim.com/product/material-dashboard-pro-angular2
@@ -4883,6 +4883,35 @@ be a descendant of the grid when it is being dragged.
 
 .ct-rose {
   stroke: #e91e63 !important;
+}
+
+body .mat-select-panel {
+  background-color: #ffffff;
+}
+body .mat-select-trigger, body .mat-option {
+  font-size: 16px;
+}
+body .mat-select-trigger {
+  height: 22px;
+  margin: 1em 0;
+  padding-bottom: 6px;
+}
+body .mat-select-placeholder {
+  line-height: normal;
+  padding: 0;
+}
+body .mat-select-value {
+  bottom: 6px;
+}
+body .mat-select-placeholder.mat-floating-placeholder {
+  top: -15px !important;
+  left: 0 !important;
+}
+body .mat-select-underline {
+  bottom: 1px;
+}
+body .app-dark .mat-select-panel {
+  background-color: #ffffff;
 }
 
 /*!

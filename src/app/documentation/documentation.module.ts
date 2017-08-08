@@ -19,6 +19,10 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { JasnyComponent } from './jasny/jasny.component';
 import { MaterialiconsComponent } from './materialicons/materialicons.component';
+import { ChangingcolorsComponent } from './changingcolors/changingcolors.component';
+import { CardsComponent } from './cards/cards.component';
+import { PsComponent } from './ps/ps.component';
+import { SelectbootstrapComponent } from './selectbootstrap/selectbootstrap.component';
 
 @NgModule({
     imports: [
@@ -42,6 +46,10 @@ import { MaterialiconsComponent } from './materialicons/materialicons.component'
         TextareaComponent,
         JasnyComponent,
         MaterialiconsComponent,
+        ChangingcolorsComponent,
+        CardsComponent,
+        PsComponent,
+        SelectbootstrapComponent
     ]
 })
 

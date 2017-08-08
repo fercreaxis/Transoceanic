@@ -12,6 +12,12 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { CrsComponent } from './crs/crs.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { TextareaComponent } from './textarea/textarea.component';
+import { JasnyComponent } from './jasny/jasny.component';
+import { MaterialiconsComponent } from './materialicons/materialicons.component';
+import { ChangingcolorsComponent } from './changingcolors/changingcolors.component';
+import { CardsComponent } from './cards/cards.component';
+import { PsComponent } from './ps/ps.component';
+import { SelectbootstrapComponent } from './selectbootstrap/selectbootstrap.component';
 
 export const DocumentationRoutes: Routes = [{
     path: '',
@@ -51,5 +57,23 @@ export const DocumentationRoutes: Routes = [{
     },{
         path: 'dropdown',
         component: DropdownComponent
+    },{
+        path: 'select-bootstrap',
+        component: SelectbootstrapComponent
+    },{
+        path: 'jasny',
+        component: JasnyComponent
+    },{
+        path: 'icons',
+        component: MaterialiconsComponent
+    },{
+        path: 'perfectscrollbar',
+        component: PsComponent
+    },{
+        path: 'cards',
+        component: CardsComponent
+    },{
+        path: 'colors',
+        component: ChangingcolorsComponent
     }]
 }];
