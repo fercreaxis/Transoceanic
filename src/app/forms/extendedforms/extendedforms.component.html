@@ -92,13 +92,7 @@
                                       </md-option>
                                     </md-select>
                                      <p> Selected value: {{currentPokemon}} </p>
-                                  <!-- <md-select placeholder="Favorite food" [(ngModel)]="selectedValue" name="food">
-                                    <md-option *ngFor="let food of foods" [value]="food.value">
-                                      {{food.viewValue}}
-                                    </md-option>
-                                  </md-select>
 
-                                  <p> Selected value: {{selectedValue}} </p> -->
                                   <md-select [color]="pokemonTheme" placeholder="Pokemon" name="creature" ngClass="btn btn-primary btn-round simple">
                                     <md-option *ngFor="let creature of pokemon" [value]="creature.value">
                                       {{ creature.viewValue }}
