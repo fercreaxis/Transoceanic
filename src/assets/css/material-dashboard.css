@@ -4985,9 +4985,13 @@ body .app-dark .mat-select-panel {
 }
 .simple .mat-select-arrow {
   display: block;
+  float: right;
 }
 .simple .mat-select-underline {
   display: none;
+}
+.simple .mat-select-placeholder.mat-floating-placeholder {
+  opacity: 0 !important;
 }
 
 /*!

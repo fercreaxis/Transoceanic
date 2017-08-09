@@ -112,9 +112,13 @@ body {
     }
     .mat-select-arrow {
         display: block;
+        float: right;
     }
     .mat-select-underline{
         display: none;
+    }
+    .mat-select-placeholder.mat-floating-placeholder{
+        opacity: 0 !important;
     }
 }
 // .mat-option.mat-selected.mat-primary, .mat-primary .mat-option.mat-selected {
