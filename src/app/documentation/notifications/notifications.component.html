@@ -1,35 +1,89 @@
+<!-- notification row -->
 <div class="tim-row" id="notification-row">
-        <h2> Notifications
-<small>v3.1.5</small>
-        </h2>
-        <legend></legend>
-        <p>
-        The new Light Bootstrap Dashboard notification are looking fresh and clean. They go great with the navbar. They come with 4 classes, each for a different color: <code>.alert-info</code> <code>.alert-success</code>, <code>.alert-warning</code>, <code>alert-danger</code>.
-        <br /><br />
-        If you want to use add special animations for them, we integrated a third party plugin called Bootstrap Notify. To see the original repository for it, check it out <a href="https://github.com/mouse0270/bootstrap-notify">here</a>. Out friend Robert McIntosh did a wonderful job. If you want to see a coded example, you can see it below.
-        </p>
-        <button class="btn btn-default" onclick="showNotification('top','right')">Top Right Notification</button>
-
-<pre class="prettyprint">
+    <h2> Bootstrap Notify
+        <small>v3.1.3</small>
+    </h2>
+    <legend></legend>
+    <p>
+        The new Material Dashboard Pro notification are looking fresh and clean. They go great with the navbar.
+        <br />
+        <br /> If you want to use add special animations for them, we integrated a third party plugin called Bootstrap Notify. Out friend Robert McIntosh did a wonderful job. If you want to see a coded example, you can see it below.
+        <br>
+        <br> For more information please check
+        <b>
+            <a href="https://github.com/mouse0270/bootstrap-notify" target="_blank">Full Github Documentation</a>
+        </b>.</p>
+    <button class="btn btn-primary" (click)="showNotification('top','right')">Top Right Notification</button>
+    <pre class="prettyprint">
 &lt;!-- button to trigger the action --&gt;
 &lt;button class=&quot;btn btn-default&quot; onclick=&quot;showNotification(&#39;top&#39;,&#39;right&#39;)&quot;&gt;Top Right Notification&lt;/button&gt;
 
 &lt;!-- javascript --&gt;
-function showNotification(from, align){{'{'}}
-	color = Math.floor((Math.random() * 4) + 1);
 
-	$.notify({{'{'}}
-    	icon: &quot;pe-7s-gift&quot;,
-    	message: &quot;Welcome to &lt;b&gt;Light Bootstrap Dashboard&lt;/b&gt; - a beautiful freebie for every web developer.&quot;
+function showNotification(from, align){{ '{' }}
 
-    {{'}'}},{{'{'}}
-        type: type[color],
-        timer: 4000,
-        placement: {{'{'}}
-            from: from,
-            align: align
-        {{'}'}}
-    {{'}'}});
-}
+$.notify({{ '{' }}
+icon: &quot;add_alert&quot;,
+message: &quot;Welcome to &lt;b&gt;Material Dashboard Pro&lt;/b&gt; - a beautiful dashboard for every web developer.&quot;
+
+{{ '}' }},{{ '{' }}
+type: 'success',
+timer: 4000,
+placement: {{ '{' }}
+from: from,
+align: align
+{{ '}' }}
+{{ '}' }});
+{{ '}' }}
+</pre>
+    <div class="alert alert-info alert-with-icon" data-notify="container">
+        <i class="material-icons" data-notify="icon">add_alert</i>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+        <span data-notify="message">This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span>
+    </div>
+    <div class="alert alert-success alert-with-icon" data-notify="container">
+        <i class="material-icons" data-notify="icon">check</i>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+        <span data-notify="message">
+            <b>Success Alert:</b> Yuhuuu! You've got your $11.99 album from The Weeknd</span>
+    </div>
+    <div class="alert alert-warning alert-with-icon">
+        <i class="material-icons" data-notify="icon">warning</i>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+        <span data-notigy="message">
+            <b>Warning Alert:</b> Hey, it looks like you still have the "copyright &copy; 2015" in your footer. Please update it! </span>
+    </div>
+    <div class="alert alert-danger alert-with-icon">
+        <i class="material-icons" data-notify="icon">error_outline</i>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+        <span data-notify="message">
+            <b>Error Alert:</b> Damn man! You screwed up the server this time. You should find a good excuse for your Boss...</span>
+    </div>
+    <pre class="prettyprint">
+&lt;div class=&quot;alert alert-info alert-with-icon&quot;&gt;
+&lt;i class=&quot;material-icons&quot; data-notify=&quot;icon&quot; &gt;info_outline&lt;/i&gt;
+&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;x&lt;/button&gt;
+&lt;span data-notify=&quot;message&quot;&gt; &lt;b&gt;Info Alert:&lt;/b&gt; You&#39;ve got some friends nearby, stop looking at your phone and find them... &lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;alert alert-success alert-with-icon&quot;&gt;
+&lt;i class=&quot;material-icons&quot; data-notify=&quot;icon&quot; &gt;check&lt;/i&gt;
+&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;x&lt;/button&gt;
+&lt;span data-notify=&quot;message&quot;&gt; &lt;b&gt;Success Alert:&lt;/b&gt; You&#39;ve got your $11.99 albul from The Weeknd &lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;alert alert-warning alert-with-icon&quot;&gt;
+&lt;i class=&quot;material-icons&quot; data-notify=&quot;icon&quot; &gt;warning&lt;/i&gt;
+&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;x&lt;/button&gt;
+&lt;span data-notify=&quot;message&quot;&gt; &lt;b&gt;Warning Alert:&lt;/b&gt; Hey, it looks like you still have the &quot;copyright &amp;copy;  2015&quot; in your footer. Please update it! &lt;/span&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&quot;alert alert-danger alert-with-icon&quot;&gt;
+&lt;i class=&quot;material-icons&quot; data-notify=&quot;icon&quot; &gt;error_outline&lt;/i&gt;
+&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;x&lt;/button&gt;
+&lt;span data-notify=&quot;message&quot;&gt; &lt;b&gt;Error Alert:&lt;/b&gt; Damn man! You screwed up the server this time. You should find a good excuse for your Boss... &lt;/span&gt;
+&lt;/div&gt;
 </pre>
 </div>
+<!-- end row -->
