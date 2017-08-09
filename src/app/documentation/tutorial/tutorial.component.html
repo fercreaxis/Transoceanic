@@ -1,0 +1,383 @@
+<!-- License Row -->
+<div class="tim-row tim-row-first" id="license">
+    <h2 class="text-center">License</h2>
+    <legend></legend>
+    <p>
+        Currently, on
+        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> you can get the products with two types of licenses: Personal or Developer. All the freebies are licensed to Personal License as default. If you are making a paid purchase, be sure to go through the table with the rights and the guidelines, so you can know what is the best fit for you. View the rights table and the description for each license on our
+        <a target="_blank" href="https://www.creative-tim.com/license?ref=license-page-md-pro-angular">Official License Page</a>.
+    </p>
+</div>
+<!-- Tutorial Row -->
+<div class="tim-row" id="tutorial">
+    <h2 class="text-center">Short Description</h2>
+    <legend></legend>
+    <p>
+        <b>Material Dashboard PRO Angular</b> is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design. It is based on the popular Bootstrap framework and comes packed with multiple third-party plugins. All components are built to fit perfectly with each other, while aligning to the material concepts.
+    </p>
+</div>
+<div class="tim-row">
+    <h2 class="text-center">Getting Started</h2>
+    <legend></legend>
+
+    <p>
+        The
+        <b>Material Dashboard Pro</b> is built on top of Bootstrap 3, so you can safely use it on your existing or new Bootstrap project. No line of code from Bootstrap 3 was changed, so you don't have to worry about undesired effects in your work.
+    </p>
+    <h4 class="title">
+        <b>Local Development</b>
+    </h4>
+    <ul>
+        <li>Install NodeJs from <a href="https://nodejs.org/en" target="_blank">NodeJs Official Page</a></li>
+        <li>Open Terminal</li>
+        <li>Go to your file project</li>
+        <li>Run in terminal:<pre>npm install -g @angular/cli</pre></li>
+        <li>Then:<pre>npm install</pre></li>
+        <li>And: <pre>ng serve</pre></li>
+        <li>Navigate to: <a href="http://localhost:4200/" target="_blank">http://localhost:4200/</a></li>
+    </ul>
+    <h4 class="title">
+        <b>Live Production on Heroku</b>
+    </h4>
+    <p>Replace package.json with this code.</p>
+    <pre>
+{{ '{' }}
+"name": "md-pro-angular-cli",
+"version": "1.2.1",
+"license": "SEE LICENSE IN LICENSE.pdf",
+"repository": {{ '{' }}
+"type": "git",
+"url": "https://github.com/creativetimofficial/material-dashboard-pro-angular.git"
+{{ '}' }},
+"scripts": {{ '{' }}
+"preinstall": "npm install -g http-server",
+"postinstall": "ng build --prod",
+"start": "http-server dist/",
+"lint": "tslint \"src/**/*.ts\"",
+"test": "ng test",
+"pree2e": "webdriver-manager update",
+"e2e": "protractor"
+{{ '}' }},
+"engines": {{ '{' }}
+"node": "6.9.2",
+"npm": "3.10.9"
+{{ '}' }},
+"private": true,
+"dependencies": {{ '{' }}
+"@agm/core": "^1.0.0-beta.0",
+"@angular/cli": "1.0.0-rc.2",
+"@angular/compiler-cli": "^2.4.0",
+"@angular/common": "^2.4.0",
+"@angular/compiler": "^2.4.0",
+"@angular/core": "^2.4.0",
+"@angular/forms": "^2.4.0",
+"@angular/http": "^2.4.0",
+"@angular/platform-browser": "^2.4.0",
+"@angular/platform-browser-dynamic": "^2.4.0",
+"@angular/router": "^3.4.0",
+"animate.css": "^3.5.2",
+"arrive": "^2.3.1",
+"bootstrap": "^3.3.5",
+"bootstrap-notify": "^3.1.3",
+"bootstrap-select": "^1.12.2",
+"bootstrap-tagsinput": "^0.7.1",
+"chartist": "^0.9.4",
+"chartist-plugin-zoom": "^0.4.0",
+"core-js": "^2.4.1",
+"datatables": "1.10.12",
+"datatables.net-bs": "1.10.12",
+"datatables.net-responsive": "^2.1.1",
+"eonasdan-bootstrap-datetimepicker": "4.17.47",
+"express": "^4.15.3",
+"fullcalendar": "^3.4.0",
+"googleapis": "^19.0.0",
+"jasny-bootstrap": "^3.1.3",
+"jquery": "^1.12.4",
+"nouislider": "^9.2.0",
+"rxjs": "^5.1.0",
+"twitter-bootstrap-wizard": "^1.2.0",
+"validate": "^3.0.1",
+"web-animations-js": "^2.2.2",
+"zone.js": "^0.7.6",
+"@types/bootstrap": "^3.3.32",
+"@types/chartist": "^0.9.34",
+"@types/jasmine": "2.5.38",
+"@types/jquery": "^1.10.31",
+"@types/node": "^6.0.73"
+{{ '}' }},
+"devDependencies": {{ '{' }}
+"codelyzer": "~2.0.0",
+"jasmine-core": "~2.5.2",
+"jasmine-spec-reporter": "~3.2.0",
+"karma": "~1.4.1",
+"karma-chrome-launcher": "~2.0.0",
+"karma-cli": "~1.0.1",
+"karma-coverage-istanbul-reporter": "^0.2.0",
+"karma-jasmine": "~1.1.0",
+"karma-jasmine-html-reporter": "^0.2.2",
+"protractor": "~5.1.0",
+"ts-node": "~2.0.0",
+"tslint": "~4.5.0",
+"typescript": "~2.0.0"
+{{ '}' }}
+{{ '}' }}
+    </pre>
+    <p>Also check this tutorial: <a href="https://paucls.wordpress.com/2016/11/25/deploy-angular-2-cli-app-to-heroku/">Deploy Angular 2 CLI app to Heroku</a>.</p>
+
+</div>
+<div class="tim-row">
+    <h2 class="text-left">File Structure</h2>
+    <legend></legend>
+    <p>
+        Once you have downloaded the archive and opened it, you will find the following structure:
+    </p>
+
+    <pre>
+md-pro-angular-cli
+├── LICENSE.pdf
+├── README.md
+├── angular-cli.json
+├── documentation
+│   ├── css
+│   ├── js
+│   └── tutorial-components.html
+├── e2e
+├── karma.conf.js
+├── package.json
+├── protractor.conf.js
+├── src
+│   ├── app
+│   │   ├── app.component.html
+│   │   ├── app.component.ts
+│   │   ├── app.module.ts
+│   │   ├── app.routing.ts
+│   │   ├── calendar
+│   │   │   ├── calendar.component.html
+│   │   │   ├── calendar.component.ts
+│   │   │   ├── calendar.module.ts
+│   │   │   └── calendar.routing.ts
+│   │   ├── charts
+│   │   │   ├── charts.component.html
+│   │   │   ├── charts.component.ts
+│   │   │   ├── charts.module.ts
+│   │   │   └── charts.routing.ts
+│   │   ├── components
+│   │   │   ├── buttons
+│   │   │   │   ├── buttons.component.html
+│   │   │   │   └── buttons.component.ts
+│   │   │   ├── components.module.ts
+│   │   │   ├── components.routing.ts
+│   │   │   ├── grid
+│   │   │   │   ├── grid.component.html
+│   │   │   │   └── grid.component.ts
+│   │   │   ├── icons
+│   │   │   │   ├── icons.component.html
+│   │   │   │   └── icons.component.ts
+│   │   │   ├── notifications
+│   │   │   │   ├── notifications.component.html
+│   │   │   │   └── notifications.component.ts
+│   │   │   ├── panels
+│   │   │   │   ├── panels.component.html
+│   │   │   │   └── panels.component.ts
+│   │   │   ├── sweetalert
+│   │   │   │   ├── sweetalert.component.html
+│   │   │   │   └── sweetalert.component.ts
+│   │   │   └── typography
+│   │   │       ├── typography.component.html
+│   │   │       └── typography.component.ts
+│   │   ├── dashboard
+│   │   │   ├── dashboard.component.html
+│   │   │   ├── dashboard.component.ts
+│   │   │   ├── dashboard.module.ts
+│   │   │   └── dashboard.routing.ts
+│   │   ├── forms
+│   │   │   ├── extendedforms
+│   │   │   │   ├── extendedforms.component.html
+│   │   │   │   └── extendedforms.component.ts
+│   │   │   ├── equal-validator.directive.ts
+│   │   │   ├── forms.module.ts
+│   │   │   ├── forms.routing.ts
+│   │   │   ├── regularforms
+│   │   │   │   ├── regularforms.component.html
+│   │   │   │   └── regularforms.component.ts
+│   │   │   ├── validationforms
+│   │   │   │   ├── password-validator.component.ts
+│   │   │   │   ├── validationforms.component.html
+│   │   │   │   └── validationforms.component.ts
+│   │   │   └── wizard
+│   │   │       ├── wizard.component.html
+│   │   │       └── wizard.component.ts
+│   │   ├── layouts
+│   │   │   ├── admin
+│   │   │   │   ├── admin-layout.component.html
+│   │   │   │   └── admin-layout.component.ts
+│   │   │   └── auth
+│   │   │       ├── auth-layout.component.html
+│   │   │       └── auth-layout.component.ts
+│   │   ├── main.ts
+│   │   ├── maps
+│   │   │   ├── fullscreenmap
+│   │   │   │   ├── fullscreenmap.component.html
+│   │   │   │   └── fullscreenmap.component.ts
+│   │   │   ├── googlemaps
+│   │   │   │   ├── googlemaps.component.html
+│   │   │   │   └── googlemaps.component.ts
+│   │   │   ├── maps.module.ts
+│   │   │   ├── maps.routing.ts
+│   │   │   └── vectormaps
+│   │   │       ├── vectormaps.component.html
+│   │   │       └── vectormaps.component.ts
+│   │   ├── md
+│   │   │   └── md-table
+│   │   │       ├── md-table.component.html
+│   │   │       └── md-table.component.ts
+│   │   ├── pages
+│   │   │   ├── lock
+│   │   │   │   ├── lock.component.html
+│   │   │   │   └── lock.component.ts
+│   │   │   ├── login
+│   │   │   │   ├── login.component.html
+│   │   │   │   └── login.component.ts
+│   │   │   ├── pages.module.ts
+│   │   │   ├── pages.routing.ts
+│   │   │   ├── pricing
+│   │   │   │   ├── pricing.component.html
+│   │   │   │   └── pricing.component.ts
+│   │   │   └── register
+│   │   │       ├── register.component.html
+│   │   │       └── register.component.ts
+│   │   ├── shared
+│   │   │   ├── footer
+│   │   │   │   ├── footer.component.html
+│   │   │   │   ├── footer.component.ts
+│   │   │   │   └── footer.module.ts
+│   │   │   └── navbar
+│   │   │       ├── navbar.component.html
+│   │   │       ├── navbar.component.ts
+│   │   │       └── navbar.module.ts
+│   │   ├── sidebar
+│   │   │   ├── sidebar-routes.config.ts
+│   │   │   ├── sidebar.component.html
+│   │   │   ├── sidebar.component.ts
+│   │   │   ├── sidebar.metadata.ts
+│   │   │   └── sidebar.module.ts
+│   │   ├── tables
+│   │   │   ├── datatable.net
+│   │   │   │   ├── datatable.component.html
+│   │   │   │   └── datatable.component.ts
+│   │   │   ├── extendedtable
+│   │   │   │   ├── extendedtable.component.html
+│   │   │   │   └── extendedtable.component.ts
+│   │   │   ├── regulartable
+│   │   │   │   ├── regulartable.component.html
+│   │   │   │   └── regulartable.component.ts
+│   │   │   ├── tables.module.ts
+│   │   │   └── tables.routing.ts
+│   │   ├── timeline
+│   │   │   ├── timeline.component.html
+│   │   │   ├── timeline.component.ts
+│   │   │   ├── timeline.module.ts
+│   │   │   └── timeline.routing.ts
+│   │   ├── userpage
+│   │   │   ├── user.component.html
+│   │   │   ├── user.component.ts
+│   │   │   ├── user.module.ts
+│   │   │   └── user.routing.ts
+│   │   └── widgets
+│   │       ├── widgets.component.html
+│   │       ├── widgets.component.ts
+│   │       ├── widgets.module.ts
+│   │       └── widgets.routing.ts
+│   ├── assets
+│   │   ├── css
+│   │   │   ├── bootstrap.min.css
+│   │   │   ├── demo.css
+│   │   │   ├── material-dashboard.css
+│   │   │   └── material-dashboard.css.map
+│   │   ├── img
+│   │   ├── js
+│   │   │   ├── core
+│   │   │   │   ├── jquery.perfect-scrollbar.min.js
+│   │   │   │   ├── jquery.validate.min.js
+│   │   │   │   └── material.min.js
+│   │   │   └── plugins
+│   │   │       ├── jquery-jvectormap.js
+│   │   │       └── sweetalert2.min.js
+│   │   └── sass
+│   │       ├── material-dashboard
+│   │       └── material-dashboard.scss
+│   ├── environments
+│   │   ├── environment.prod.ts
+│   │   └── environment.ts
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── main.ts
+│   ├── polyfills.ts
+│   ├── styles.css
+│   ├── test.ts
+│   ├── tsconfig.app.json
+│   ├── tsconfig.spec.json
+│   └── typings.d.ts
+├── tsconfig.json
+├── tslint.json
+├── typings
+└── typings.json</pre>
+
+</div>
+<div class="tim-row">
+    <h2 class="text-left">Restyled Components</h2>
+    <legend></legend>
+    Here is the list of Bootstrap 3 components that were restyled in
+    <b>Material Dashboard Pro Angular</b>:
+    <ul>
+        <li> Buttons </li>
+        <li> Inputs</li>
+        <li> Textarea</li>
+        <li> Menu </li>
+        <li> Dropdown</li>
+        <li> Navigation Menu</li>
+        <li> Labels</li>
+        <li> Notifications</li>
+        <li> Typography</li>
+        <li> Tables</li>
+        <li> Collapse </li>
+        <li> Dropdown </li>
+        <li> Pagination </li>
+        <li> Progress Bars </li>
+        <li> Select </li>
+        <li> Tables </li>
+        <li> Textarea </li>
+        <li> Tooltips </li>
+        <li> Typography </li>
+    </ul>
+</div>
+<div class="tim-row">
+    <h2 class="text-left">New Components</h2>
+    <legend></legend>
+    <p>
+        Besides giving the existing Bootstrap elements a new look, we added new ones, so that the interface and consistent and homogenous.
+    </p>
+    Going through them, we added:
+    <ul>
+        <li> Checkboxes</li>
+        <li> Radio Buttons</li>
+        <li> Toggle Buttons </li>
+        <li> Card Stats</li>
+        <li> Tags </li>
+        <li> Card Charts</li>
+        <li> Card with tabs</li>
+        <li> Material Icons</li>
+        <li> Google Maps </li>
+        <li> jVector Maps </li>
+        <li> jQuery Validations </li>
+        <li> DataTables </li>
+        <li> DateTimePicker </li>
+        <li> Maps </li>
+        <li> Panels </li>
+        <li> Sliders </li>
+        <li> Sweet Alert </li>
+        <li> Switches </li>
+        <li> Wizard </li>
+    </ul>
+</div>
+<!-- End Tutorial Row -->

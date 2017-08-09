@@ -22,7 +22,6 @@ export class ExtendedFormsComponent implements OnInit {
     selectedValue: string;
     currentPokemon: string[];
     pokemonTheme = 'primary';
-
     pokemon = [
       {value: 'bulbasaur-0', viewValue: 'Bulbasaur'},
       {value: 'charizard-1', viewValue: 'Charizard'},
@@ -32,11 +31,7 @@ export class ExtendedFormsComponent implements OnInit {
       {value: 'ditto-5', viewValue: 'Ditto'},
       {value: 'psyduck-6', viewValue: 'Psyduck'},
     ];
-      foods = [
-        {value: 'steak-0', viewValue: 'Steak'},
-        {value: 'pizza-1', viewValue: 'Pizza'},
-        {value: 'tacos-2', viewValue: 'Tacos'}
-      ];
+
     ngOnInit() {
         //  Init Bootstrap Select Picker
         if ($('.selectpicker').length !== 0) {

@@ -297,6 +297,14 @@ export const ROUTES: RouteInfo[] = [{
             {path: 'lock', title: 'Lock Screen Page', ab:'LSP'},
             {path: 'user', title: 'User Page', ab:'UP'}
         ]
+    },{
+        path: '/documentation/tutorial',
+        title: 'Documentation',
+        type: 'link',
+        icontype: 'school',
+        children: [
+            { path: 'tutorial', title: '', ab: ''}
+        ]
     }
 ];
 @Component({

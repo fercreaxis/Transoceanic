@@ -11,6 +11,7 @@ declare var $: any;
 export class AppComponent implements OnInit {
     constructor(private elRef: ElementRef) {}
     ngOnInit() {
+        $.material.init();
         const body = document.getElementsByTagName('body')[0];
         const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
         if (isWindows) {
