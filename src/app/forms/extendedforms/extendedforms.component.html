@@ -86,13 +86,18 @@
                             <div class="col-md-6">
                                 <legend>Customisable Select</legend>
                                 <form>
-                                  <md-select placeholder="Favorite food" [(ngModel)]="selectedValue" name="food">
-                                    <md-option *ngFor="let food of foods" [value]="food.value">
-                                      {{food.viewValue}}
+                                    <md-select multiple [color]="pokemonTheme" placeholder="Pokemon" [(ngModel)]="currentPokemon" name="creature">
+                                      <md-option *ngFor="let creature of pokemon" [value]="creature.value">
+                                        {{ creature.viewValue }}
+                                      </md-option>
+                                    </md-select>
+                                     <p> Selected value: {{currentPokemon}} </p>
+
+                                  <md-select [color]="pokemonTheme" placeholder="Pokemon" name="creature" ngClass="btn btn-primary btn-round simple">
+                                    <md-option *ngFor="let creature of pokemon" [value]="creature.value">
+                                      {{ creature.viewValue }}
                                     </md-option>
                                   </md-select>
-
-                                  <p> Selected value: {{selectedValue}} </p>
                                 </form>
                                 <div class="row">
                                     <div class="col-lg-5 col-md-6 col-sm-3">

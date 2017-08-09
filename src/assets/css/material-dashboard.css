@@ -4885,9 +4885,6 @@ be a descendant of the grid when it is being dragged.
   stroke: #e91e63 !important;
 }
 
-body .mat-select-panel {
-  background-color: #ffffff;
-}
 body .mat-select-trigger, body .mat-option {
   font-size: 16px;
 }
@@ -4903,19 +4900,49 @@ body .mat-select-placeholder {
 body .mat-select-value {
   bottom: 6px;
 }
-body .mat-select-placeholder.mat-floating-placeholder {
-  top: -15px !important;
-  left: 0 !important;
-}
 body .mat-select-underline {
   bottom: 1px;
+  background-color: rgba(0, 0, 0, 0.12);
 }
 body .app-dark .mat-select-panel {
   background-color: #ffffff;
 }
 
+.mat-select-placeholder {
+  position: relative;
+  padding: 0 2px;
+  transform-origin: left top;
+  flex-grow: 1;
+}
+
+.mat-select-disabled .mat-select-value, .mat-select-trigger {
+  color: #3C4858 !important;
+}
+
+.mat-select-arrow {
+  display: none;
+}
+
+.mat-pseudo-checkbox {
+  border: none !important;
+}
+
+.mat-select-content, .mat-select-panel-done-animating {
+  background: white;
+}
+
 .mat-option {
   color: rgba(0, 0, 0, 0.87);
+  transition: all 150ms linear;
+}
+
+.mat-option:hover:not(.mat-option-disabled), .mat-option:focus:not(.mat-option-disabled) {
+  background-color: #9c27b0;
+  color: #FFFFFF;
+}
+
+.mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-trigger, .mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-arrow, .mat-select:not(:focus).ng-invalid.ng-touched:not(.mat-select-disabled) .mat-select-trigger, .mat-select:not(:focus).ng-invalid.ng-touched:not(.mat-select-disabled) .mat-select-arrow {
+  color: #f44336;
 }
 
 .mat-option {
@@ -4931,11 +4958,40 @@ body .app-dark .mat-select-panel {
   position: relative;
   cursor: pointer;
   outline: none;
+  margin: 0 5px;
+  border-radius: 2px;
+}
+.mat-option span {
+  float: right;
 }
 
 .mat-option {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 16px;
+}
+.mat-option .mat-option-ripple.mat-ripple {
+  display: none;
+}
+
+.mat-option.mat-selected:not(.mat-option-multiple) {
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+}
+
+.simple .mat-select-trigger {
+  margin: 0;
+  padding-bottom: 0;
+  color: #ffffff !important;
+  font-size: 12px !important;
+}
+.simple .mat-select-arrow {
+  display: block;
+  float: right;
+}
+.simple .mat-select-underline {
+  display: none;
+}
+.simple .mat-select-placeholder.mat-floating-placeholder {
+  opacity: 0 !important;
 }
 
 /*!
