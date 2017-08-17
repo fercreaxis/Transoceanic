@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
-import { DocumentationComponent } from './layouts/documentation/documentation.component';
 
 export const AppRoutes: Routes = [
     {
@@ -54,12 +53,5 @@ export const AppRoutes: Routes = [
         path: 'pages',
         loadChildren: './pages/pages.module#PagesModule'
       }]
-    }, {
-        path: '',
-        component: DocumentationComponent,
-        children: [{
-            path: 'documentation',
-            loadChildren: './documentation/documentation.module#DocumentationModule'
-        }]
     }
 ];
