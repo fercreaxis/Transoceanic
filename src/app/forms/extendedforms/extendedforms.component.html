@@ -8,11 +8,6 @@
                     </div>
                     <div class="card-content">
                         <h4 class="card-title">Datepicker I</h4>
-                            <div class="checkbox" >
-                                <label>
-                                    <input type="checkbox" name="optionsCheckboxes" [(ngModel)]="touch"> Use touch UI
-                                </label>
-                            </div>
                             <button [mdDatepickerToggle]="resultPicker"></button>
                             <md-input-container>
                               <input mdInput
@@ -85,7 +80,7 @@
                             </div>
                             <div class="col-md-6">
                                 <legend>Customisable Select</legend>
-                                
+
                                 <div class="row">
                                     <div class="col-lg-5 col-md-6 col-sm-3">
                                         <md-select multiple [color]="pokemonTheme" placeholder="Pokemon" [(ngModel)]="currentPokemon" name="creature">

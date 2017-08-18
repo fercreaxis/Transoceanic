@@ -2050,9 +2050,6 @@ svg {
   color: grey;
 }
 
-.mat-input-placeholder {
-  top: 0.75em;
-}
 .mat-input-placeholder.mat-float:not(.mat-empty), .mat-focused .mat-input-placeholder.mat-float {
   transform: translateY(-0.75em) scale(0.75) perspective(100px) translateZ(0.001px);
   -ms-transform: translateY(-0.75em) scale(0.75);
@@ -5625,55 +5622,6 @@ h2.title {
   color: #999999;
 }
 
-.sidebar-moving-tab {
-  position: absolute;
-  padding: 10px 15px;
-  top: 0px;
-  left: 0px;
-  border-radius: 3px;
-  color: #FFFFFF;
-  cursor: pointer;
-  margin: 10px 15px;
-  width: 230px;
-  display: none;
-  -webkit-transition: transform 0.6s cubic-bezier(0.29, 1.35, 0.79, 1);
-  -moz-transition: transform 0.6s cubic-bezier(0.29, 1.35, 0.79, 1);
-  -o-transition: transform 0.6s cubic-bezier(0.29, 1.35, 0.79, 1);
-  -ms-transition: transform 0.6s cubic-bezier(0.29, 1.35, 0.79, 1);
-  transition: transform 0.6s cubic-bezier(0.29, 1.35, 0.79, 1);
-}
-.sidebar-moving-tab.moving {
-  display: block;
-  overflow: hidden;
-}
-.sidebar-moving-tab p {
-  margin: 0;
-  line-height: 30px;
-}
-.sidebar-moving-tab i {
-  font-size: 24px;
-  float: left;
-  margin-right: 15px;
-  line-height: 30px;
-  width: 30px;
-  text-align: center;
-  color: #FFFFFF;
-}
-.sidebar-moving-tab .sidebar-mini {
-  text-transform: uppercase;
-  width: 30px;
-  text-align: center;
-  letter-spacing: 1px;
-  position: absolute;
-  display: inherit;
-}
-.sidebar-moving-tab .sidebar-normal {
-  margin: 0;
-  margin-left: 45px;
-  opacity: 1;
-  white-space: nowrap;
-}
-
 .wrapper {
   position: relative;
   top: 0;
@@ -5689,6 +5637,9 @@ h2.title {
   width: 260px;
   background: #FFFFFF;
   box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+.sidebar[data-background-color="black"] {
+  background-color: #191919;
 }
 .sidebar .logo-img {
   width: 42px;
@@ -6015,59 +5966,31 @@ h2.title {
 .sidebar[data-background-color="red"] .nav li.active > [data-toggle="collapse"] {
   background-color: rgba(255, 255, 255, 0.1);
 }
-.sidebar[data-active-color="purple"] .sidebar-moving-tab {
+.sidebar[data-active-color="purple"] li.active > a {
   background-color: #9c27b0;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
 }
-.sidebar[data-active-color="purple"] li.active.visible > a {
-  background-color: #9c27b0;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
-}
-.sidebar[data-active-color="blue"] .sidebar-moving-tab {
+.sidebar[data-active-color="blue"] li.active > a {
   background-color: #00bcd4;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
 }
-.sidebar[data-active-color="blue"] li.active.visible > a {
-  background-color: #00bcd4;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
-}
-.sidebar[data-active-color="green"] .sidebar-moving-tab {
+.sidebar[data-active-color="green"] li.active > a {
   background-color: #4caf50;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(76, 175, 80, 0.4);
 }
-.sidebar[data-active-color="green"] li.active.visible > a {
-  background-color: #4caf50;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(76, 175, 80, 0.4);
-}
-.sidebar[data-active-color="orange"] .sidebar-moving-tab {
+.sidebar[data-active-color="orange"] li.active > a {
   background-color: #ff9800;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
 }
-.sidebar[data-active-color="orange"] li.active.visible > a {
-  background-color: #ff9800;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
-}
-.sidebar[data-active-color="red"] .sidebar-moving-tab {
+.sidebar[data-active-color="red"] li.active > a {
   background-color: #f44336;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
 }
-.sidebar[data-active-color="red"] li.active.visible > a {
-  background-color: #f44336;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
-}
-.sidebar[data-active-color="rose"] .sidebar-moving-tab {
+.sidebar[data-active-color="rose"] li.active > a {
   background-color: #e91e63;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
 }
-.sidebar[data-active-color="rose"] li.active.visible > a {
-  background-color: #e91e63;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
-}
-.sidebar[data-active-color="white"] .sidebar-moving-tab {
-  background-color: #FFFFFF;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 255, 255, 0.4);
-}
-.sidebar[data-active-color="white"] li.active.visible > a {
+.sidebar[data-active-color="white"] li.active > a {
   background-color: #FFFFFF;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 255, 255, 0.4);
 }
@@ -7706,7 +7629,7 @@ output {
 }
 @media (min-width: 768px) {
   .form-horizontal .form-group-lg .control-label {
-    padding-top: 13.0px;
+    padding-top: 13px;
     font-size: 18px;
   }
 }
@@ -8097,7 +8020,7 @@ label.control-label {
 }
 .form-group.form-group-lg label.control-label {
   font-size: 14px;
-  line-height: 1.0;
+  line-height: 1;
   color: #AAAAAA;
   font-weight: 400;
   margin: 16px 0 0 0;
@@ -8115,13 +8038,13 @@ label.control-label {
   top: -32px;
   left: 0;
   font-size: 14px;
-  line-height: 1.0;
+  line-height: 1;
 }
 .form-group.form-group-lg.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {
   top: -32px;
   left: 0;
   font-size: 14px;
-  line-height: 1.0;
+  line-height: 1;
 }
 
 select.form-control {

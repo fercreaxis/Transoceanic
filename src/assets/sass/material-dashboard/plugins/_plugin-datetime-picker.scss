@@ -191,7 +191,6 @@
   width: 100% / $font-scale;
 }
 .mat-input-placeholder {
-  top: 0.75em;
 
   // Show the placeholder above the input when it's not empty, or focused.
   &.mat-float:not(.mat-empty), .mat-focused &.mat-float {
