@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
     checkFullPageBackgroundImage() {
         const $page = $('.full-page');
-        
+
         const image_src = $page.data('image');
         console.log(image_src);
         if (image_src !== undefined) {
