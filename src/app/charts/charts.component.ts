@@ -8,12 +8,12 @@ import * as Chartist from 'chartist';
 })
 
 export class ChartsComponent implements OnInit {
-    startAnimationForLineChart(chart) {
-        let seq, delays, durations;
+    startAnimationForLineChart(chart: any) {
+        let seq: number, delays: number, durations: number;
         seq = 0;
         delays = 80;
         durations = 500;
-        chart.on('draw', function(data) {
+        chart.on('draw', function(data: any) {
 
           if (data.type === 'line' || data.type === 'area') {
             data.element.animate({
@@ -41,12 +41,12 @@ export class ChartsComponent implements OnInit {
 
         seq = 0;
     }
-    startAnimationForBarChart(chart) {
-        let seq2, delays2, durations2;
+    startAnimationForBarChart(chart: any) {
+        let seq2: number, delays2: number, durations2: number;
         seq2 = 0;
         delays2 = 80;
         durations2 = 500;
-        chart.on('draw', function(data) {
+        chart.on('draw', function(data: any) {
           if (data.type === 'bar') {
               seq2++;
               data.element.animate({
@@ -224,7 +224,7 @@ export class ChartsComponent implements OnInit {
           ['screen and (max-width: 640px)', {
             seriesBarDistance: 5,
             axisX: {
-              labelInterpolationFnc: function (value) {
+              labelInterpolationFnc: function (value: any) {
                 return value[0];
               }
             }
@@ -258,7 +258,7 @@ export class ChartsComponent implements OnInit {
           ['screen and (max-width: 640px)', {
             seriesBarDistance: 5,
             axisX: {
-              labelInterpolationFnc: function (value) {
+              labelInterpolationFnc: function (value: any) {
                 return value[0];
               }
             }

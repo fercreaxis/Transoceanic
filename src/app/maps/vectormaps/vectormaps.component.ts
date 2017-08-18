@@ -1,3 +1,5 @@
+// IMPORTANT: this is a plugin which requires jQuery for initialisation and data manipulation
+
 import { Component, OnInit } from '@angular/core';
 
 declare var $: any;
