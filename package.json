@@ -1,7 +1,7 @@
 {
   "name": "md-angular-cli-pro",
-  "version": "1.4.0-beta.0",
-  "license": "SEE LICENSE IN LICENSE.pdf",
+  "version": "1.4.0",
+  "license": "http://md-pro-angular2.creative-tim.com/documentation/tutorial",
   "repository": {
     "type": "git",
     "url": "https://github.com/creativetimofficial/material-dashboard-pro-angular.git"
@@ -46,7 +46,6 @@
     "datatables.net-bs": "1.10.12",
     "datatables.net-responsive": "2.1.1",
     "eonasdan-bootstrap-datetimepicker": "4.17.47",
-    "express": "^4.15.3",
     "fullcalendar": "3.4.0",
     "googleapis": "19.0.0",
     "jasny-bootstrap": "^3.1.3",
