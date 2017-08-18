@@ -17,23 +17,26 @@ declare const $: any;
 export class ExtendedFormsComponent implements OnInit {
     simpleSlider = 40;
     doubleSlider = [20, 60];
+
     regularItems = ['Pizza', 'Pasta', 'Parmesan'];
     touch: boolean;
+
     selectedValue: string;
-    currentPokemon: string[];
-    pokemonTheme = 'primary';
-    pokemon = [
-      {value: 'bulbasaur-0', viewValue: 'Bulbasaur'},
-      {value: 'charizard-1', viewValue: 'Charizard'},
-      {value: 'squirtle-2', viewValue: 'Squirtle'},
-      {value: 'pikachu-3', viewValue: 'Pikachu'},
-      {value: 'eevee-4', viewValue: 'Eevee'},
-      {value: 'ditto-5', viewValue: 'Ditto'},
-      {value: 'psyduck-6', viewValue: 'Psyduck'},
+    currentCity: string[];
+
+    selectTheme = 'primary';
+    cities = [
+      {value: 'paris-0', viewValue: 'Paris'},
+      {value: 'miami-1', viewValue: 'Miami'},
+      {value: 'bucharest-2', viewValue: 'Bucharest'},
+      {value: 'new-york-3', viewValue: 'New York'},
+      {value: 'london-4', viewValue: 'London'},
+      {value: 'barcelona-5', viewValue: 'Barcelona'},
+      {value: 'moscow-6', viewValue: 'Moscow'},
     ];
 
     ngOnInit() {}
-    myFunc(val: any) {
-    console.log('value is changed to ' + val);
-  }
+        myFunc(val: any) {
+            console.log('value is changed to ' + val);
+        }
 }

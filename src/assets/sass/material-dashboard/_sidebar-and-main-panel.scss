@@ -146,8 +146,8 @@
                 }
             }
 
-            &.active.visible > a,
-            &.active.visible > a i{
+            &.active > a,
+            &.active > a i{
                 color: $white-color;
             }
 

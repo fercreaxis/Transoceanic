@@ -1,36 +1,36 @@
-body {
-  .mat-select-trigger, .mat-option {
+.mat-select{
+    width: 100%;
+}
+.mat-select-trigger,
+.mat-option {
     font-size: 16px;
-  }
-  .mat-select-trigger {
-    height: 22px;
+}
+.mat-select-trigger {
+    height: 22px !important;
     //margin: 13px 0;
-
     margin: 1em 0;
     padding-bottom: 6px;
-  }
-  .mat-select-placeholder {
+}
+.mat-select-placeholder {
     line-height: normal;
     padding: 0;
-  }
-  .mat-select-value {
-    bottom: 6px;
-  }
-  .mat-select-value-text {
-    //line-height: normal;
-  }
-  // .mat-select-placeholder.mat-floating-placeholder {
-  //   // top: -15px!important;
-  //   // left: 0!important;
-  // }
-  .mat-select-underline {
+}
+
+.mat-select-value-text {
+//line-height: normal;
+}
+// .mat-select-placeholder.mat-floating-placeholder {
+//   // top: -15px!important;
+//   // left: 0!important;
+// }
+.mat-select-underline {
     bottom: 1px;
     background-color: rgba(0, 0, 0, 0.12);
-  }
-  .app-dark .mat-select-panel {
-    background-color: #ffffff;
-  }
 }
+.app-dark .mat-select-panel {
+    background-color: #ffffff;
+}
+
 .mat-select-placeholder {
     position: relative;
     padding: 0 2px;
@@ -66,9 +66,11 @@ body {
     //     color: #FFFFFF;
     // }
 }
-.mat-option:hover:not(.mat-option-disabled), .mat-option:focus:not(.mat-option-disabled){
-    background-color: #9c27b0;
+.mat-option:hover:not(.mat-option-disabled),
+.mat-option:focus:not(.mat-option-disabled){
+    background-color: $brand-primary;
     color: #FFFFFF;
+    @include shadow-big-color($brand-primary);
 }
 .mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-trigger, .mat-select:focus:not(.mat-select-disabled).mat-warn .mat-select-arrow, .mat-select:not(:focus).ng-invalid.ng-touched:not(.mat-select-disabled) .mat-select-trigger, .mat-select:not(:focus).ng-invalid.ng-touched:not(.mat-select-disabled) .mat-select-arrow {
     color: #f44336;
