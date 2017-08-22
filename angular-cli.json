@@ -75,7 +75,12 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
-  }
+      "styleExt": "scss",
+      "prefixInterfaces": false,
+      "inline":
+       { "style":
+           false,
+           "template": false
+       }
+   }
 }
