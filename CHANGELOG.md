@@ -52,4 +52,6 @@ v1.4.0 - 18 August 2017 - Major Changes Angular 4
 - Fixed error for prod build
 - Small bug fixes and performance improvements
 
+v1.4.1 - 23 August 2017 - Small fixes
+
 Info: more jQuery plugins will be replaced as soon as the community will release stable versions for FullCalendar, VectorMaps, DataTable.net and Wizard. Without these plugins the product is working without jQuery.
