@@ -26,7 +26,6 @@ export class AdminLayoutComponent implements OnInit {
     ngOnInit() {
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
           this.navbar.sidebarClose();
-          document.querySelector('.main-panel').scrollTop = 0;
         });
         const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
         if (isWindows) {
