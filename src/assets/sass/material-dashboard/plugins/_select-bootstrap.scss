@@ -120,13 +120,12 @@
         display: none;
     }
     .mat-select-placeholder.mat-floating-placeholder{
-        opacity: 0 !important;
+        opacity: 1 !important;
+        color: #3f3f3f;
+        margin-top: -25px;
     }
 }
-// .mat-option.mat-selected.mat-primary, .mat-primary .mat-option.mat-selected {
-//     background-color: #9c27b0;
-//     color: #FFFFFF;
-// }
+
 /*!
  * Bootstrap-select v1.11.2 (http://silviomoreto.github.io/bootstrap-select)
  *

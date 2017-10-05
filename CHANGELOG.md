@@ -1,3 +1,15 @@
+## [1.4.3] - 2017-10-05
+### Small fixes
+- added jvectormap in node_modules
+- added jquery-validate in node_modules
+- added sweetalert2 in node_modules
+- added perfect-scrollbar in node_modules
+- added all required css and scss files in angular-cli.json
+- fixed tags scss problems
+- fixed selectpicker problem
+- added ripples effect
+- added scrooltop when changing route
+
 ## [1.4.2] - 2017-09-19
 ### Small fixes
 - fixed datepicker
