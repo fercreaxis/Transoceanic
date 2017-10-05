@@ -6,9 +6,10 @@
 - added perfect-scrollbar in node_modules
 - added all required css and scss files in angular-cli.json
 - fixed tags scss problems
-- fixed selectpicker problem
+- fixed select picker problem
 - added ripples effect
 - added scrooltop when changing route
+- added caret for selectpicker form-control style
 
 ## [1.4.2] - 2017-09-19
 ### Small fixes
