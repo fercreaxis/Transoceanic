@@ -54,14 +54,14 @@
                         <legend>Customisable Select</legend>
 
                         <div class="row">
-                            <div class="col-lg-5 col-md-6 col-sm-3">
+                            <div class="col-lg-5 col-md-8 col-sm-4">
                                 <md-select multiple [color]="selectTheme" placeholder="Multiple Cities" [(ngModel)]="currentCity" name="city">
                                     <md-option *ngFor="let city of cities" [value]="city.value">
                                         {{ city.viewValue }}
                                     </md-option>
                                 </md-select>
                             </div>
-                            <div class="col-lg-5 col-md-6 col-sm-3">
+                            <div class="col-lg-5 col-md-8 col-sm-4">
                                 <md-select [color]="selectTheme" placeholder="Single City" name="city" ngClass="btn btn-primary btn-round simple">
                                   <md-option *ngFor="let city of cities" [value]="city.value">
                                     {{ city.viewValue }}
