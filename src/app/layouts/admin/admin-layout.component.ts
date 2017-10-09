@@ -1,10 +1,11 @@
-import { Component, OnInit, OnDestroy, ViewChild, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, HostListener, AfterViewInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { NavItem, NavItemType } from '../../md/md.module';
 import { Subscription } from 'rxjs/Subscription';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import 'rxjs/add/operator/filter';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
+import * as Ps from 'perfect-scrollbar';
 
 declare const $: any;
 
@@ -13,26 +14,31 @@ declare const $: any;
   templateUrl: './admin-layout.component.html'
 })
 
-export class AdminLayoutComponent implements OnInit {
+export class AdminLayoutComponent implements OnInit, AfterViewInit {
     public navItems: NavItem[];
     private _router: Subscription;
     url: string;
     location: Location;
+    compactSidebar: boolean;
+
     @ViewChild('sidebar') sidebar: any;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
     constructor( private router: Router, location: Location ) {
       this.location = location;
     }
     ngOnInit() {
+        const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
+        const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
+
+        if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac() && !this.compactSidebar) {
+            Ps.initialize(elemSidebar, { wheelSpeed: 2, suppressScrollX: true });
+            Ps.initialize(elemMainPanel, { wheelSpeed: 2, suppressScrollX: true });
+        }
+
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
           this.navbar.sidebarClose();
         });
-        const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
-        if (isWindows) {
-           // if we are on windows OS we activate the perfectScrollbar function
-            const $main_panel = $('.main-panel');
-            $main_panel.perfectScrollbar();
-        }
+        
         this.navItems = [
           { type: NavItemType.NavbarLeft, title: 'Dashboard', iconClass: 'fa fa-dashboard' },
 
@@ -82,11 +88,28 @@ export class AdminLayoutComponent implements OnInit {
           { type: NavItemType.NavbarLeft, title: 'Log out' }
         ];
     }
+    ngAfterViewInit() {
+        this.runOnRouteChange();
+    }
     public isMap() {
         if (this.location.prepareExternalUrl(this.location.path()) === '/maps/fullscreen') {
             return true;
         } else {
             return false;
         }
+    }
+    runOnRouteChange(): void {
+
+      if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac() && !this.compactSidebar) {
+        const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
+        Ps.update(elemMainPanel);
+      }
+    }
+    isMac(): boolean {
+      let bool = false;
+      if (navigator.platform.toUpperCase().indexOf('MAC') >= 0 || navigator.platform.toUpperCase().indexOf('IPAD') >= 0) {
+        bool = true;
+      }
+      return bool;
     }
 }
