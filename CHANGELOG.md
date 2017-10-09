@@ -1,3 +1,7 @@
+## [1.4.4] - 2017-10-09
+### Small fixes
+- fixed perfect-scrollbar
+
 ## [1.4.3] - 2017-10-05
 ### Small fixes
 - added jvectormap in node_modules
