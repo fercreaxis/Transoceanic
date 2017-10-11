@@ -284,11 +284,10 @@
         }
     }
 
-    .content{
+    .container{
         position: relative;
         z-index: 3;
         padding-top: 15vh;
-        min-height: calc(100vh - 80px);
     }
 
     .footer{
