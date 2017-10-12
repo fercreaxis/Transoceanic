@@ -6,32 +6,32 @@
                 <div class="row">
                     <div class="col-md-6">
                         <legend>Datepicker</legend>
-                        <md-datepicker-toggle mdSuffix [for]="resultPicker">
-                        </md-datepicker-toggle>
-                        <md-input-container>
-                            <input mdInput
-                                [mdDatepicker]="resultPicker"
+                        <mat-datepicker-toggle matSuffix [for]="resultPicker">
+                        </mat-datepicker-toggle>
+                        <mat-input-container>
+                            <input matInput
+                                [matDatepicker]="resultPicker"
                                 placeholder="Pick a day">
-                        </md-input-container>
-                        <md-datepicker
+                        </mat-input-container>
+                        <mat-datepicker
                             #resultPicker
                             [touchUi]="touch"
                             [startView]="'month'">
-                        </md-datepicker>
+                        </mat-datepicker>
                     </div>
                     <div class="col-md-6">
                         <legend>Datepicker Year</legend>
-                        <md-datepicker-toggle mdSuffix [for]="datepickerYear">
-                        </md-datepicker-toggle>
-                        <md-input-container>
-                          <input mdInput
-                                 [mdDatepicker]="datepickerYear"
+                        <mat-datepicker-toggle matSuffix [for]="datepickerYear">
+                        </mat-datepicker-toggle>
+                        <mat-input-container>
+                          <input matInput
+                                 [matDatepicker]="datepickerYear"
                                  placeholder="Pick a year">
-                        </md-input-container>
-                        <md-datepicker
+                        </mat-input-container>
+                        <mat-datepicker
                             #datepickerYear
                             [startView]="'year'">
-                        </md-datepicker>
+                        </mat-datepicker>
                     </div>
                 </div>
                 <br>
@@ -55,18 +55,23 @@
 
                         <div class="row">
                             <div class="col-lg-5 col-md-8 col-sm-4">
-                                <md-select multiple [color]="selectTheme" placeholder="Multiple Cities" [(ngModel)]="currentCity" name="city">
-                                    <md-option *ngFor="let city of cities" [value]="city.value">
-                                        {{ city.viewValue }}
-                                    </md-option>
-                                </md-select>
+                                <form >
+                                    <mat-form-field>
+                                        <mat-select multiple placeholder="Multiple Cities" [(ngModel)]="currentCity" name="city">
+                                            <mat-option *ngFor="let city of cities" [value]="city.value">
+                                                {{ city.viewValue }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </form>
+
                             </div>
                             <div class="col-lg-5 col-md-8 col-sm-4">
-                                <md-select [color]="selectTheme" placeholder="Single City" name="city" ngClass="btn btn-primary btn-round simple">
-                                  <md-option *ngFor="let city of cities" [value]="city.value">
+                                <mat-select placeholder="Single City" name="city" ngClass="btn btn-primary btn-round simple">
+                                  <mat-option *ngFor="let city of cities" [value]="city.value">
                                     {{ city.viewValue }}
-                                  </md-option>
-                                </md-select>
+                                  </mat-option>
+                                </mat-select>
                             </div>
                         </div>
                     </div>
