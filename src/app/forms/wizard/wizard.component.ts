@@ -55,9 +55,9 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
             'nextSelector': '.btn-next',
             'previousSelector': '.btn-previous',
 
-            onNext: function(tab: any, navigation: any, index: any) {
-                const $valid = $('.wizard-card form').valid();
-                if (!$valid) {
+            onNext: function(tab, navigation, index) {
+                var $valid = $('.wizard-card form').valid();
+                if(!$valid) {
                     $validator.focusInvalid();
                     return false;
                 }
@@ -66,43 +66,55 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
             onInit: function(tab: any, navigation: any, index: any){
 
               // check number of tabs and fill the entire row
-              const $total = navigation.find('li').length;
-              let  $width = 100 / $total;
-              const $wizard = navigation.closest('.wizard-card');
+              let $total = navigation.find('li').length;
+              let $wizard = navigation.closest('.wizard-card');
 
-              const $display_width = $(document).width();
+              let $first_li = navigation.find('li:first-child a').html();
+              let $moving_div = $('<div class="moving-tab">' + $first_li + '</div>');
+              $('.wizard-card .wizard-navigation').append($moving_div);
 
-              if ($display_width < 600 && $total > 3) {
-                  $width = 50;
+              $total = $wizard.find('.nav li').length;
+             let  $li_width = 100/$total;
+
+              let total_steps = $wizard.find('.nav li').length;
+              let move_distance = $wizard.width() / total_steps;
+              let index_temp = index;
+              let vertical_level = 0;
+
+              let mobile_device = $(document).width() < 600 && $total > 3;
+
+              if(mobile_device){
+                  move_distance = $wizard.width() / 2;
+                  index_temp = index % 2;
+                  $li_width = 50;
               }
 
-               navigation.find('li').css('width', $width + '%');
-               const $first_li = navigation.find('li:first-child a').html();
-               const $moving_div = $('<div class="moving-tab">' + $first_li + '</div>');
-               $('.wizard-card .wizard-navigation').append($moving_div);
+              $wizard.find('.nav li').css('width',$li_width + '%');
 
-            // this.refreshAnimation($wizard, index);
-            const total_steps = $wizard.find('li').length;
-            let move_distance = $wizard.width() / total_steps;
-            const step_width = move_distance;
-            move_distance *= index;
+              let step_width = move_distance;
+              move_distance = move_distance * index_temp;
 
-            const $current = index + 1;
+              let $current = index + 1;
 
-            if ($current === 1) {
-                move_distance -= 8;
-            } else if ($current === total_steps) {
-                move_distance += 8;
-            }
+              if($current == 1 || (mobile_device == true && (index % 2 == 0) )){
+                  move_distance -= 8;
+              } else if($current == total_steps || (mobile_device == true && (index % 2 == 1))){
+                  move_distance += 8;
+              }
 
-            $wizard.find('.moving-tab').css('width', step_width);
-            $('.moving-tab').css({
-                'transform': 'translate3d(' + move_distance + 'px, 0, 0)',
-                'transition': 'all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1)'
+              if(mobile_device){
+                  let x: any = index / 2;
+                  vertical_level = parseInt(x);
+                  vertical_level = vertical_level * 38;
+              }
 
-            });
+              $wizard.find('.moving-tab').css('width', step_width);
+              $('.moving-tab').css({
+                  'transform':'translate3d(' + move_distance + 'px, ' + vertical_level +  'px, 0)',
+                  'transition': 'all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1)'
 
-               $('.moving-tab').css('transition', 'transform 0s');
+              });
+              $('.moving-tab').css('transition','transform 0s');
            },
 
             onTabClick : function(tab: any, navigation: any, index: any){
@@ -117,7 +129,7 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
             },
 
             onTabShow: function(tab: any, navigation: any, index: any) {
-                const $total = navigation.find('li').length;
+                let $total = navigation.find('li').length;
                 let $current = index + 1;
 
                 const $wizard = navigation.closest('.wizard-card');
@@ -141,35 +153,56 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
 
                 if ( index !== 0 ) {
                     $(checkbox).css({
-                        'opacity': '0',
-                        'visibility': 'hidden',
-                        'position': 'absolute'
+                        'opacity':'0',
+                        'visibility':'hidden',
+                        'position':'absolute'
                     });
                 } else {
                     $(checkbox).css({
-                        'opacity': '1',
-                        'visibility': 'visible'
+                        'opacity':'1',
+                        'visibility':'visible'
                     });
                 }
+                $total = $wizard.find('.nav li').length;
+               let  $li_width = 100/$total;
 
-                // this.refreshAnimation($wizard, index);
-                const total_steps = $wizard.find('li').length;
+                let total_steps = $wizard.find('.nav li').length;
                 let move_distance = $wizard.width() / total_steps;
-                const step_width = move_distance;
-                move_distance *= index;
+                let index_temp = index;
+                let vertical_level = 0;
+
+                let mobile_device = $(document).width() < 600 && $total > 3;
+
+                if(mobile_device){
+                    move_distance = $wizard.width() / 2;
+                    index_temp = index % 2;
+                    $li_width = 50;
+                }
+
+                $wizard.find('.nav li').css('width',$li_width + '%');
+
+                let step_width = move_distance;
+                move_distance = move_distance * index_temp;
 
                 $current = index + 1;
 
-                if ($current === 1) {
+                if($current == 1 || (mobile_device == true && (index % 2 == 0) )){
                     move_distance -= 8;
-                } else if ($current === total_steps) {
+                } else if($current == total_steps || (mobile_device == true && (index % 2 == 1))){
                     move_distance += 8;
+                }
+
+                if(mobile_device){
+                    let x: any = index / 2;
+                    vertical_level = parseInt(x);
+                    vertical_level = vertical_level * 38;
                 }
 
                 $wizard.find('.moving-tab').css('width', step_width);
                 $('.moving-tab').css({
-                    'transform': 'translate3d(' + move_distance + 'px, 0, 0)',
+                    'transform':'translate3d(' + move_distance + 'px, ' + vertical_level +  'px, 0)',
                     'transition': 'all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1)'
+
                 });
             }
         });
@@ -219,24 +252,44 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
 
             const $wizard = $(this);
             const index = $wizard.bootstrapWizard('currentIndex');
-            // this.refreshAnimation($wizard, index);
+            let $total = $wizard.find('.nav li').length;
+           let  $li_width = 100/$total;
 
-            const total_steps = $wizard.find('li').length;
+            let total_steps = $wizard.find('.nav li').length;
             let move_distance = $wizard.width() / total_steps;
-            const step_width = move_distance;
-            move_distance *= index;
+            let index_temp = index;
+            let vertical_level = 0;
 
-            const $current = index + 1;
+            let mobile_device = $(document).width() < 600 && $total > 3;
 
-            if ($current === 1) {
+            if(mobile_device){
+                move_distance = $wizard.width() / 2;
+                index_temp = index % 2;
+                $li_width = 50;
+            }
+
+            $wizard.find('.nav li').css('width',$li_width + '%');
+
+            let step_width = move_distance;
+            move_distance = move_distance * index_temp;
+
+            let $current = index + 1;
+
+            if($current == 1 || (mobile_device == true && (index % 2 == 0) )){
                 move_distance -= 8;
-            } else if ($current === total_steps) {
+            } else if($current == total_steps || (mobile_device == true && (index % 2 == 1))){
                 move_distance += 8;
+            }
+
+            if(mobile_device){
+                let x: any = index / 2;
+                vertical_level = parseInt(x);
+                vertical_level = vertical_level * 38;
             }
 
             $wizard.find('.moving-tab').css('width', step_width);
             $('.moving-tab').css({
-                'transform': 'translate3d(' + move_distance + 'px, 0, 0)',
+                'transform':'translate3d(' + move_distance + 'px, ' + vertical_level +  'px, 0)',
                 'transition': 'all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1)'
 
             });
