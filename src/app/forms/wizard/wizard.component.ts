@@ -6,6 +6,7 @@ declare const $: any;
 interface FileReaderEventTarget extends EventTarget {
     result: string;
 }
+
 interface FileReaderEvent extends Event {
     target: FileReaderEventTarget;
     getMessage(): string;
@@ -16,16 +17,7 @@ interface FileReaderEvent extends Event {
 })
 
 export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
-    readURL(input: any) {
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
 
-            reader.onload = function (e: FileReaderEvent) {
-                $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
     ngOnInit() {
         // Code for the Validator
         const $validator = $('.wizard-card form').validate({
@@ -210,7 +202,16 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
 
         // Prepare the preview for profile picture
         $('#wizard-picture').change(function(){
-            this.readURL(this);
+            const input = $(this);
+
+            if (input[0].files && input[0].files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function (e: FileReaderEvent) {
+                    $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+                };
+                reader.readAsDataURL(input[0].files[0]);
+            }
         });
 
         $('[data-toggle="wizard-radio"]').click(function(){
@@ -237,14 +238,14 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
 
     ngOnChanges(changes: SimpleChanges) {
         const input = $(this);
-        const target: EventTarget = null;
-        if (input.files && input.files[0]) {
+
+        if (input[0].files && input[0].files[0]) {
             const reader: any = new FileReader();
 
-            reader.onload = function (e: any) {
+            reader.onload = function (e: FileReaderEvent) {
                 $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
             };
-            reader.readAsDataURL(input.files[0]);
+            reader.readAsDataURL(input[0].files[0]);
         }
     }
     ngAfterViewInit() {
