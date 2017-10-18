@@ -9,7 +9,7 @@ export interface RouteInfo {
     title: string;
     type: string;
     icontype: string;
-    // icon: string;
+    collapse?: string;
     children?: ChildrenItems[];
 }
 
@@ -31,6 +31,7 @@ export const ROUTES: RouteInfo[] = [{
         title: 'Components',
         type: 'sub',
         icontype: 'apps',
+        collapse: 'components',
         children: [
             {path: 'buttons', title: 'Buttons', ab:'B'},
             {path: 'grid', title: 'Grid System', ab:'GS'},
@@ -45,6 +46,7 @@ export const ROUTES: RouteInfo[] = [{
         title: 'Forms',
         type: 'sub',
         icontype: 'content_paste',
+        collapse: 'forms',
         children: [
             {path: 'regular', title: 'Regular Forms', ab:'RF'},
             {path: 'extended', title: 'Extended Forms', ab:'EF'},
@@ -56,6 +58,7 @@ export const ROUTES: RouteInfo[] = [{
         title: 'Tables',
         type: 'sub',
         icontype: 'grid_on',
+        collapse: 'tables',
         children: [
             {path: 'regular', title: 'Regular Tables', ab:'RT'},
             {path: 'extended', title: 'Extended Tables', ab:'ET'},
@@ -66,6 +69,7 @@ export const ROUTES: RouteInfo[] = [{
         title: 'Maps',
         type: 'sub',
         icontype: 'place',
+        collapse: 'maps',
         children: [
             {path: 'google', title: 'Google Maps', ab:'GM'},
             {path: 'fullscreen', title: 'Full Screen Map', ab:'FSM'},
@@ -93,6 +97,7 @@ export const ROUTES: RouteInfo[] = [{
         title: 'Pages',
         type: 'sub',
         icontype: 'image',
+        collapse: 'pages',
         children: [
             {path: 'pricing', title: 'Pricing', ab:'P'},
             {path: 'timeline', title: 'Timeline Page', ab:'TP'},
