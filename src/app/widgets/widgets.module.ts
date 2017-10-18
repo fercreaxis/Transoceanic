@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { LbdTableComponent } from '../lbd/lbd-table/lbd-table.component';
+import { MaterialModule } from '../app.module';
 
 import { WidgetsComponent } from './widgets.component';
 import { WidgetsRoutes } from './widgets.routing';
@@ -11,7 +11,8 @@ import { WidgetsRoutes } from './widgets.routing';
     imports: [
         RouterModule.forChild(WidgetsRoutes),
         CommonModule,
-        FormsModule
+        FormsModule,
+        MaterialModule
     ],
     declarations: [WidgetsComponent]
 })

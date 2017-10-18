@@ -29,8 +29,7 @@ export class ExtendedTableComponent implements OnInit {
     public tableData2: TableData2;
     public tableData3: TableData;
     ngOnInit() {
-        // Init Tooltips
-        // $('[rel="tooltip"]').tooltip();
+        
         this.tableData1 = {
             headerRow: [ '#', 'Name', 'Job Position', 'Since', 'Salary', 'Actions'],
             dataRows: [

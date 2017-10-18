@@ -221,7 +221,5 @@ export class DashboardComponent implements OnInit, AfterViewInit {
                });
            });
        }
-       //  Activate the tooltips
-       $('[rel="tooltip"]').tooltip();
    }
 }

@@ -102,8 +102,5 @@ export class DataTableComponent implements OnInit, AfterViewInit {
         table.on( 'click', '.like', function () {
             alert('You clicked on Like button');
         });
-
-        //  Activate the tooltips
-        $('[rel="tooltip"]').tooltip();
     }
 }

@@ -41,13 +41,13 @@
                                         <td>{{row[3]}}</td>
                                         <td>{{row[4]}}</td>
                                         <td class="text-right">
-                                            <button class="btn btn-simple btn-info btn-icon like" rel="tooltip" title="Like" data-placement="left">
+                                            <button class="btn btn-simple btn-info btn-icon like"  matTooltip="Like" [matTooltipPosition]="'left'">
                                                 <i class="material-icons">favorite</i>
                                             </button>
-                                            <button class="btn btn-simple btn-warning btn-icon edit" rel="tooltip" title="Edit" data-placement="left">
+                                            <button class="btn btn-simple btn-warning btn-icon edit"  matTooltip="Edit" [matTooltipPosition]="'left'">
                                                 <i class="material-icons">dvr</i>
                                             </button>
-                                            <button class="btn btn-simple btn-danger btn-icon remove" rel="tooltip" title="Remove" data-placement="left">
+                                            <button class="btn btn-simple btn-danger btn-icon remove"  matTooltip="Remove" [matTooltipPosition]="'left'">
                                                 <i class="material-icons">close</i>
                                             </button>
                                         </td>

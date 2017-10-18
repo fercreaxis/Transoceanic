@@ -80,7 +80,7 @@ import { AppRoutes } from './app.routing';
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule,
+    MatTooltipModule
   ]
 })
 export class MaterialModule {}

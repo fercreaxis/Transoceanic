@@ -28,13 +28,13 @@
                                           <td>{{row[3]}}</td>
                                           <td class="text-right">&euro; {{row[4]}}</td>
                                           <td class="td-actions text-right">
-                                              <button type="button" rel="tooltip" class="btn btn-info {{row[5]}}">
+                                              <button type="button" class="btn btn-info {{row[5]}}">
                                                   <i class="material-icons">person</i>
                                               </button>
-                                              <button type="button" rel="tooltip" class="btn btn-success {{row[5]}}">
+                                              <button type="button" class="btn btn-success {{row[5]}}">
                                                   <i class="material-icons">edit</i>
                                               </button>
-                                              <button type="button" rel="tooltip" class="btn btn-danger {{row[5]}}">
+                                              <button type="button" class="btn btn-danger {{row[5]}}">
                                                   <i class="material-icons">close</i>
                                               </button>
                                           </td>
@@ -159,7 +159,7 @@
                                               <small>&euro;</small>{{row[8]}}
                                           </td>
                                           <td class="td-actions">
-                                              <button type="button" rel="tooltip" data-placement="left" title="Remove item" class="btn btn-simple">
+                                              <button type="button"  matTooltip="Remove item" [matTooltipPosition]="'left'" class="btn btn-simple">
                                                   <i class="material-icons">close</i>
                                               </button>
                                           </td>

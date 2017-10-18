@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TableData } from '../md/md-table/md-table.component';
 
 declare var $: any;
@@ -11,7 +11,7 @@ declare interface Task {
     templateUrl: 'widgets.component.html'
 })
 
-export class WidgetsComponent implements OnInit, AfterViewInit {
+export class WidgetsComponent implements OnInit {
     public tableData: TableData;
     public tasks1: Task[];
     public tasks2: Task[];
@@ -55,10 +55,5 @@ export class WidgetsComponent implements OnInit, AfterViewInit {
            { title: 'Sign contract for \'What are conference organizers afraid of?\'', checked: false }
        ];
 
-    }
-
-    ngAfterViewInit() {
-        //  Activate the tooltips
-        $('[rel="tooltip"]').tooltip();
     }
 }
