@@ -12,6 +12,7 @@ import { ExtendedFormsComponent } from './extendedforms/extendedforms.component'
 import { RegularFormsComponent } from './regularforms/regularforms.component';
 import { ValidationFormsComponent } from './validationforms/validationforms.component';
 import { WizardComponent } from './wizard/wizard.component';
+import { FieldErrorDisplayComponent } from './validationforms/field-error-display/field-error-display.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { WizardComponent } from './wizard/wizard.component';
       ExtendedFormsComponent,
       RegularFormsComponent,
       ValidationFormsComponent,
-      WizardComponent
+      WizardComponent,
+      FieldErrorDisplayComponent
   ]
 })
 

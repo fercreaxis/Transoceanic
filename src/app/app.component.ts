@@ -19,7 +19,9 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         $.material.options.autofill = true;
         $.material.init();
-        
+
+        var $main_panel = document.getElementsByClassName('main-panel');
+        console.log($main_panel);
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
           document.querySelector('.main-panel').scrollTop = 0;
         });
