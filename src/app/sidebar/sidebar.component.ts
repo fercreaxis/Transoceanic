@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Ps from 'perfect-scrollbar';
+import PerfectScrollbar from 'perfect-scrollbar';
 
 declare const $: any;
 
@@ -115,9 +115,8 @@ export const ROUTES: RouteInfo[] = [{
 
 export class SidebarComponent implements OnInit {
     public menuItems: any[];
-    compactSidebar: boolean;
 
-    isNotMobileMenu() {
+    isMobileMenu() {
         if ($(window).width() > 991) {
             return false;
         }
@@ -128,16 +127,16 @@ export class SidebarComponent implements OnInit {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
     }
     updatePS(): void  {
-      if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac() && !this.compactSidebar) {
-        const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
-        setTimeout(() => { Ps.update(elemSidebar) }, 350);
-      }
+        if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
+            const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
+            let ps = new PerfectScrollbar(elemSidebar, { wheelSpeed: 2, suppressScrollX: true });
+        }
     }
     isMac(): boolean {
-      let bool = false;
-      if (navigator.platform.toUpperCase().indexOf('MAC') >= 0 || navigator.platform.toUpperCase().indexOf('IPAD') >= 0) {
-        bool = true;
-      }
-      return bool;
+        let bool = false;
+        if (navigator.platform.toUpperCase().indexOf('MAC') >= 0 || navigator.platform.toUpperCase().indexOf('IPAD') >= 0) {
+            bool = true;
+        }
+        return bool;
     }
 }

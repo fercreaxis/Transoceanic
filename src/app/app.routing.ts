@@ -8,8 +8,7 @@ export const AppRoutes: Routes = [
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
-    },
-    {
+    }, {
       path: '',
       component: AdminLayoutComponent,
       children: [
@@ -44,9 +43,7 @@ export const AppRoutes: Routes = [
         path: '',
         loadChildren: './timeline/timeline.module#TimelineModule'
     }
-  ]
-    },
-    {
+  ]}, {
       path: '',
       component: AuthLayoutComponent,
       children: [{

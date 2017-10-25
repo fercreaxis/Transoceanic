@@ -1,9 +1,8 @@
-import { Component, OnInit, Inject, Renderer, ElementRef } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import { DOCUMENT } from '@angular/platform-browser';
-import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 declare var $: any;
 
 @Component({
@@ -14,16 +13,17 @@ declare var $: any;
 export class AppComponent implements OnInit {
     private _router: Subscription;
 
-    constructor( private renderer : Renderer, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {
-    }
+    constructor( private router: Router, @Inject(DOCUMENT,) private document: any) {}
+    
     ngOnInit() {
         $.material.options.autofill = true;
         $.material.init();
-
-        var $main_panel = document.getElementsByClassName('main-panel');
-        console.log($main_panel);
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
-          document.querySelector('.main-panel').scrollTop = 0;
+            if (window.outerWidth > 991) {
+                window.document.children[0].scrollTop = 0;
+            }else{
+                window.document.activeElement.scrollTop = 0;
+            }
         });
     }
 }
