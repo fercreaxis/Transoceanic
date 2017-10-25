@@ -1,3 +1,15 @@
+## [1.4.5] - 2017-10-25
+### Fixes
+- changed perfect-scrollbar v1.1.0
+- fixed forms validation (issues #74 #100)
+- fixed select picker
+- fixed warnings from npm install
+- fixed modal on small screens
+- added MatTooltips from material angular (issue #79)
+- fixed login page blank line on right (issue #106)
+- added collapse type for sidebar (issue #56)
+- fixed wizard (issues #114 #111)
+
 ## [1.4.4] - 2017-10-09
 ### Small fixes
 - fixed perfect-scrollbar
