@@ -14,9 +14,9 @@ export class AppComponent implements OnInit {
     private _router: Subscription;
 
     constructor( private router: Router, @Inject(DOCUMENT,) private document: any) {}
-    
+
     ngOnInit() {
-        $.material.options.autofill = true;
+        // $.material.options.autofill = true;
         $.material.init();
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
             if (window.outerWidth > 991) {

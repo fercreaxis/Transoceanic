@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
+import swal from 'sweetalert2';
 declare var $: any;
-declare var swal: any;
 
 @Component({
     selector: 'app-sweetalert-cmp',
@@ -96,10 +95,17 @@ export class SweetAlertComponent {
                 });
 
             } else if (type === 'auto-close') {
-            swal({ title: 'Auto close alert!',
-            text: 'I will close in 2 seconds.',
-                   timer: 2000,
-                   showConfirmButton: false
+            swal({  title: 'Auto close alert!',
+                    text: 'I will close in 2 seconds.',
+                    timer: 2000,
+                    showConfirmButton: false
+                }).then(
+                    function () {},
+                    // handling the promise rejection
+                    function (dismiss) {
+                    if (dismiss === 'timer') {
+                        console.log('I was closed by the timer')
+                    }
                 });
             } else if (type === 'input-field') {
             swal({
