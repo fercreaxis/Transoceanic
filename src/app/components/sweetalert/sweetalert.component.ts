@@ -14,14 +14,14 @@ export class SweetAlertComponent {
                 title: 'Here is a message!',
                 buttonsStyling: false,
                 confirmButtonClass: 'btn btn-success'
-            });
+            }).catch(swal.noop);
         } else if (type === 'title-and-text') {
             swal({
                 title: 'Here is a message!',
                 text: 'It is pretty, is not it?',
                 buttonsStyling: false,
                 confirmButtonClass: 'btn btn-info'
-            });
+            }).catch(swal.noop);
 
         } else if (type === 'success-message') {
             swal({
@@ -31,7 +31,7 @@ export class SweetAlertComponent {
                 buttonsStyling: false,
                 confirmButtonClass: 'btn btn-success'
 
-            });
+            }).catch(swal.noop);
 
         } else if (type === 'warning-message-and-confirmation') {
             swal({
@@ -51,7 +51,7 @@ export class SweetAlertComponent {
                     confirmButtonClass: 'btn btn-success',
                     buttonsStyling: false
                 });
-                });
+                }).catch(swal.noop);
             } else if (type === 'warning-message-and-cancel') {
             swal({
                     title: 'Are you sure?',
@@ -82,7 +82,7 @@ export class SweetAlertComponent {
                       buttonsStyling: false
                   });
                   }
-              });
+              }).catch(swal.noop);
           } else if (type === 'custom-html') {
             swal({
                 title: 'HTML example',
@@ -92,7 +92,7 @@ export class SweetAlertComponent {
                         'You can use <b>bold text</b>, ' +
                         '<a href="http://github.com">links</a> ' +
                         'and other HTML tags'
-                });
+                }).catch(swal.noop);
 
             } else if (type === 'auto-close') {
             swal({  title: 'Auto close alert!',
@@ -103,10 +103,10 @@ export class SweetAlertComponent {
                     function () {},
                     // handling the promise rejection
                     function (dismiss) {
-                    if (dismiss === 'timer') {
-                        console.log('I was closed by the timer')
-                    }
-                });
+                        if (dismiss === 'timer') {
+                            console.log('I was closed by the timer')
+                        }
+                }).catch(swal.noop);
             } else if (type === 'input-field') {
             swal({
                     title: 'Input something',
