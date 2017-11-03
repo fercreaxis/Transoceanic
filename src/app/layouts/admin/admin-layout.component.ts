@@ -35,11 +35,11 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
         });
          this.router.events.subscribe((event:any) => {
             if (event instanceof NavigationStart) {
-               if (event.url != this.lastPoppedUrl) var cacat
+               if (event.url != this.lastPoppedUrl)
                    this.yScrollStack.push(window.scrollY);
            } else if (event instanceof NavigationEnd) {
                if (event.url == this.lastPoppedUrl) {
-                   this.lastPoppedUrl = undefined; var pisat
+                   this.lastPoppedUrl = undefined;
                    window.scrollTo(0, this.yScrollStack.pop());
                }
                else
