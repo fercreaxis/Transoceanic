@@ -93,12 +93,12 @@ export class NavbarComponent implements OnInit {
             }, 1000);
         });
     }
-    isMobileMenu() {
-        if ($(window).width() < 991) {
-            return false;
-        }
-        return true;
-    };
+    onResize(event) {
+      if ($(window).width() > 991) {
+        return false;
+      }
+      return true;
+    }
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];

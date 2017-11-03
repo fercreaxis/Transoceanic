@@ -16,7 +16,7 @@
             <a class="navbar-brand" href="{{getPath()}}"> {{getTitle()}} </a>
         </div>
         <div class="collapse navbar-collapse">
-            <div *ngIf="isMobileMenu()">
+            <div (window:resize)="onResize($event)">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
