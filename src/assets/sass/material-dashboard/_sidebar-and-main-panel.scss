@@ -472,19 +472,6 @@
             display: inline-block !important;
         }
 
-        [data-background-color="black"]{
-            .nav,
-            .user{
-                .collapse {
-                    li:not(.active){
-                        > a{
-                            color: $black-color;
-                        }
-                    }
-                }
-            }
-        }
-
         .sidebar-moving-tab{
             width: 50px;
 
