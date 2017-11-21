@@ -98,3 +98,9 @@
         margin-top: 20px;
     }
 }
+.modal-backdrop{
+    z-index: 1030;
+}
+.modal{
+    z-index: 1031;
+}
