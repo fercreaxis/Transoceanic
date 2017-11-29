@@ -1,3 +1,9 @@
+## [1.4.6] - 2017-11-29
+### Fixes
+- fixed validation error
+- fixed sweetalert2 errors
+- fixed scrolltop for all browsers
+
 ## [1.4.5] - 2017-10-25
 ### Fixes
 - changed perfect-scrollbar v1.1.0
