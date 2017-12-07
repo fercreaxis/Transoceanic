@@ -44,9 +44,7 @@
 .mat-option {
     color: rgba(0, 0, 0, 0.87) !important;
     transition: all 150ms linear;
-    &.mat-active{
-        background: transparent !important;
-    }
+    
     &:hover {
         @include box-shadow($shadow-mat-select-option);
         background: #9c27b0 !important;
