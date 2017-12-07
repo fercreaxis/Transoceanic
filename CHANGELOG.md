@@ -1,3 +1,7 @@
+## [1.4.7] - 2017-12-07
+### Fixes
+- fixed selectpicker error on IE and Firefox
+
 ## [1.4.6] - 2017-11-29
 ### Fixes
 - fixed validation error
