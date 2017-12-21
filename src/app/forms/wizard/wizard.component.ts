@@ -208,7 +208,7 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
                 const reader = new FileReader();
 
                 reader.onload = function (e: FileReaderEvent) {
-                    $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+                    $('#wizardPicturePreview').prop('src', e.target.result).fadeIn('slow');
                 };
                 reader.readAsDataURL(input[0].files[0]);
             }
@@ -218,17 +218,17 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
             const wizard = $(this).closest('.wizard-card');
             wizard.find('[data-toggle="wizard-radio"]').removeClass('active');
             $(this).addClass('active');
-            $(wizard).find('[type="radio"]').removeAttr('checked');
-            $(this).find('[type="radio"]').attr('checked', 'true');
+            $(wizard).find('[type="radio"]').removeProp('checked');
+            $(this).find('[type="radio"]').prop('checked', 'true');
         });
 
         $('[data-toggle="wizard-checkbox"]').click(function(){
             if ( $(this).hasClass('active')) {
                 $(this).removeClass('active');
-                $(this).find('[type="checkbox"]').removeAttr('checked');
+                $(this).find('[type="checkbox"]').removeProp('checked');
             } else {
                 $(this).addClass('active');
-                $(this).find('[type="checkbox"]').attr('checked', 'true');
+                $(this).find('[type="checkbox"]').prop('checked', 'true');
             }
         });
 
@@ -243,7 +243,7 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
             const reader: any = new FileReader();
 
             reader.onload = function (e: FileReaderEvent) {
-                $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+                $('#wizardPicturePreview').prop('src', e.target.result).fadeIn('slow');
             };
             reader.readAsDataURL(input[0].files[0]);
         }

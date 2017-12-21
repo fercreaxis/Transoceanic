@@ -459,8 +459,15 @@
         }
     }
 
-    .form-group{
-        .form-control{
+    .form-group {
+        &.has-error {
+            &:not(.is-focused) {
+                .form-control {
+                    background-image: linear-gradient($label-danger-bg, $label-danger-bg), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
+                }
+            }
+        }
+        .form-control {
             background-image: linear-gradient($color, $color), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
         }
     }
