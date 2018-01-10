@@ -17,7 +17,6 @@ interface FileReaderEvent extends Event {
 })
 
 export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
-
     ngOnInit() {
         // Code for the Validator
         const $validator = $('.wizard-card form').validate({
@@ -208,7 +207,7 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
                 const reader = new FileReader();
 
                 reader.onload = function (e: FileReaderEvent) {
-                    $('#wizardPicturePreview').prop('src', e.target.result).fadeIn('slow');
+                    $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
                 };
                 reader.readAsDataURL(input[0].files[0]);
             }
@@ -218,17 +217,17 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
             const wizard = $(this).closest('.wizard-card');
             wizard.find('[data-toggle="wizard-radio"]').removeClass('active');
             $(this).addClass('active');
-            $(wizard).find('[type="radio"]').removeProp('checked');
-            $(this).find('[type="radio"]').prop('checked', 'true');
+            $(wizard).find('[type="radio"]').removeAttr('checked');
+            $(this).find('[type="radio"]').attr('checked', 'true');
         });
 
         $('[data-toggle="wizard-checkbox"]').click(function(){
             if ( $(this).hasClass('active')) {
                 $(this).removeClass('active');
-                $(this).find('[type="checkbox"]').removeProp('checked');
+                $(this).find('[type="checkbox"]').removeAttr('checked');
             } else {
                 $(this).addClass('active');
-                $(this).find('[type="checkbox"]').prop('checked', 'true');
+                $(this).find('[type="checkbox"]').attr('checked', 'true');
             }
         });
 
@@ -243,18 +242,19 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
             const reader: any = new FileReader();
 
             reader.onload = function (e: FileReaderEvent) {
-                $('#wizardPicturePreview').prop('src', e.target.result).fadeIn('slow');
+                $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
             };
             reader.readAsDataURL(input[0].files[0]);
         }
     }
     ngAfterViewInit() {
-        $('.wizard-card').each(function(){
+
+        $( window ).resize( () => { $('.wizard-card').each(function(){
 
             const $wizard = $(this);
             const index = $wizard.bootstrapWizard('currentIndex');
             let $total = $wizard.find('.nav li').length;
-           let  $li_width = 100/$total;
+            let  $li_width = 100/$total;
 
             let total_steps = $wizard.find('.nav li').length;
             let move_distance = $wizard.width() / total_steps;
@@ -292,11 +292,11 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
             $('.moving-tab').css({
                 'transform':'translate3d(' + move_distance + 'px, ' + vertical_level +  'px, 0)',
                 'transition': 'all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1)'
-
             });
 
             $('.moving-tab').css({
                 'transition': 'transform 0s'
+            });
             });
         });
     }
