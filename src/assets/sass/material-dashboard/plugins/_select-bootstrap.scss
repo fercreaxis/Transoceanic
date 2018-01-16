@@ -33,6 +33,7 @@
 .mat-pseudo-checkbox{
     border: none !important;
     margin-top: 12px;
+    float: right;
 }
 .mat-select-panel{
     background: white;
@@ -44,7 +45,7 @@
 .mat-option {
     color: rgba(0, 0, 0, 0.87) !important;
     transition: all 150ms linear;
-    
+
     &:hover {
         @include box-shadow($shadow-mat-select-option);
         background: #9c27b0 !important;

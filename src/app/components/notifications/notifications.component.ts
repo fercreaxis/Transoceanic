@@ -29,10 +29,10 @@ export class NotificationsComponent implements OnInit {
     ngOnInit(){
         var mainPanel = document.getElementsByClassName('main-panel')[0];
         $('.modal').on('shown.bs.modal', function () {
-          mainPanel.classList.add('overflow');
+          mainPanel.classList.add('no-scroll');
         })
         $('.modal').on('hidden.bs.modal', function () {
-          mainPanel.classList.remove('overflow');
+          mainPanel.classList.remove('no-scroll');
         })
     }
 }
