@@ -1,3 +1,11 @@
+## [1.5.0] - 2018-01-16
+### Fixes
+- update to Angular 5
+- added fixed plugin
+- fixed wizard error on resize
+- added RTL support
+- fixed prefect scrollbar when modal is open
+
 ## [1.4.7] - 2017-12-07
 ### Fixes
 - fixed selectpicker error on IE and Firefox
