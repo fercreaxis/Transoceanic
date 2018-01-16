@@ -13,7 +13,7 @@
                                 <label class="control-label" for="email">Email Address:
                                     <span class="star">*</span>
                                 </label>
-                                <input type="text" id="email" class="form-control" formControlName="email"
+                                <input type="text" id="email2" class="form-control" formControlName="email"
                                  pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                                 <app-field-error-display [displayError]="isFieldValid(register, 'email')" errorMsg="Email is required and format should be john@doe.com.">
                                 </app-field-error-display>
@@ -82,7 +82,7 @@
                                     <span class="star">*</span>
                                 </label>
                                 <input type="password"
-                                id="password"
+                                id="password2"
                                 class="form-control"
                                 formControlName="password">
                                 <app-field-error-display [displayError]="isFieldValid(login, 'password')" errorMsg="Enter a valid password.">
@@ -128,7 +128,7 @@
                                 <div class="col-sm-7">
                                     <div class="form-group label-floating"  [ngClass]="displayFieldCss(type, 'email')">
                                         <label class="control-label"></label>
-                                        <input type="text" id="email" class="form-control" formControlName="email"
+                                        <input type="text" id="email1" class="form-control" formControlName="email"
                                          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                                         <app-field-error-display [displayError]="isFieldValid(type, 'email')" errorMsg="Email is required and format should be john@doe.com.">
                                         </app-field-error-display>

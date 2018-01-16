@@ -1,6 +1,6 @@
 // IMPORTANT: this is a plugin which requires jQuery for initialisation and data manipulation
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 declare const $: any;
 
@@ -8,7 +8,7 @@ declare const $: any;
     selector: 'app-notifications-cmp',
     templateUrl: 'notifications.component.html'
 })
-export class NotificationsComponent {
+export class NotificationsComponent implements OnInit {
     showNotification(from: any, align: any) {
         const type = ['', 'info', 'success', 'warning', 'danger', 'rose', 'primary'];
 
@@ -25,5 +25,14 @@ export class NotificationsComponent {
                 align: align
             }
         });
+    }
+    ngOnInit(){
+        var mainPanel = document.getElementsByClassName('main-panel')[0];
+        $('.modal').on('shown.bs.modal', function () {
+          mainPanel.classList.add('overflow');
+        })
+        $('.modal').on('hidden.bs.modal', function () {
+          mainPanel.classList.remove('overflow');
+        })
     }
 }
