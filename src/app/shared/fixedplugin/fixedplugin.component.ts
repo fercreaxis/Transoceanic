@@ -177,34 +177,6 @@ export class FixedpluginComponent implements OnInit {
           }, 1000);
 
       });
-      $('#twitter').sharrre({
-        share: {
-          twitter: true
-        },
-        enableHover: false,
-        enableTracking: false,
-        buttons: { twitter: {via: 'CreativeTim'}},
-        click: function(api, options){
-          api.simulateClick();
-          api.openPopup('twitter');
-        },
-        template: '<i class="fa fa-twitter"></i> &middot; 45',
-        url: 'http://md-pro-angular.creative-tim.com/'
-      });
-
-      $('#facebook').sharrre({
-        share: {
-          facebook: true
-        },
-        enableHover: false,
-        enableTracking: false,
-        click: function(api, options){
-          api.simulateClick();
-          api.openPopup('facebook');
-        },
-        template: '<i class="fa fa-facebook-square"></i> &middot; 50',
-        url: 'http://md-pro-angular.creative-tim.com/'
-      });
   }
 
 }
