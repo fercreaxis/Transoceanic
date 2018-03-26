@@ -58,7 +58,7 @@ export class FixedpluginComponent implements OnInit {
           const new_color = $(this).data('color');
 
           if ($sidebar.length !== 0) {
-              $sidebar.attr('data-active-color', new_color);
+              $sidebar.attr('data-color', new_color);
           }
 
           if ($full_page.length !== 0) {
