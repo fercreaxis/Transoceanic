@@ -157,41 +157,31 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
       this.startAnimationForBarChart(websiteViewsChart);
 
-      const mapData = {
-           'AU': 760,
-           'BR': 550,
-           'CA': 120,
-           'DE': 1300,
-           'FR': 540,
-           'GB': 690,
-           'GE': 200,
-           'IN': 200,
-           'RO': 600,
-           'RU': 300,
-           'US': 2920,
-       };
-          $('#worldMap').vectorMap({
-              map: 'world_mill_en',
-              backgroundColor: 'transparent',
-              zoomOnScroll: false,
-              regionStyle: {
-                  initial: {
-                      fill: '#e4e4e4',
-                      'fill-opacity': 0.9,
-                      stroke: 'none',
-                      'stroke-width': 0,
-                      'stroke-opacity': 0
-                  }
-              },
+      $('#worldMap').vectorMap({
+        map: 'world_en',
+        backgroundColor: 'transparent',
+         borderColor: '#818181',
+         borderOpacity: 0.25,
+         borderWidth: 1,
+         color: '#b3b3b3',
+         enableZoom: true,
+         hoverColor: '#eee',
+         hoverOpacity: null,
+         normalizeFunction: 'linear',
+         scaleColors: ['#b6d6ff', '#005ace'],
+         selectedColor: '#c9dfaf',
+         selectedRegions: null,
+         showTooltip: true,
+         onRegionClick: function(element, code, region)
+         {
+             var message = 'You clicked "'
+                 + region
+                 + '" which has the code: '
+                 + code.toUpperCase();
 
-              series: {
-                  regions: [{
-                      values: mapData,
-                      scale: ['#AAAAAA', '#444444'],
-                      normalizeFunction: 'polynomial'
-                  }]
-              },
-          });
+             alert(message);
+         }
+      });
    }
    ngAfterViewInit() {
        const breakCards = true;
