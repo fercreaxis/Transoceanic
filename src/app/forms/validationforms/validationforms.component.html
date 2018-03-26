@@ -4,58 +4,62 @@
             <div class="col-md-6">
                 <div class="card">
                     <form [formGroup]="register">
-                        <div class="card-header card-header-icon" data-background-color="rose">
-                            <i class="material-icons">mail_outline</i>
+                      <div class="card-header card-header-rose card-header-icon">
+                        <div class="card-icon">
+                          <i class="material-icons">mail_outline</i>
                         </div>
-                        <div class="card-content">
-                            <h4 class="card-title">Register Forms</h4>
-                            <div class="form-group label-floating"  [ngClass]="displayFieldCss(register, 'email')">
-                                <label class="control-label" for="email">Email Address:
-                                    <span class="star">*</span>
-                                </label>
-                                <input type="text" id="email2" class="form-control" formControlName="email"
-                                 pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-                                <app-field-error-display [displayError]="isFieldValid(register, 'email')" errorMsg="Email is required and format should be john@doe.com.">
-                                </app-field-error-display>
-                            </div>
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'password')">
-                                <label  for="" class="control-label">Password
-                                    <span class="star">*</span>
-                                </label>
-                                <input type="password"
-                                id="password"
-                                class="form-control"
-                                formControlName="password">
-                                <app-field-error-display [displayError]="isFieldValid(register, 'password')" errorMsg="Enter a valid password.">
-                                </app-field-error-display>
-                            </div>
+                        <h4 class="card-title">Register Form</h4>
+                      </div>
+                        <div class="card-body">
+                          <mat-form-field class="example-full-width">
+                             <input
+                             type="email"
+                             matInput
+                             placeholder="Email Address *"
+                             [errorStateMatcher]="matcher"
+                             formControlName="email">
+                             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                               Please enter a valid email address
+                             </mat-error>
+                             <mat-error *ngIf="emailFormControl.hasError('required')">
+                               Email is <strong>required</strong>
+                             </mat-error>
+                           </mat-form-field>
 
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'confirmPassword')">
-                                <label for="" class="control-label">Confirm Password
-                                    <span class="star">*</span>
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'password')">
+                              <input type="password"
+                              matInput
+                              id="password"
+                              placeholder="Password *"
+                              formControlName="password">
+                              <app-field-error-display [displayError]="isFieldValid(register, 'password')" errorMsg="Enter a valid password.">
+                              </app-field-error-display>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'password')">
+                              <input type="password"
+                              matInput
+                              id="confirmPassword"
+                              placeholder="Confirm Password *"
+                              formControlName="confirmPassword">
+                              <app-field-error-display
+                               [displayError]="isFieldValid(register, 'confirmPassword')" errorMsg="These passwords don't match. Try again!">
+                              </app-field-error-display>
+                            </mat-form-field>
+                            <div class="category form-category">* Required fields</div>
+
+                          </div>
+                            <div class="card-footer text-right">
+                              <div class="form-check mr-auto">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox" value=""> Subscribe to newsletter
+                                  <span class="form-check-sign">
+                                    <span class="check"></span>
+                                  </span>
                                 </label>
-                                  <input
-                                    type="password"
-                                    class="form-control"
-                                    id="confirmPassword"
-                                    formControlName="confirmPassword">
-                                    <app-field-error-display
-                                     [displayError]="isFieldValid(register, 'confirmPassword')" errorMsg="These passwords don't match. Try again!">
-                                    </app-field-error-display>
+                              </div>
+                              <button mat-raised-button type="submit" class="btn btn-rose" (click)="onRegister()">Register</button>
                             </div>
-                            <div class="category form-category">
-                                <span class="star">*</span> Required fields</div>
-                            <div class="form-footer text-right">
-                                <div class="checkbox pull-left">
-                                    <label>
-                                        <input type="checkbox" name="optionsCheckboxes" formControlName="optionsCheckboxes"> Subscribe to newsletter
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-rose btn-fill btn-wd" (click)="onRegister()">Register</button>
-                                </div>
-                            </div>
-                        </div>
                     </form>
                 </div>
 
@@ -63,59 +67,65 @@
             <div class="col-md-6">
                 <div class="card">
                     <form [formGroup]="login">
-                        <div class="card-header card-header-icon" data-background-color="rose">
-                            <i class="material-icons">mail_outline</i>
+                      <div class="card-header card-header-rose card-header-icon">
+                        <div class="card-icon">
+                          <i class="material-icons">contacts</i>
                         </div>
-                        <div class="card-content">
-                            <h4 class="card-title">Register Forms</h4>
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(login, 'email')">
-                                <label class="control-label" for="email">Email Address:
-                                    <span class="star">*</span>
-                                </label>
-                                <input type="text" id="email" class="form-control" formControlName="email"
-                                 pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-                                <app-field-error-display [displayError]="isFieldValid(login, 'email')" errorMsg="Email is required and format should be john@doe.com.">
-                                </app-field-error-display>
-                            </div>
-                            <div class="form-group label-floating" [ngClass]="displayFieldCss(login, 'password')">
-                                <label  for="" class="control-label">Password
-                                    <span class="star">*</span>
-                                </label>
-                                <input type="password"
-                                id="password2"
-                                class="form-control"
-                                formControlName="password">
-                                <app-field-error-display [displayError]="isFieldValid(login, 'password')" errorMsg="Enter a valid password.">
-                                </app-field-error-display>
-                            </div>
-
-                            <div class="category form-category">
-                                <span class="star">*</span> Required fields</div>
-                            <div class="form-footer text-right">
+                        <h4 class="card-title">Login Form</h4>
+                      </div>
+                        <div class="card-body">
+                          <mat-form-field class="example-full-width">
+                             <input
+                             type="email"
+                             matInput
+                             placeholder="Email Address *"
+                             [errorStateMatcher]="matcher"
+                             formControlName="email">
+                             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                               Please enter a valid email address
+                             </mat-error>
+                             <mat-error *ngIf="emailFormControl.hasError('required')">
+                               Email is <strong>required</strong>
+                             </mat-error>
+                           </mat-form-field>
+                            <mat-form-field class="example-full-width" [ngClass]="displayFieldCss(login, 'password')">
+                              <input type="password"
+                              matInput
+                              placeholder="Password *"
+                              formControlName="password">
+                              <app-field-error-display [displayError]="isFieldValid(login, 'password')" errorMsg="Enter a valid password.">
+                              </app-field-error-display>
+                            </mat-form-field>
+                            <div class="category form-category">* Required fields</div>
+                          </div>
+                            <div class="card-footer text-right">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-rose btn-fill btn-wd" (click)="onLogin()">Login</button>
+                                    <button mat-raised-button type="submit" class="btn btn-rose btn-fill btn-wd" (click)="onLogin()">Login</button>
                                 </div>
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="card">
                     <form [formGroup]="type" class="form-horizontal">
-                        <div class="card-header card-header-text" data-background-color="rose">
-                            <h4 class="card-title">Type Validation</h4>
+                      <div class="card-header card-header-rose card-header-text">
+                        <div class="card-text">
+                          <h4 class="card-title">Type Validation</h4>
                         </div>
-                        <div class="card-content">
+                      </div>
+                        <div class="card-body">
                             <div class="row">
-                                <label class="col-sm-2 label-on-left">Required Text</label>
+                              <label class="col-sm-2 col-form-label">Required Text</label>
                                 <div class="col-sm-7">
-                                    <div class="form-group label-floating" [ngClass]="displayFieldCss(type, 'text')">
-                                        <label class="control-label"></label>
-                                        <input type="text" id="text" class="form-control" formControlName="text">
-                                        <app-field-error-display [displayError]="isFieldValid(type, 'text')" errorMsg="Required text">
-                                        </app-field-error-display>
-                                    </div>
+                                  <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(type, 'text')">
+                                    <input type="text"
+                                    matInput
+                                    id="text"
+                                    formControlName="text">
+                                    <app-field-error-display [displayError]="isFieldValid(type, 'text')" errorMsg="Required text">
+                                    </app-field-error-display>
+                                  </mat-form-field>
                                 </div>
                                 <label class="col-sm-3 label-on-right">
                                     <code>required</code>
@@ -123,44 +133,51 @@
                             </div>
                             <div class="row">
 
-                                <label class="col-sm-2 label-on-left">Email</label>
+                                <label class="col-sm-2 col-form-label">Email</label>
 
                                 <div class="col-sm-7">
-                                    <div class="form-group label-floating"  [ngClass]="displayFieldCss(type, 'email')">
-                                        <label class="control-label"></label>
-                                        <input type="text" id="email1" class="form-control" formControlName="email"
-                                         pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-                                        <app-field-error-display [displayError]="isFieldValid(type, 'email')" errorMsg="Email is required and format should be john@doe.com.">
-                                        </app-field-error-display>
-                                    </div>
+                                  <mat-form-field class="example-full-width">
+                                     <input
+                                     type="email"
+                                     matInput
+                                     [errorStateMatcher]="matcher"
+                                     formControlName="email">
+                                     <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                       Please enter a valid email address
+                                     </mat-error>
+                                     <mat-error *ngIf="emailFormControl.hasError('required')">
+                                       Email is <strong>required</strong>
+                                     </mat-error>
+                                   </mat-form-field>
                                 </div>
                                 <label class="col-sm-3 label-on-right">
                                     <code>email="true"</code>
                                 </label>
                             </div>
                             <div class="row">
-                                <label class="col-sm-2 label-on-left">Number</label>
+                                <label class="col-sm-2 col-form-label">Number</label>
                                 <div class="col-sm-7">
-                                    <div class="form-group label-floating" [ngClass]="displayFieldCss(type, 'number')">
-                                        <label class="control-label"></label>
-                                        <input class="form-control" type="number" name="number" number="true" formControlName="number">
-                                        <app-field-error-display [displayError]="isFieldValid(type, 'number')" errorMsg="Add a number!">
-                                        </app-field-error-display>
-                                    </div>
+                                  <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(type, 'number')">
+                                    <input type="number" name="number" number="true"
+                                    matInput
+                                    formControlName="number">
+                                    <app-field-error-display [displayError]="isFieldValid(type, 'number')" errorMsg="Add a number!">
+                                    </app-field-error-display>
+                                  </mat-form-field>
                                 </div>
                                 <label class="col-sm-3 label-on-right">
                                     <code>number="true"</code>
                                 </label>
                             </div>
                             <div class="row">
-                                <label class="col-sm-2 label-on-left">Url</label>
+                                <label class="col-sm-2 col-form-label">Url</label>
                                 <div class="col-sm-7">
-                                    <div class="form-group label-floating" [ngClass]="displayFieldCss(type, 'url')">
-                                        <label class="control-label" for="url"></label>
-                                        <input class="form-control" type="text" id="url" pattern="https?://.+" name="url" formControlName="url">
-                                          <app-field-error-display [displayError]="isFieldValid(type, 'url')" errorMsg="Must be a valid URL!">
-                                          </app-field-error-display>
-                                    </div>
+                                  <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(type, 'url')">
+                                    <input type="text" id="url" pattern="https?://.+" name="url" formControlName="url"
+                                    matInput>
+                                    <app-field-error-display [displayError]="isFieldValid(type, 'url')" errorMsg="Must be a valid URL!">
+                                    </app-field-error-display>
+                                  </mat-form-field>
                                 </div>
 
                                 <label class="col-sm-3 label-on-right">
@@ -169,30 +186,28 @@
                             </div>
                             <div class="row">
 
-                                <label class="col-sm-2 label-on-left">Equal to</label>
+                                <label class="col-sm-2 col-form-label">Equal to</label>
                                 <div class="col-sm-3">
-                                    <div class="form-group label-floating column-sizing" [ngClass]="displayFieldCss(type, 'password')">
-                                        <label class="control-label"></label>
-                                        <input type="text"
-                                            class="form-control"
-                                            name="password"
-                                            placeholder="#idSource"
-                                            formControlName="password">
-                                        <app-field-error-display [displayError]="isFieldValid(type, 'password')" errorMsg="IdSource is required">
-                                        </app-field-error-display>
-                                    </div>
+                                  <mat-form-field class="example-full-width" [ngClass]="displayFieldCss(type, 'password')">
+                                    <input type="text"
+                                    matInput
+                                    placeholder="#idSource"
+                                      name="idSource"
+                                    formControlName="password">
+                                    <app-field-error-display [displayError]="isFieldValid(type, 'password')" errorMsg="IdSource is required">
+                                    </app-field-error-display>
+                                  </mat-form-field>
                                 </div>
                                 <div class="col-sm-3">
-                                    <div class="form-group label-floating column-sizing" [ngClass]="displayFieldCss(type, 'confirmPassword')">
-                                        <label class="control-label"></label>
-                                        <input type="text"
-                                            class="form-control"
-                                            name="idDestination"
-                                            placeholder="#idDestination"
-                                            formControlName="confirmPassword">
-                                        <app-field-error-display [displayError]="isFieldValid(type, 'password')" errorMsg=" IdSource mismatch!">
-                                        </app-field-error-display>
-                                    </div>
+                                  <mat-form-field class="example-full-width" [ngClass]="displayFieldCss(type, 'confirmPassword')">
+                                    <input type="text"
+                                    matInput
+                                    name="idDestination"
+                                    placeholder="#idDestination"
+                                    formControlName="confirmPassword">
+                                    <app-field-error-display [displayError]="isFieldValid(type, 'confirmPassword')" errorMsg=" IdSource mismatch!">
+                                    </app-field-error-display>
+                                  </mat-form-field>
                                 </div>
                                 <label class="col-sm-4 label-on-right">
                                     <code>equalTo="#idSource"</code>
@@ -200,7 +215,7 @@
                             </div>
                         </div>
                         <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-rose btn-fill" (click)="onType()">Validate Inputs</button>
+                            <button mat-raised-button type="submit" class="btn btn-rose btn-fill" (click)="onType()">Validate Inputs</button>
                         </div>
                     </form>
                 </div>
@@ -214,10 +229,10 @@
                         </div>
                         <div class="card-content">
                             <div class="row">
-                                <label class="col-sm-2 label-on-left">Min Length</label>
+                                <label class="col-sm-2 col-form-label">Min Length</label>
                                 <div class="col-sm-7">
-                                    <div class="form-group label-floating">
-                                        <label class="control-label"></label>
+                                    <div class="form-group has-label">
+                                        <label class="bmd-label-floating"></label>
                                         <input class="form-control" type="text" name="min_length" minLength="5" />
                                     </div>
                                 </div>
@@ -226,10 +241,10 @@
                                 </label>
                             </div>
                             <div class="row">
-                                <label class="col-sm-2 label-on-left">Max Length</label>
+                                <label class="col-sm-2 col-form-label">Max Length</label>
                                 <div class="col-sm-7">
-                                    <div class="form-group label-floating">
-                                        <label class="control-label"></label>
+                                    <div class="form-group has-label">
+                                        <label class="bmd-label-floating"></label>
                                         <input class="form-control" type="text" name="max_length" maxLength="5" />
                                     </div>
                                 </div>
@@ -238,10 +253,10 @@
                                 </label>
                             </div>
                             <div class="row">
-                                <label class="col-sm-2 label-on-left">Range</label>
+                                <label class="col-sm-2 col-form-label">Range</label>
                                 <div class="col-sm-7">
-                                    <div class="form-group label-floating">
-                                        <label class="control-label"></label>
+                                    <div class="form-group has-label">
+                                        <label class="bmd-label-floating"></label>
                                         <input class="form-control" type="text" name="range" range="[6,10]" />
                                     </div>
                                 </div>
@@ -250,10 +265,10 @@
                                 </label>
                             </div>
                             <div class="row">
-                                <label class="col-sm-2 label-on-left">Min Value</label>
+                                <label class="col-sm-2 col-form-label">Min Value</label>
                                 <div class="col-sm-7">
-                                    <div class="form-group label-floating">
-                                        <label class="control-label"></label>
+                                    <div class="form-group has-label">
+                                        <label class="bmd-label-floating"></label>
                                         <input class="form-control" type="text" name="min" min="6" />
                                     </div>
                                 </div>
@@ -262,10 +277,10 @@
                                 </label>
                             </div>
                             <div class="row">
-                                <label class="col-sm-2 label-on-left">Max Value</label>
+                                <label class="col-sm-2 col-form-label">Max Value</label>
                                 <div class="col-sm-7">
-                                    <div class="form-group label-floating">
-                                        <label class="control-label"></label>
+                                    <div class="form-group has-label">
+                                        <label class="bmd-label-floating"></label>
                                         <input class="form-control" type="text" name="max" max="6" />
                                     </div>
                                 </div>
@@ -275,11 +290,11 @@
                             </div>
                         </div>
                         <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-rose btn-fill">Validate Inputs</button>
+                            <button mat-raised-button type="submit" class="btn btn-rose btn-fill">Validate Inputs</button>
                         </div>
                     </form>
                 </div>
             </div> -->
-        </div>
+        <!-- </div> -->
     </div>
 </div>

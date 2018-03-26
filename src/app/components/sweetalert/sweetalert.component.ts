@@ -10,6 +10,7 @@ declare var $: any;
 export class SweetAlertComponent {
     showSwal(type) {
         if (type === 'basic') {
+          console.log('basic')
             swal({
                 title: 'Here is a message!',
                 buttonsStyling: false,

@@ -1,37 +1,24 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="card">
-            <div class="card-content">
+            <div class="card-body">
                 <br>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4 mr-auto">
                         <legend>Datepicker</legend>
-                        <mat-datepicker-toggle matSuffix [for]="resultPicker">
-                        </mat-datepicker-toggle>
-                        <mat-input-container>
-                            <input matInput
-                                [matDatepicker]="resultPicker"
-                                placeholder="Pick a day">
-                        </mat-input-container>
-                        <mat-datepicker
-                            #resultPicker
-                            [touchUi]="touch"
-                            [startView]="'month'">
-                        </mat-datepicker>
+                        <mat-form-field >
+                          <input matInput [matDatepicker]="picker" placeholder="Choose a date" (click)="picker.open()">
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4 mr-auto">
                         <legend>Datepicker Year</legend>
-                        <mat-datepicker-toggle matSuffix [for]="datepickerYear">
-                        </mat-datepicker-toggle>
-                        <mat-input-container>
-                          <input matInput
-                                 [matDatepicker]="datepickerYear"
-                                 placeholder="Pick a year">
-                        </mat-input-container>
-                        <mat-datepicker
-                            #datepickerYear
-                            [startView]="'year'">
-                        </mat-datepicker>
+                        <mat-form-field>
+                          <input matInput [matDatepicker]="picker2" placeholder="Choose a date" (click)="picker2.open()">
+                          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                          <mat-datepicker #picker2 startView="year" [startAt]="startDate"></mat-datepicker>
+                        </mat-form-field>
                     </div>
                 </div>
                 <br>
@@ -40,14 +27,18 @@
                     <div class="col-md-6">
                         <legend>Switches</legend>
                         <div class="togglebutton">
-                            <label>
-                                <input type="checkbox" checked> Toggle is on
-                            </label>
+                          <label>
+                            <input type="checkbox" checked="">
+                            <span class="toggle"></span>
+                            Toggle is on
+                          </label>
                         </div>
                         <div class="togglebutton">
-                            <label>
-                                <input type="checkbox"> Toggle is off
-                            </label>
+                          <label>
+                            <input type="checkbox">
+                            <span class="toggle"></span>
+                            Toggle is off
+                          </label>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -87,7 +78,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-6 col-sm-3">
                                 <div class="dropdown">
-                                    <button href="#pablo" class="dropdown-toggle btn btn-primary btn-round btn-block" data-toggle="dropdown">Dropdown
+                                    <button mat-raised-button href="#pablo" class="dropdown-toggle btn btn-primary btn-round btn-block" data-toggle="dropdown">Dropdown
                                         <b class="caret"></b>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-left">
@@ -114,7 +105,7 @@
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-3">
                                 <div class="dropup">
-                                    <button href="#pablo" class="dropdown-toggle btn btn-primary btn-round btn-block" data-toggle="dropdown">Dropup
+                                    <button mat-raised-button href="#pablo" class="dropdown-toggle btn btn-primary btn-round btn-block" data-toggle="dropdown">Dropup
                                         <b class="caret"></b>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-left">
@@ -148,7 +139,7 @@
                     <div class="col-md-6">
                         <legend>Progress Bars</legend>
                         <div class="progress progress-line-primary">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
                                 <span class="sr-only">60% Complete</span>
                             </div>
                         </div>
@@ -171,7 +162,7 @@
                     </div>
                     <div class="col-md-6">
                         <legend>Sliders</legend>
-                        <nouislider [connect]="false" [min]="0" [max]="100" [step]="1" [(ngModel)]="simpleSlider" [tooltips]="true" class="slider"></nouislider>
+                        <nouislider [connect]="true" [min]="0" [max]="100" [step]="1" [(ngModel)]="simpleSlider" [tooltips]="true" class="slider"></nouislider>
                         <br>
                         <nouislider class="slider slider-info" [connect]="true" [min]="0" [max]="100" [step]="1" [(ngModel)]="doubleSlider" [tooltips]="true"></nouislider>
                     </div>

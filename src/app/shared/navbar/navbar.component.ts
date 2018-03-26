@@ -28,70 +28,75 @@ export class NavbarComponent implements OnInit {
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
     }
+    minimizeSidebar(){
+      const body = document.getElementsByTagName('body')[0];
 
+      if (misc.sidebar_mini_active === true) {
+          body.classList.remove('sidebar-mini');
+          misc.sidebar_mini_active = false;
+
+      } else {
+          setTimeout(function() {
+              body.classList.add('sidebar-mini');
+
+              misc.sidebar_mini_active = true;
+          }, 300);
+      }
+
+      // we simulate the window Resize so the charts will get updated in realtime.
+      const simulateWindowResize = setInterval(function() {
+          window.dispatchEvent(new Event('resize'));
+      }, 180);
+
+      // we stop the simulation of Window Resize after the animations are completed
+      setTimeout(function() {
+          clearInterval(simulateWindowResize);
+      }, 1000);
+    }
+    hideSidebar(){
+      const body = document.getElementsByTagName('body')[0];
+      const sidebar = document.getElementsByClassName('sidebar')[0];
+
+      if (misc.hide_sidebar_active === true) {
+          setTimeout(function() {
+              body.classList.remove('hide-sidebar');
+              misc.hide_sidebar_active = false;
+          }, 300);
+          setTimeout(function () {
+              sidebar.classList.remove('animation');
+          }, 600);
+          sidebar.classList.add('animation');
+
+      } else {
+          setTimeout(function() {
+            body.classList.add('hide-sidebar');
+              // $('.sidebar').addClass('animation');
+              misc.hide_sidebar_active = true;
+          }, 300);
+      }
+
+      // we simulate the window Resize so the charts will get updated in realtime.
+      const simulateWindowResize = setInterval(function() {
+          window.dispatchEvent(new Event('resize'));
+      }, 180);
+
+      // we stop the simulation of Window Resize after the animations are completed
+      setTimeout(function() {
+          clearInterval(simulateWindowResize);
+      }, 1000);
+    }
     ngOnInit() {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
 
         const navbar: HTMLElement = this.element.nativeElement;
-        this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
-        if ($('body').hasClass('sidebar-mini')) {
+        const body = document.getElementsByTagName('body')[0];
+        this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+        if (body.classList.contains('sidebar-mini')) {
             misc.sidebar_mini_active = true;
         }
-        if ($('body').hasClass('hide-sidebar')) {
+        if (body.classList.contains('hide-sidebar')) {
             misc.hide_sidebar_active = true;
         }
-        $('#minimizeSidebar').click(function() {
-            if (misc.sidebar_mini_active === true) {
-                $('body').removeClass('sidebar-mini');
-                misc.sidebar_mini_active = false;
-
-            } else {
-                setTimeout(function() {
-                    $('body').addClass('sidebar-mini');
-
-                    misc.sidebar_mini_active = true;
-                }, 300);
-            }
-
-            // we simulate the window Resize so the charts will get updated in realtime.
-            const simulateWindowResize = setInterval(function() {
-                window.dispatchEvent(new Event('resize'));
-            }, 180);
-
-            // we stop the simulation of Window Resize after the animations are completed
-            setTimeout(function() {
-                clearInterval(simulateWindowResize);
-            }, 1000);
-        });
-        $('#hideSidebar').click(function() {
-            if (misc.hide_sidebar_active === true) {
-                setTimeout(function() {
-                    $('body').removeClass('hide-sidebar');
-                    misc.hide_sidebar_active = false;
-                }, 300);
-                setTimeout(function () {
-                    $('.sidebar').removeClass('animation');
-                }, 600);
-                $('.sidebar').addClass('animation');
-
-            } else {
-                setTimeout(function() {
-                    $('body').addClass('hide-sidebar');
-                    // $('.sidebar').addClass('animation');
-                    misc.hide_sidebar_active = true;
-                }, 300);
-            }
-
-            // we simulate the window Resize so the charts will get updated in realtime.
-            const simulateWindowResize = setInterval(function() {
-                window.dispatchEvent(new Event('resize'));
-            }, 180);
-
-            // we stop the simulation of Window Resize after the animations are completed
-            setTimeout(function() {
-                clearInterval(simulateWindowResize);
-            }, 1000);
-        });
     }
     onResize(event) {
       if ($(window).width() > 991) {

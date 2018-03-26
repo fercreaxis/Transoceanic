@@ -1,6 +1,9 @@
 // IMPORTANT: this is a plugin which requires jQuery for initialisation and data manipulation
 
 import { Component, OnInit, OnChanges, AfterViewInit, SimpleChanges } from '@angular/core';
+import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
+import { FormBuilder } from '@angular/forms';
 
 declare const $: any;
 interface FileReaderEventTarget extends EventTarget {
@@ -11,43 +14,94 @@ interface FileReaderEvent extends Event {
     target: FileReaderEventTarget;
     getMessage(): string;
 }
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
+
 @Component({
     selector: 'app-wizard-cmp',
-    templateUrl: 'wizard.component.html'
+    templateUrl: 'wizard.component.html',
+    styleUrls: ['wizard.component.css']
 })
 
 export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
+  cities = [
+    {value: 'paris-0', viewValue: 'Paris'},
+    {value: 'miami-1', viewValue: 'Miami'},
+    {value: 'bucharest-2', viewValue: 'Bucharest'},
+    {value: 'new-york-3', viewValue: 'New York'},
+    {value: 'london-4', viewValue: 'London'},
+    {value: 'barcelona-5', viewValue: 'Barcelona'},
+    {value: 'moscow-6', viewValue: 'Moscow'},
+  ];
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+
+  matcher = new MyErrorStateMatcher();
+
+  type : FormGroup;
+  constructor(private formBuilder: FormBuilder) {}
+
+  isFieldValid(form: FormGroup, field: string) {
+    return !form.get(field).valid && form.get(field).touched;
+  }
+
+  displayFieldCss(form: FormGroup, field: string) {
+    return {
+      'has-error': this.isFieldValid(form, field),
+      'has-feedback': this.isFieldValid(form, field)
+    };
+  }
     ngOnInit() {
+      this.type = this.formBuilder.group({
+        // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
+        firstName: [null, Validators.required],
+        lastName: [null, Validators.required],
+        email: [null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+       });
         // Code for the Validator
-        const $validator = $('.wizard-card form').validate({
+        const $validator = $('.card-wizard form').validate({
             rules: {
-                  firstname: {
+                firstname: {
                     required: true,
-                  minlength: 3
-              },
+                    minlength: 3
+                },
                 lastname: {
                     required: true,
-                  minlength: 3
-              },
+                    minlength: 3
+                },
                 email: {
                     required: true,
-                  minlength: 3,
-              }
+                    minlength: 3,
+                }
             },
 
-            errorPlacement: function(error: any, element: any) {
-                $(element).parent('div').addClass('has-error');
-             }
-         });
+            highlight: function(element) {
+              $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+            },
+            success: function(element) {
+              $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+            },
+            errorPlacement : function(error, element) {
+              $(element).append(error);
+            }
+        });
 
         // Wizard Initialization
-        $('.wizard-card').bootstrapWizard({
+        $('.card-wizard').bootstrapWizard({
             'tabClass': 'nav nav-pills',
             'nextSelector': '.btn-next',
             'previousSelector': '.btn-previous',
 
             onNext: function(tab, navigation, index) {
-                var $valid = $('.wizard-card form').valid();
+                var $valid = $('.card-wizard form').valid();
+                console.log($valid);
                 if(!$valid) {
                     $validator.focusInvalid();
                     return false;
@@ -58,11 +112,11 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
 
               // check number of tabs and fill the entire row
               let $total = navigation.find('li').length;
-              let $wizard = navigation.closest('.wizard-card');
+              let $wizard = navigation.closest('.card-wizard');
 
               let $first_li = navigation.find('li:first-child a').html();
               let $moving_div = $('<div class="moving-tab">' + $first_li + '</div>');
-              $('.wizard-card .wizard-navigation').append($moving_div);
+              $('.card-wizard .wizard-navigation').append($moving_div);
 
               $total = $wizard.find('.nav li').length;
              let  $li_width = 100/$total;
@@ -110,7 +164,7 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
 
             onTabClick : function(tab: any, navigation: any, index: any){
 
-                const $valid = $('.wizard-card form').valid();
+                const $valid = $('.card-wizard form').valid();
 
                 if (!$valid) {
                     return false;
@@ -123,7 +177,7 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
                 let $total = navigation.find('li').length;
                 let $current = index + 1;
 
-                const $wizard = navigation.closest('.wizard-card');
+                const $wizard = navigation.closest('.card-wizard');
 
                 // If it's the last tab then hide the last button and show the finish instead
                 if ($current >= $total) {
@@ -214,7 +268,7 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
         });
 
         $('[data-toggle="wizard-radio"]').click(function(){
-            const wizard = $(this).closest('.wizard-card');
+            const wizard = $(this).closest('.card-wizard');
             wizard.find('[data-toggle="wizard-radio"]').removeClass('active');
             $(this).addClass('active');
             $(wizard).find('[type="radio"]').removeAttr('checked');
@@ -249,7 +303,7 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
     }
     ngAfterViewInit() {
 
-        $( window ).resize( () => { $('.wizard-card').each(function(){
+        $( window ).resize( () => { $('.card-wizard').each(function(){
 
             const $wizard = $(this);
             const index = $wizard.bootstrapWizard('currentIndex');

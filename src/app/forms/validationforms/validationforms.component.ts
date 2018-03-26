@@ -1,85 +1,82 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
+
+import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
+import { FormBuilder, AbstractControl } from '@angular/forms';
 import { PasswordValidation } from './password-validator.component';
 
-declare interface ValidatorFn {
-    (c: AbstractControl): {
-        [key: string]: any;
-    };
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
 }
-declare interface User {
-    text?: string; // required, must be 5-8 characters
-    email?: string; // required, must be valid email format
-    password?: string; // required, value must be equal to confirm password.
-    confirmPassword?: string; // required, value must be equal to password.
-    number?: number; // required, value must be equal to password.
-    url?: string;
-    idSource?: string;
-    idDestination?: string;
-    optionsCheckboxes?: boolean;
-}
+
 
 @Component({
     selector: 'app-validationforms-cmp',
     templateUrl: 'validationforms.component.html'
 })
 
-export class ValidationFormsComponent implements OnInit {
-    // public user: User;
-    public typeValidation: User;
-    register : FormGroup;
-    login : FormGroup;
-    type : FormGroup;
+export class ValidationFormsComponent {
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
 
-    constructor(private formBuilder: FormBuilder) {}
- // pattern=" [a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+  matcher = new MyErrorStateMatcher();
+  register : FormGroup;
+  login : FormGroup;
+  type : FormGroup;
 
- isFieldValid(form: FormGroup, field: string) {
-   return !form.get(field).valid && form.get(field).touched;
- }
+  constructor(private formBuilder: FormBuilder) {}
 
- displayFieldCss(form: FormGroup, field: string) {
-   return {
-     'has-error': this.isFieldValid(form, field),
-     'has-feedback': this.isFieldValid(form, field)
-   };
- }
-
- onRegister() {
-   console.log(this.register);
-   if (this.register.valid) {
-     console.log('form submitted');
-   } else {
-     this.validateAllFormFields(this.register);
+   isFieldValid(form: FormGroup, field: string) {
+     return !form.get(field).valid && form.get(field).touched;
    }
- }
- onLogin() {
-   console.log(this.login);
-   if (this.login.valid) {
-     console.log('form submitted');
-   } else {
-     this.validateAllFormFields(this.login);
+
+   displayFieldCss(form: FormGroup, field: string) {
+     return {
+       'has-error': this.isFieldValid(form, field),
+       'has-feedback': this.isFieldValid(form, field)
+     };
    }
- }
- onType() {
-   console.log(this.type);
-   if (this.type.valid) {
-     console.log('form submitted');
-   } else {
-     this.validateAllFormFields(this.type);
-   }
- }
- validateAllFormFields(formGroup: FormGroup) {
-   Object.keys(formGroup.controls).forEach(field => {
-     console.log(field);
-     const control = formGroup.get(field);
-     if (control instanceof FormControl) {
-       control.markAsTouched({ onlySelf: true });
-     } else if (control instanceof FormGroup) {
-       this.validateAllFormFields(control);
+
+   onRegister() {
+     console.log(this.emailFormControl);
+     if (this.register.valid) {
+       console.log('form submitted');
+     } else {
+       this.validateAllFormFields(this.register);
      }
-   });
- }
+   }
+   onLogin() {
+     console.log(this.login);
+     if (this.login.valid) {
+       console.log('form submitted');
+     } else {
+       this.validateAllFormFields(this.login);
+     }
+   }
+   onType() {
+     console.log(this.type);
+     if (this.type.valid) {
+       console.log('form submitted');
+     } else {
+       this.validateAllFormFields(this.type);
+     }
+   }
+   validateAllFormFields(formGroup: FormGroup) {
+     Object.keys(formGroup.controls).forEach(field => {
+       console.log(field);
+       const control = formGroup.get(field);
+       if (control instanceof FormControl) {
+         control.markAsTouched({ onlySelf: true });
+       } else if (control instanceof FormGroup) {
+         this.validateAllFormFields(control);
+       }
+     });
+   }
   ngOnInit() {
       this.register = this.formBuilder.group({
         // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.

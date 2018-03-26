@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../app.module';
 
 import { ButtonsComponent } from './buttons/buttons.component';
 import { ComponentsRoutes } from './components.routing';
@@ -16,7 +17,8 @@ import { TypographyComponent } from './typography/typography.component';
   imports: [
     CommonModule,
     RouterModule.forChild(ComponentsRoutes),
-    FormsModule
+    FormsModule,
+    MaterialModule
   ],
   declarations: [
       ButtonsComponent,

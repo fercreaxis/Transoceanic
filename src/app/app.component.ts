@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-declare var $: any;
 
 @Component({
     selector: 'app-my-app',
@@ -12,6 +11,5 @@ export class AppComponent implements OnInit {
     constructor() {}
 
     ngOnInit() {
-        $.material.init();
     }
 }
