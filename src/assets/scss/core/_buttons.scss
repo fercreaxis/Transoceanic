@@ -239,3 +239,6 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
+.btn-no-ripple .mat-button-ripple{
+  display: none;
+}
