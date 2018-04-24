@@ -1,3 +1,10 @@
+## [2.0.1] - 2018-04-24
+### Fixed
+- fixed style for burger menu
+- fixed form control styling
+- added close-layer on responsive
+- other small style fixes
+
 ## [2.0.0] - 2018-03-26
 ### Bootstrap 4 update
 - added bootstrap 4
