@@ -11,13 +11,14 @@
                         <h4 class="card-title">Register Form</h4>
                       </div>
                         <div class="card-body">
-                          <mat-form-field class="example-full-width">
+                          <mat-form-field class="example-full-width" [ngClass]="{'has-success':validEmailRegister===true}">
                              <input
                              type="email"
                              matInput
                              placeholder="Email Address *"
                              [errorStateMatcher]="matcher"
-                            [formControl]="emailFormControl">
+                             formControlName="email"
+                             (ngModelChange)="emailValidationRegister($event)">
                              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                                Please enter a valid email address
                              </mat-error>
@@ -25,22 +26,23 @@
                                Email is <strong>required</strong>
                              </mat-error>
                            </mat-form-field>
-
-                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'password')">
+                            <mat-form-field class="example-full-width has-label" [ngClass]="{'has-success':validPasswordRegister===true}">
                               <input type="password"
                               matInput
                               id="password"
                               placeholder="Password *"
+                              (ngModelChange)="passwordValidationRegister($event)"
                               formControlName="password">
                               <app-field-error-display [displayError]="isFieldValid(register, 'password')" errorMsg="Enter a valid password.">
                               </app-field-error-display>
                             </mat-form-field>
 
-                            <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(register, 'password')">
+                            <mat-form-field class="example-full-width has-label" [ngClass]="{'has-success':validConfirmPasswordRegister===true}" [ngClass]="displayFieldCss(register, 'password')">
                               <input type="password"
                               matInput
                               id="confirmPassword"
                               placeholder="Confirm Password *"
+                              (ngModelChange)="confirmPasswordValidationRegister($event)"
                               formControlName="confirmPassword">
                               <app-field-error-display
                                [displayError]="isFieldValid(register, 'confirmPassword')" errorMsg="These passwords don't match. Try again!">
@@ -74,12 +76,13 @@
                         <h4 class="card-title">Login Form</h4>
                       </div>
                         <div class="card-body">
-                          <mat-form-field class="example-full-width">
+                          <mat-form-field class="example-full-width" [ngClass]="{'has-success':validEmailLogin===true}">
                              <input
                              type="email"
                              matInput
                              placeholder="Email Address *"
                              [errorStateMatcher]="matcher"
+                             (ngModelChange)="emailValidationLogin($event)"
                              formControlName="email">
                              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                                Please enter a valid email address
@@ -88,10 +91,11 @@
                                Email is <strong>required</strong>
                              </mat-error>
                            </mat-form-field>
-                            <mat-form-field class="example-full-width" [ngClass]="displayFieldCss(login, 'password')">
+                            <mat-form-field class="example-full-width" [ngClass]="{'has-success':validPasswordLogin===true}" [ngClass]="displayFieldCss(login, 'password')">
                               <input type="password"
                               matInput
                               placeholder="Password *"
+                              (ngModelChange)="passwordValidationLogin($event)"
                               formControlName="password">
                               <app-field-error-display [displayError]="isFieldValid(login, 'password')" errorMsg="Enter a valid password.">
                               </app-field-error-display>
@@ -118,10 +122,11 @@
                             <div class="row">
                               <label class="col-sm-2 col-form-label">Required Text</label>
                                 <div class="col-sm-7">
-                                  <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(type, 'text')">
+                                  <mat-form-field class="example-full-width has-label" [ngClass]="{'has-success':validTextType===true}" [ngClass]="displayFieldCss(type, 'text')">
                                     <input type="text"
                                     matInput
                                     id="text"
+                                    (ngModelChange)="textValidationType($event)"
                                     formControlName="text">
                                     <app-field-error-display [displayError]="isFieldValid(type, 'text')" errorMsg="Required text">
                                     </app-field-error-display>
@@ -136,11 +141,12 @@
                                 <label class="col-sm-2 col-form-label">Email</label>
 
                                 <div class="col-sm-7">
-                                  <mat-form-field class="example-full-width">
+                                  <mat-form-field class="example-full-width" [ngClass]="{'has-success':validEmailType===true}">
                                      <input
                                      type="email"
                                      matInput
                                      [errorStateMatcher]="matcher"
+                                     (ngModelChange)="emailValidationType($event)"
                                      formControlName="email">
                                      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                                        Please enter a valid email address
@@ -157,9 +163,10 @@
                             <div class="row">
                                 <label class="col-sm-2 col-form-label">Number</label>
                                 <div class="col-sm-7">
-                                  <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(type, 'number')">
+                                  <mat-form-field class="example-full-width has-label" [ngClass]="{'has-success':validNumberType===true}" [ngClass]="displayFieldCss(type, 'number')">
                                     <input type="number" name="number" number="true"
                                     matInput
+                                    (ngModelChange)="numberValidationType($event)"
                                     formControlName="number">
                                     <app-field-error-display [displayError]="isFieldValid(type, 'number')" errorMsg="Add a number!">
                                     </app-field-error-display>
@@ -172,9 +179,10 @@
                             <div class="row">
                                 <label class="col-sm-2 col-form-label">Url</label>
                                 <div class="col-sm-7">
-                                  <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(type, 'url')">
+                                  <mat-form-field class="example-full-width has-label" [ngClass]="{'has-success':validUrlType===true}" [ngClass]="displayFieldCss(type, 'url')">
                                     <input type="text" id="url" pattern="https?://.+" name="url" formControlName="url"
-                                    matInput>
+                                    matInput
+                                    (ngModelChange)="urlValidationType($event)">
                                     <app-field-error-display [displayError]="isFieldValid(type, 'url')" errorMsg="Must be a valid URL!">
                                     </app-field-error-display>
                                   </mat-form-field>
@@ -188,22 +196,24 @@
 
                                 <label class="col-sm-2 col-form-label">Equal to</label>
                                 <div class="col-sm-3">
-                                  <mat-form-field class="example-full-width" [ngClass]="displayFieldCss(type, 'password')">
+                                  <mat-form-field class="example-full-width" [ngClass]="{'has-success':validSourceType===true}" [ngClass]="displayFieldCss(type, 'password')">
                                     <input type="text"
                                     matInput
                                     placeholder="#idSource"
                                       name="idSource"
+                                      (ngModelChange)="sourceValidationType($event)"
                                     formControlName="password">
                                     <app-field-error-display [displayError]="isFieldValid(type, 'password')" errorMsg="IdSource is required">
                                     </app-field-error-display>
                                   </mat-form-field>
                                 </div>
                                 <div class="col-sm-3">
-                                  <mat-form-field class="example-full-width" [ngClass]="displayFieldCss(type, 'confirmPassword')">
+                                  <mat-form-field class="example-full-width" [ngClass]="{'has-success':validDestinationType===true}" [ngClass]="displayFieldCss(type, 'confirmPassword')">
                                     <input type="text"
                                     matInput
                                     name="idDestination"
                                     placeholder="#idDestination"
+                                    (ngModelChange)="confirmDestinationValidationType($event)"
                                     formControlName="confirmPassword">
                                     <app-field-error-display [displayError]="isFieldValid(type, 'confirmPassword')" errorMsg=" IdSource mismatch!">
                                     </app-field-error-display>
