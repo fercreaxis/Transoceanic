@@ -122,7 +122,13 @@
         padding-top: 18vh;
     }
     .page-header{
-      height: 100vh;
+      min-height: 100vh;
+      height: auto;
+      display: inherit;
+
+      .container{
+          padding-top: 18vh !important;
+      }
     }
 }
 
