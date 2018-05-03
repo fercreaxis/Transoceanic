@@ -1,3 +1,11 @@
+## [2.0.2] - 2018-05-02
+### Fixed
+- fixed menu on left
+- fixed vaidation forms
+- fixed autoclose close-layer on route changed
+- fixed loader
+- fixed datatable pagination style
+
 ## [2.0.1] - 2018-04-24
 ### Fixed
 - fixed style for burger menu
