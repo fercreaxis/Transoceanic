@@ -56,6 +56,12 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
         }
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
           this.navbar.sidebarClose();
+          const body = document.getElementsByTagName('body')[0];
+          const modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
+          if (body.classList.contains('modal-open')) {
+            body.classList.remove('modal-open');
+            modalBackdrop.remove();
+          }
         });
 
         this.navItems = [
