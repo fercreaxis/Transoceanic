@@ -91,7 +91,7 @@ export class SweetAlertComponent {
                 confirmButtonClass: 'btn btn-success',
                 html:
                         'You can use <b>bold text</b>, ' +
-                        '<a href="http://github.com">links</a> ' +
+                        '<a href="https://github.com">links</a> ' +
                         'and other HTML tags'
                 }).catch(swal.noop);
 
