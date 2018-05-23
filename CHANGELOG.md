@@ -1,3 +1,8 @@
+## [2.0.3] - 2018-05-23
+### Changes
+- added Angular 6
+- changed GitHub repository
+
 ## [2.0.2] - 2018-05-02
 ### Fixed
 - fixed menu on left
