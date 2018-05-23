@@ -12,7 +12,6 @@ import {
   MatCardModule,
   MatCheckboxModule,
   MatChipsModule,
-  MatDatepickerModule,
   MatDialogModule,
   MatExpansionModule,
   MatGridListModule,
@@ -38,6 +37,7 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { AppComponent } from './app.component';
 
