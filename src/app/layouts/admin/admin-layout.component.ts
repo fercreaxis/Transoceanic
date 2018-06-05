@@ -50,18 +50,17 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
              elemMainPanel.scrollTop = 0;
              elemSidebar.scrollTop = 0;
         });
+        const html = document.getElementsByTagName('html')[0];
         if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
             let ps = new PerfectScrollbar(elemMainPanel);
             ps = new PerfectScrollbar(elemSidebar);
+            html.classList.add('perfect-scrollbar-on');
+        }
+        else {
+            html.classList.add('perfect-scrollbar-off');
         }
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
           this.navbar.sidebarClose();
-          const body = document.getElementsByTagName('body')[0];
-          const modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
-          if (body.classList.contains('modal-open')) {
-            body.classList.remove('modal-open');
-            modalBackdrop.remove();
-          }
         });
 
         this.navItems = [
