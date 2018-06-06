@@ -1,7 +1,7 @@
 ## [2.1.0] - 2018-06-06
 ### Changes
 - added Angular 6
-- fixed auth pages for IE
+- fixed navbar on auth pages for IE
 - fixed perfectScrollbar on Calendar
 - fixed responsive sidebar(burger menu problem)
 - update to bootstrap 4.1
