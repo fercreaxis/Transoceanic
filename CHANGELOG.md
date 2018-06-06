@@ -1,7 +1,10 @@
-## [2.0.3] - 2018-05-23
+## [2.1.0] - 2018-06-06
 ### Changes
 - added Angular 6
-- changed GitHub repository
+- fixed auth pages for IE
+- fixed perfectScrollbar on Calendar
+- fixed responsive sidebar(burger menu problem)
+- update to bootstrap 4.1
 
 ## [2.0.2] - 2018-05-02
 ### Fixed
