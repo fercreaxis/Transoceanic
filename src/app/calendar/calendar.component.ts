@@ -1,7 +1,9 @@
 // IMPORTANT: this is a plugin which requires jQuery for initialisation and data manipulation
 
 import { Component, OnInit } from '@angular/core';
-declare const swal: any;
+import swal from 'sweetalert2';
+import PerfectScrollbar from 'perfect-scrollbar';
+
 declare const $: any;
 
 @Component({
@@ -21,9 +23,9 @@ export class CalendarComponent implements OnInit {
         $calendar.fullCalendar({
             viewRender: function(view: any, element: any) {
                 // We make sure that we activate the perfect scrollbar when the view isn't on Month
-                if (view.name !== 'month') {
-                    const $fc_scroller = $('.fc-scroller');
-                    $fc_scroller.perfectScrollbar();
+                if (view.name != 'month') {
+                    var elem = $(element).find('.fc-scroller')[0];
+                    let ps = new PerfectScrollbar(elem);
                 }
             },
             header: {
