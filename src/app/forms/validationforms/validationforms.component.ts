@@ -58,32 +58,25 @@ export class ValidationFormsComponent {
    }
 
    onRegister() {
-     console.log(this.emailFormControl);
      if (this.register.valid) {
-       console.log('form submitted');
      } else {
        this.validateAllFormFields(this.register);
      }
    }
    onLogin() {
-     console.log(this.login);
      if (this.login.valid) {
-       console.log('form submitted');
      } else {
        this.validateAllFormFields(this.login);
      }
    }
    onType() {
-     console.log(this.type);
      if (this.type.valid) {
-       console.log('form submitted');
      } else {
        this.validateAllFormFields(this.type);
      }
    }
    validateAllFormFields(formGroup: FormGroup) {
      Object.keys(formGroup.controls).forEach(field => {
-       console.log(field);
        const control = formGroup.get(field);
        if (control instanceof FormControl) {
          control.markAsTouched({ onlySelf: true });

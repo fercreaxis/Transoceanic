@@ -37,6 +37,6 @@ export class ExtendedFormsComponent implements OnInit {
 
     ngOnInit() {}
         myFunc(val: any) {
-            console.log('value is changed to ' + val);
+          // code here
         }
 }

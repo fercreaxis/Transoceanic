@@ -101,7 +101,6 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
 
             onNext: function(tab, navigation, index) {
                 var $valid = $('.card-wizard form').valid();
-                console.log($valid);
                 if(!$valid) {
                     $validator.focusInvalid();
                     return false;

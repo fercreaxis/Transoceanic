@@ -99,7 +99,7 @@
                                       <td>{{row.product_name}}</td>
                                       <td>{{row.type}}</td>
                                       <td>{{row.quantity}}</td>
-                                      <td class="text-right">{{ row.price | currency:'EUR':true:'1.2-2'}}</td>
+                                      <td class="text-right">€{{ row.price }}</td>
                                       <td class="text-right">
                                           &euro; {{row.amount}}
                                       </td>
@@ -181,7 +181,7 @@
                                               Total
                                           </td>
                                           <td colspan="1" class="td-price">
-                                              {{getTotal()| currency:'EUR':true:'1.2-2'}}
+                                              <small>&euro;</small>{{getTotal()}}
                                           </td>
                                           <td></td>
                                       </tr>

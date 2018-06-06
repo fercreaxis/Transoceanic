@@ -176,7 +176,6 @@ export class NavbarComponent implements OnInit {
               $layer.classList.remove('visible');
               setTimeout(function() {
                   $layer.remove();
-                  console.log('aici')
                   $toggle.classList.remove('toggled');
               }, 400);
             }.bind(this);
