@@ -19,7 +19,7 @@ export class NotificationsComponent implements OnInit {
             message: 'Welcome to <b>Material Dashboard</b> - a beautiful dashboard for every web developer.'
         }, {
             type: type[color],
-            timer: 3000,
+            timer: 30000,
             placement: {
                 from: from,
                 align: align
