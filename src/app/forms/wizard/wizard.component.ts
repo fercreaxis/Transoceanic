@@ -11,7 +11,7 @@ interface FileReaderEventTarget extends EventTarget {
 }
 
 interface FileReaderEvent extends Event {
-    target: FileReaderEventTarget;
+    target: EventTarget;
     getMessage(): string;
 }
 
@@ -259,7 +259,7 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
             if (input[0].files && input[0].files[0]) {
                 const reader = new FileReader();
 
-                reader.onload = function (e: FileReaderEvent) {
+                reader.onload = function (e: any) {
                     $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
                 };
                 reader.readAsDataURL(input[0].files[0]);
@@ -294,7 +294,7 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
         if (input[0].files && input[0].files[0]) {
             const reader: any = new FileReader();
 
-            reader.onload = function (e: FileReaderEvent) {
+            reader.onload = function (e: any) {
                 $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
             };
             reader.readAsDataURL(input[0].files[0]);
