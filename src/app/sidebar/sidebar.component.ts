@@ -115,7 +115,7 @@ export const ROUTES: RouteInfo[] = [{
 
 export class SidebarComponent implements OnInit {
     public menuItems: any[];
-
+    ps: any;
     isMobileMenu() {
         if ($(window).width() > 991) {
             return false;
@@ -125,11 +125,14 @@ export class SidebarComponent implements OnInit {
 
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
+        if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
+            const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
+            this.ps = new PerfectScrollbar(elemSidebar);
+        }
     }
     updatePS(): void  {
         if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
-            const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
-            let ps = new PerfectScrollbar(elemSidebar, { wheelSpeed: 2, suppressScrollX: true });
+            this.ps.update();
         }
     }
     isMac(): boolean {
