@@ -303,7 +303,7 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
     ngAfterViewInit() {
 
         $( window ).resize( () => { $('.card-wizard').each(function(){
-
+          setTimeout(() => {
             const $wizard = $(this);
             const index = $wizard.bootstrapWizard('currentIndex');
             let $total = $wizard.find('.nav li').length;
@@ -315,7 +315,6 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
             let vertical_level = 0;
 
             let mobile_device = $(document).width() < 600 && $total > 3;
-
             if(mobile_device){
                 move_distance = $wizard.width() / 2;
                 index_temp = index % 2;
@@ -350,7 +349,10 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
             $('.moving-tab').css({
                 'transition': 'transform 0s'
             });
-            });
+          },500)
+
         });
-    }
+    });
+
+  }
 }
