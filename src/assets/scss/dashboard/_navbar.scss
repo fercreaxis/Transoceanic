@@ -11,6 +11,9 @@
 
   &.fixed-top{
     position: fixed !important;
+    width: calc(100% - 260px);
+    right: 0;
+    left: auto;
   }
   .collapse{
     .navbar-nav{
