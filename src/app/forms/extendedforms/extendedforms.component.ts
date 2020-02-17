@@ -1,5 +1,4 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { DateAdapter } from '@angular/material';
 
 
 declare const require: any;
