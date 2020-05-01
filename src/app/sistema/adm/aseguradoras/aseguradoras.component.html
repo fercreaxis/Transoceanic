@@ -1,0 +1,129 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <button
+            mat-raised-button
+            class="btn btn-primary"
+            (click)="nuevo()"
+            matTooltip="Adicionar"
+            [matTooltipPosition]="'above'"
+          >
+            <i class="material-icons">playlist_add</i>
+          </button>
+        </div>
+        <div class="col-md-4">
+          <mat-slide-toggle
+            color="warn"
+            [(ngModel)]="mostrar_todos"
+            (change)="cargarAseguradoras()"
+          >
+            Ver Todas
+          </mat-slide-toggle>
+        </div>
+      </div>
+      <div class="loader" *ngIf="loading">
+        <svg class="circular" viewBox="25 25 50 50">
+          <circle
+            class="path"
+            cx="50"
+            cy="50"
+            r="20"
+            fill="none"
+            stroke-width="2"
+            stroke-miterlimit="10"
+          />
+        </svg>
+      </div>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">account_balance</i>
+            </div>
+            <h4 class="card-title">Aseguradoras</h4>
+          </div>
+          <div class="card-body">
+            <div class="content table-responsive">
+              <mat-table #table [dataSource]="dataSource">
+                <!-- Nombre Column -->
+                <ng-container matColumnDef="nombre">
+                  <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+                  <mat-cell *matCellDef="let element">
+                    {{ element.nombre }}
+                  </mat-cell>
+                </ng-container>
+  
+                <!-- Telefono PBX Column -->
+                <ng-container matColumnDef="telefonos">
+                  <mat-header-cell *matHeaderCellDef class="mat-column-20">
+                    Telefono PBX
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let element" class="mat-column-20">
+                    {{ element.telefonos }}
+                  </mat-cell>
+                </ng-container>
+  
+                <!-- Telefono Asistencia Column -->
+                <ng-container matColumnDef="telefono_asistencia">
+                  <mat-header-cell *matHeaderCellDef class="mat-column-10">
+                    Tel. Asistencia
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let element" class="mat-column-10">
+                    {{ element.telefono_asistencia }}
+                  </mat-cell>
+                </ng-container>
+  
+                <!-- Codigo STR Column -->
+                <ng-container matColumnDef="codigo_str">
+                  <mat-header-cell *matHeaderCellDef class="mat-column-20">
+                    Clave
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let element" class="mat-column-20">
+                    {{ element.codigo_str }}
+                  </mat-cell>
+                </ng-container>
+  
+                <!-- Botones de Editar -->
+                <ng-container matColumnDef="editar">
+                  <mat-header-cell
+                    class="mat-column-10"
+                    *matHeaderCellDef
+                  ></mat-header-cell>
+                  <mat-cell class="mat-column-10" *matCellDef="let element">
+                    <!-- Editar button -->
+                    <button
+                      mat-icon-button
+                      matTooltip="Editar"
+                      [matTooltipPosition]="'above'"
+                      color="warn"
+                      class="pull-right"
+                      (click)="editarAseguradora(element)"
+                    >
+                      <mat-icon>mode_edit</mat-icon>
+                    </button>
+                  </mat-cell>
+                </ng-container>
+  
+                <mat-header-row
+                  *matHeaderRowDef="displayedColumns"
+                ></mat-header-row>
+                <mat-row
+                  (click)="editarAseguradora(row)"
+                  *matRowDef="let row; columns: displayedColumns"
+                ></mat-row>
+              </mat-table>
+              <mat-paginator
+                #paginator
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 20]"
+                [showFirstLastButtons]="true"
+              >
+              </mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

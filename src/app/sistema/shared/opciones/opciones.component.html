@@ -1,0 +1,15 @@
+<div *ngFor = "let opc of opciones; let i = index" class="row">
+    <div class = "col">
+        <button mat-raised-button style="width: 100%;" class = "btn btn-primary" (click) = "retornar(i)">
+            {{opc}}
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class = "col">
+        <button mat-raised-button style="width: 100%;" class = "btn btn-danger" (click) = "cancelar()">
+            CANCELAR
+        </button>
+    </div>
+</div>

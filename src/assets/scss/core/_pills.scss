@@ -12,7 +12,7 @@
 
     .nav-item {
         .nav-link{
-            line-height: $mdb-btn-font-size-base * 2;
+            line-height: $mdb-btn-font-size-base * 1.5;
             text-transform: uppercase;
             font-size: $mdb-btn-font-size-base;
             font-weight: $font-weight-bold;
@@ -20,11 +20,11 @@
             text-align: center;
             color: $pills-color;
             transition: all .3s;
-            border-radius: 30px;
+            border-radius: 10px;
             padding: 10px 15px;
 
             &:hover{
-                background-color: rgba(200, 200, 200, 0.2);
+                background-color: rgba(16, 14, 20, 0.103);
             }
 
             &.active{

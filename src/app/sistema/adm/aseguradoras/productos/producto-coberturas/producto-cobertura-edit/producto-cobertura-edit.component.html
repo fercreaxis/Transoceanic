@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <mat-form-field>
+          <textarea
+            rows="3"
+            name="detalle"
+            ngModel
+            [(ngModel)]="detalle"
+            matInput
+            placeholder="Detalle"
+          ></textarea>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          class="btn btn-primary"
+          (click)="guardarDetalle()"
+        >
+          Guardar
+        </button>
+        <button mat-raised-button class="btn btn-danger" (click)="cancelar()">
+          Cancelar
+        </button>
+
+        <div>
+          <label> ID Detalle: {{ idDetalle }} </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

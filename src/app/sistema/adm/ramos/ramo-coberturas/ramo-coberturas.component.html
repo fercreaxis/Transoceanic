@@ -1,0 +1,75 @@
+<button
+  mat-raised-button
+  class="btn btn-success"
+  matTooltip="Adicionar Cobertura"
+  [matTooltipPosition]="'above'"
+  (click)="nuevo()"
+>
+  <i class="material-icons">playlist_add</i>
+</button>
+<div class="loader" *ngIf="loading">
+  <svg class="circular" viewBox="25 25 50 50">
+    <circle
+      class="path"
+      cx="50"
+      cy="50"
+      r="20"
+      fill="none"
+      stroke-width="2"
+      stroke-miterlimit="10"
+    />
+  </svg>
+</div>
+
+<div class="col-md-8">
+  <div class="card">
+    <div class="card-body">
+      <mat-table #table [dataSource]="dataSource">
+        <!-- Nombre Column -->
+        <ng-container matColumnDef="descripcion">
+          <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.descripcion }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Botones de Editar -->
+        <ng-container matColumnDef="editar">
+          <mat-header-cell *matHeaderCellDef class = "mat-column-10"> Editar </mat-header-cell>
+          <mat-cell *matCellDef="let cober" class = "mat-column-10">
+            <!-- Editar button -->
+            <button
+              mat-icon-button
+              color="primary"
+              (click)="editCoberturaByID(cober)"
+            >
+              <mat-icon aria-label="Example icon-button with a heart icon"
+                >edit</mat-icon
+              >
+            </button>
+            <!-- Eliminar button -->
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="deleteCobertura(cober)"
+            >
+              <mat-icon aria-label="Example icon-button with a heart icon"
+                >delete</mat-icon
+              >
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+      <mat-paginator
+        #paginator
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20]"
+        [showFirstLastButtons]="true"
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</div>

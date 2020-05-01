@@ -1,0 +1,87 @@
+<!-- Botones de Edicion de Clientes -->
+<button
+  mat-raised-button
+  class="btn btn-success"
+  matTooltip="Adicionar Producto"
+  [matTooltipPosition]="'above'"
+  (click)="nuevoProducto()"
+>
+  <i class="material-icons">playlist_add</i>
+</button>
+<!-- <button mat-raised-button color="primary" (click)='setProducto()'>Nuevo Producto</button> -->
+<br />
+<br />
+<!-- Grid de Clientes -->
+<!-- <div class="example-container mat-elevation-z8"> -->
+<mat-table #table [dataSource]="dataSource">
+  <!-- Producto Column -->
+  <ng-container matColumnDef="nombre">
+    <mat-header-cell *matHeaderCellDef> Producto </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.nombre }} </mat-cell>
+  </ng-container>
+
+  <!-- Ramo Column -->
+  <ng-container matColumnDef="nombre_ramo">
+    <mat-header-cell *matHeaderCellDef> Ramo </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.nombre_ramo }} </mat-cell>
+  </ng-container>
+
+  <!-- Individual Colectivo Column -->
+  <ng-container matColumnDef="individual_colectivo">
+    <mat-header-cell *matHeaderCellDef> Individual Colectivo </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ element.individual_colectivo }}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Botones de Editar -->
+  <ng-container matColumnDef="editar">
+    <mat-header-cell *matHeaderCellDef> Editar </mat-header-cell>
+    <mat-cell *matCellDef="let pro">
+      <!-- Editar button -->
+      <button
+        mat-icon-button
+        color="primary"
+        (click)="editarProducto(pro)"
+        matTooltip="Editar"
+        [matTooltipPosition]="'above'"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <!-- CLONE button -->
+      <button
+        mat-icon-button
+        color="warn"
+        (click)="clonarProducto(pro)"
+        matTooltip="Clonar"
+        [matTooltipPosition]="'above'"
+      >
+        <mat-icon>content_copy</mat-icon>
+      </button>
+      <!-- Delete button -->
+      <button
+        mat-icon-button
+        color="warn"
+        (click)="preEliminarProducto(pro)"
+        matTooltip="Eliminar"
+        [matTooltipPosition]="'above'"
+      >
+        <mat-icon aria-label="Example icon-button with a heart icon"
+          >delete</mat-icon
+        >
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  <!-- (click)="editProducto(row)" -->
+</mat-table>
+<mat-paginator
+  [showFirstLastButtons]="true"
+  [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+>
+</mat-paginator>
+<!-- </div> -->

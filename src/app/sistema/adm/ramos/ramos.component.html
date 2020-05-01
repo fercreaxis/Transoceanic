@@ -1,0 +1,99 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <button mat-raised-button class="btn btn-primary" (click)="nuevo()">
+          <i class="material-icons">playlist_add</i>
+        </button>
+      </div>
+    </div>
+
+    <div class="loader" *ngIf="loading">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle
+          class="path"
+          cx="50"
+          cy="50"
+          r="20"
+          fill="none"
+          stroke-width="2"
+          stroke-miterlimit="10"
+        />
+      </svg>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">Ramos</h4>
+          </div>
+          <div class="card-body">
+            <mat-table #table [dataSource]="dataSource">
+              <!-- Nombre Column -->
+              <ng-container matColumnDef="nombre">
+                <mat-header-cell *matHeaderCellDef> Ramo </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.nombre }}
+                </mat-cell>
+              </ng-container>
+
+              <!-- Telefono Casa Column -->
+              <ng-container matColumnDef="categoria">
+                <mat-header-cell *matHeaderCellDef class="mat-column-15">
+                  Categoria
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="mat-column-15">
+                  {{ element.categoria }}
+                </mat-cell>
+              </ng-container>
+
+              <!-- Botones de Editar -->
+              <ng-container matColumnDef="editar">
+                <mat-header-cell *matHeaderCellDef class="mat-column-10">
+                  Editar
+                </mat-header-cell>
+                <mat-cell *matCellDef="let ramo" class="mat-column-10">
+                  <!-- Editar button -->
+                  <button
+                    mat-icon-button
+                    color="primary"
+                    (click)="editRamoByID(ramo)"
+                  >
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <!-- Eliminar button -->
+                  <button
+                    mat-icon-button
+                    color="accent"
+                    (click)="deleteRamo(ramo)"
+                  >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row
+                class="pointer"
+                *matHeaderRowDef="displayedColumns"
+              ></mat-header-row>
+              <mat-row
+                *matRowDef="let row; columns: displayedColumns"
+              ></mat-row>
+            </mat-table>
+            <mat-paginator
+              [showFirstLastButtons]="true"
+              [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+            >
+            </mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

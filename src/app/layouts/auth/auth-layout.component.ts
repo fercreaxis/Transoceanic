@@ -1,3 +1,4 @@
+import { AuxiliarService } from './../../lib/auxiliar.service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
@@ -12,7 +13,8 @@ export class AuthLayoutComponent implements OnInit {
   mobile_menu_visible: any = 0;
   private _router: Subscription;
 
-  constructor(private router: Router, private element: ElementRef) {
+  constructor(private router: Router, private element: ElementRef, 
+    public auxiliar: AuxiliarService) {
       this.sidebarVisible = false;
   }
   ngOnInit(){

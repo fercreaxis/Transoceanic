@@ -1,0 +1,91 @@
+<button mat-raised-button class="btn btn-danger" (click)="backToProductos()">
+  <i class="material-icons">keyboard_backspace</i>
+</button>
+<ul class="nav nav-pills nav-pills-info">
+  <li class="nav-item">
+    <a class = "nav-link active" href="#General" data-toggle="tab">General Producto</a>
+  </li>
+  <li class="nav-item">
+    <a class = "nav-link" href="#Planes" data-toggle="tab">Planes</a>
+  </li>
+  <li class="nav-item">
+    <a class = "nav-link" href="#Coberturas" data-toggle="tab">Coberturas</a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="General" name="general">
+    <div class="row">
+      <div class="col-md-4">
+        <div class = "card">
+          <div class = "card-body">
+            <form *ngIf="producto" name="formularioEdit">
+              <!-- Selector de Ramo -->
+              <mat-form-field>
+                <mat-select
+                  placeholder="Ramo"
+                  [(ngModel)]="producto.id_ramo"
+                  name="ramo"
+                >
+                  <mat-option *ngFor="let ra of ramos" [value]="ra.ID">
+                    {{ ra.nombre }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+    
+              <!-- TextField Nombre Producto-->
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Nombre Producto"
+                  value=""
+                  name="nombre_producto"
+                  [(ngModel)]="producto.nombre"
+                />
+              </mat-form-field>
+    
+              <!-- Selector de individial colectivo -->
+              <mat-form-field>
+                <mat-select
+                  placeholder="Individual Colectivo"
+                  [(ngModel)]="producto.individual_colectivo"
+                  name="individual_colectivo"
+                >
+                  <mat-option
+                    *ngFor="let ra of individial_colectivo"
+                    [value]="ra.viewValue"
+                  >
+                    {{ ra.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+    
+              <!-- botton Save-->
+              <button
+                (click)="setProducto()"
+                *ngIf="producto.id_ramo != null"
+                mat-mini-fab
+                mat-raised-button
+                matTooltip="Guardar"
+                matTooltipShowDelay="1000"
+                color = "warn"
+              >
+                <mat-icon aria-label="">check</mat-icon>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane " id="Planes" name="planes">
+    <app-producto-planes *ngIf = "producto" [idProducto] = "producto.ID"></app-producto-planes>
+  </div>
+
+  <div class="tab-pane " id="Coberturas" name="coberturas">
+    <app-producto-coberturas
+      *ngIf = "producto"
+      [idProducto]="producto.ID"
+    ></app-producto-coberturas>
+  </div>
+</div>

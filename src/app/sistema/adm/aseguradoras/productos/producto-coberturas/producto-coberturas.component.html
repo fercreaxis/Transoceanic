@@ -1,0 +1,45 @@
+<table
+  class="table table-bordered"
+  style="width: 100%;"
+  *ngIf="coberturasProductoColumn"
+>
+  <thead>
+    <tr>
+      <th style="width: 30%;">Coberturas</th>
+      <th *ngFor="let enc of getHeaderColumn(-1)">
+        {{ enc.detalle }}
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let cr of coberturasProductoRow" (click)="editCobertura(cr)">
+      <!-- Seccion -->
+      <td
+        *ngIf="cr.orden == 1.0"
+        class="col-seccion"
+        (click)="accionesSeccion(cr)"
+      >
+        {{ cr.leyenda }}
+      </td>
+
+      <!-- Cobertura dentro de Seccion -->
+      <td
+        *ngIf="cr.orden != 1.0"
+        class="col-cobertura"
+        (click)="accionesCobertura(cr)"
+      >
+        {{ cr.leyenda }}
+      </td>
+
+      <!-- Detalle de Cobertura -->
+      <td
+        class="col-detalle"
+        *ngFor="let col of getHeaderColumn(cr.id_grupo)"
+        (click)="accionesDetalleCobertura(col)"
+      >
+        <pre>{{ col.detalle }}</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>

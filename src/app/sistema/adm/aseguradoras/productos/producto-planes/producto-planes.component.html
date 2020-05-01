@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <mat-table #table [dataSource]="dataSource">
+          <ng-container matColumnDef="descripcion">
+            <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{ element.descripcion }}
+            </mat-cell>
+          </ng-container>
+
+          <!-- Botones de Editar -->
+          <ng-container matColumnDef="editar">
+            <mat-header-cell
+              *matHeaderCellDef
+              class="mat-column-15"
+            ></mat-header-cell>
+            <mat-cell *matCellDef="let element" class="mat-column-15">
+              <!-- Editar button -->
+              <button
+                mat-icon-button
+                color="primary"
+                (click)="editarPlan(element)"
+                matTooltip="Editar"
+                [matTooltipPosition]="'above'"
+                  >
+              <mat-icon >mode_edit</mat-icon>
+              </button>
+
+              <!-- Clonar button -->
+              <button
+                mat-icon-button
+                color="warn"
+                (click)="clonePlan(element)"
+                matTooltip="Clonar"
+                [matTooltipPosition]="'above'"
+              >
+                <mat-icon >file_copy</mat-icon>
+              </button>
+
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+        <button
+        (click)="nuevoPlan()"
+        mat-mini-fab
+        mat-raised-button
+        matTooltip="Nuevo Plan"
+        matTooltipShowDelay="1000"
+        color = "warn"
+
+      >
+        <mat-icon aria-label="">add</mat-icon>
+      </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+ 
+</div>

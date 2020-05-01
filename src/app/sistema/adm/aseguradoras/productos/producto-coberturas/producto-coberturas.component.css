@@ -1,0 +1,24 @@
+.col-seccion { background-color: white; 
+    font-weight: bold;
+}
+
+.col-seccion:hover {
+  background-color: rgb(243, 204, 131);
+  cursor: pointer
+}
+
+
+.col-cobertura { background-color: white; }
+
+.col-cobertura:hover {
+  background-color: rgb(204, 227, 235);
+  cursor: pointer
+}
+
+
+.col-detalle { background-color: white; }
+
+.col-detalle:hover {
+  background-color: lightyellow;
+  cursor: pointer
+}

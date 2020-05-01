@@ -1,0 +1,54 @@
+<button
+  mat-raised-button
+  class="btn btn-success"
+  matTooltip="Adicionar Cobertura"
+  [matTooltipPosition]="'above'"
+  (click)="nuevoEstado()"
+>
+  <i class="material-icons crx-button-primary">add</i>
+</button>
+<table class="table table-bordered">
+  <tr>
+    <th>Descripción</th>
+  </tr>
+  <tr *ngFor="let estado of estados">
+    <td (click)="editEstado(estado)" style="width: 80%;">
+      <div *ngIf="estado.primero == 1 && estado.ultimo == 0">
+        <mat-chip-list>
+          <mat-chip style="background-color: rgb(173, 69, 69); color: white;">{{
+            estado.descripcion
+          }}</mat-chip>
+        </mat-chip-list>
+      </div>
+      <div *ngIf="estado.ultimo == 1 && estado.primero == 0">
+        <mat-chip-list>
+          <mat-chip style="background-color: rgb(26, 146, 86); color: white;">{{
+            estado.descripcion
+          }}</mat-chip>
+        </mat-chip-list>
+      </div>
+      <div *ngIf="estado.ultimo == 0 && estado.primero == 0">
+        <mat-chip-list>
+          <mat-chip
+            style="background-color: rgb(211, 252, 129); color: black;"
+            >{{ estado.descripcion }}</mat-chip
+          >
+        </mat-chip-list>
+      </div>
+    </td>
+    <td>
+      <button mat-button (click)="subirOrden(estado)">
+        <i class="material-icons">
+          keyboard_arrow_up
+        </i>
+      </button>
+    </td>
+    <td>
+      <button mat-button (click)="bajarOrden(estado)">
+        <i class="material-icons">
+          keyboard_arrow_down
+        </i>
+      </button>
+    </td>
+  </tr>
+</table>

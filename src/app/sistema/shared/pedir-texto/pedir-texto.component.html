@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+          <div class = "card-header">
+            <h4 class="card-title">{{titulo}}</h4>
+          </div>
+        <div class="card-body">
+          <mat-form-field>
+            <textarea
+              rows="3"
+              name="detalle"
+              ngModel
+              [(ngModel)]="texto"
+              matInput
+              [placeholder] = "leyenda"
+            ></textarea>
+          </mat-form-field>
+  
+          <button
+            mat-raised-button
+            class="btn btn-primary"
+            (click)="retornar()"
+          >
+            Guardar
+          </button>
+          <button mat-raised-button class="btn btn-danger" (click)="cancelar()">
+            Cancelar
+          </button>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  

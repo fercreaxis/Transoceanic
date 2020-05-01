@@ -1,0 +1,280 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <button
+            mat-raised-button
+            class="btn btn-primary"
+            matTooltip="Atras"
+            [matTooltipPosition]="'above'"
+            (click)="regresar()"
+          >
+            <i class="material-icons">keyboard_backspace</i>
+          </button>
+          <button
+            mat-raised-button
+            class="btn btn-primary"
+            matTooltip="Guardar"
+            [matTooltipPosition]="'above'"
+            (click)="guardarAseguradora()"
+          >
+            <i class="material-icons">save</i>
+          </button>
+          <button
+            mat-raised-button
+            class="btn btn-primary"
+            (click)="preEliminarAseguradora()"
+            *ngIf="!esRegistroNuevo()"
+          >
+            <i class="material-icons">delete</i>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card" *ngIf="a">
+            <div class="card-header card-header-danger card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">account_balance</i>
+              </div>
+              <h4 class="card-title">{{ a.nombre }}</h4>
+              <mat-slide-toggle
+                color="warn"
+                #estado="ngModel"
+                name="estado"
+                ngModel
+                [(ngModel)]="a.estado"
+                >Activa</mat-slide-toggle
+              >
+            </div>
+  
+            <div class="card-body">
+              <ul class="nav nav-pills nav-pills-primary">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    data-toggle="tab"
+                    href="#pill1"
+                    role="tablist"
+                  >
+                    General
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    data-toggle="tab"
+                    href="#pill2"
+                    role="tablist"
+                  >
+                    Contactos
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    data-toggle="tab"
+                    href="#pill3"
+                    role="tablist"
+                  >
+                    Productos
+                  </a>
+                </li>
+              </ul>
+              <div class="tab-content tab-space">
+                <div class="tab-pane active" id="pill1">
+                  <form #f name="f">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group form-black">
+                          <mat-form-field>
+                            <input
+                              #nombre="ngModel"
+                              name="nombre"
+                              ngModel
+                              [(ngModel)]="a.nombre"
+                              matInput
+                              placeholder="Nombre"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group form-black crx-form-group">
+                          <mat-form-field class="crx-mat-form-field">
+                            <input
+                              #codigo_str="ngModel"
+                              name="codigo_str"
+                              ngModel
+                              [(ngModel)]="a.codigo_str"
+                              matInput
+                              placeholder="Codigo Agente"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group form-black crx-form-group">
+                          <mat-form-field>
+                            <input
+                              #razon_social="ngModel"
+                              name="razon_social"
+                              ngModel
+                              [(ngModel)]="a.razon_social"
+                              matInput
+                              placeholder="Razon Social"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group form-black crx-form-group">
+                          <mat-form-field class="crx-mat-form-field">
+                            <input
+                              #rtn="ngModel"
+                              name="rtn"
+                              ngModel
+                              [(ngModel)]="a.rtn"
+                              matInput
+                              placeholder="RTN"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group form-black crx-form-group">
+                          <mat-form-field class="crx-full-width">
+                            <textarea
+                              rows="2"
+                              #direccion="ngModel"
+                              name="direccion"
+                              ngModel
+                              [(ngModel)]="a.direccion"
+                              matInput
+                              placeholder="Direccion"
+                            >
+                            </textarea>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group form-black crx-form-group">
+                          <mat-form-field>
+                            <input
+                              #telefonos="ngModel"
+                              name="telefonos"
+                              ngModel
+                              [(ngModel)]="a.telefonos"
+                              matInput
+                              placeholder="Telefono PBX"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group form-black crx-form-group">
+                          <mat-form-field>
+                            <input
+                              #telefono_asistencia="ngModel"
+                              name="telefono_asistencia"
+                              ngModel
+                              [(ngModel)]="a.telefono_asistencia"
+                              matInput
+                              placeholder="Tel. Asistencia"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group form-black crx-form-group">
+                          <mat-form-field>
+                            <input
+                              name="fecha_cierre"
+                              #fecha_cierre="ngModel"
+                              matInput
+                              [matDatepicker]="picker"
+                              [(ngModel)]="a.fecha_cierre"
+                              placeholder="Fecha Cierre"
+                            />
+                            <mat-datepicker-toggle
+                              matSuffix
+                              [for]="picker"
+                            ></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group form-black crx-form-group">
+                          <mat-form-field>
+                            <input
+                              #dia_corte_1="ngModel"
+                              name="dia_corte_1"
+                              ngModel
+                              [(ngModel)]="a.dia_corte_1"
+                              matInput
+                              placeholder="Dia Corte # 1"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group form-black crx-form-group">
+                          <mat-form-field>
+                            <input
+                              #dia_corte_2="ngModel"
+                              name="dia_corte_2"
+                              ngModel
+                              [(ngModel)]="a.dia_corte_2"
+                              matInput
+                              placeholder="Dia Corte # 2"
+                            />
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="tab-pane" id="pill2">
+                  <app-contactos-inline
+                    *ngIf="a"
+                    [tipo_origen]="tipo_origen"
+                    [id_origen]="a.ID"
+                  ></app-contactos-inline>
+                </div>
+                <div class="tab-pane" id="pill3">
+                   <app-productos
+                    *ngIf="enListadoProductos()"
+                    (inicioEditarProductoEvent) = "onIniciarEdicionProducto($event)"
+                    [idAseguradora]="a.ID"
+                    [tipoOrigen]="tipo_origen"
+                  >
+                  </app-productos>
+                  
+                  <app-producto-edit
+                    *ngIf="enEdicionProducto()"
+                    (finEditarProductoEvent) = "onFinEdicionProducto()"
+                    [idAseguradora]="a.ID"
+                    [idProducto]="idProductoEdicion"
+                  ></app-producto-edit>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <p class="category" *ngIf="a">ID Aseguradora : {{ a.ID }}</p>
+    </div>
+  </div>
+  

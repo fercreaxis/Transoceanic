@@ -6,33 +6,11 @@
       <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
           <form class="form" method="" action="">
-            <div class="card card-login card-hidden">
+            <div class="card card-login">
               <div class="card-header card-header-rose text-center">
-                <h4 class="card-title">Log in</h4>
-                <div class="social-line">
-                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                    <i class="fa fa-facebook-square"></i>
-                  </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                    <i class="fa fa-google-plus"></i>
-                  </a>
-                </div>
+                <h4 class="card-title">Bienvenido</h4>
               </div>
               <div class="card-body ">
-                <p class="card-description text-center">Or Be Classical</p>
-                <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">face</i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="First Name...">
-                  </div>
-                </span>
                 <span class="bmd-form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -40,7 +18,7 @@
                         <i class="material-icons">email</i>
                       </span>
                     </div>
-                    <input type="email" class="form-control" placeholder="Email...">
+                    <input name = "usuario" [(ngModel)] = "usuario" type="text" class="form-control" placeholder="Usuario">
                   </div>
                 </span>
                 <span class="bmd-form-group">
@@ -50,14 +28,29 @@
                         <i class="material-icons">lock_outline</i>
                       </span>
                     </div>
-                    <input type="password" class="form-control" placeholder="Password...">
+                    <input name="clave" [(ngModel)] = "clave" type="password" class="form-control" placeholder="Clave">
                   </div>
                 </span>
               </div>
               <div class="card-footer justify-content-center">
-                <a href="#pablo" class="btn btn-rose btn-link btn-lg">Lets Go</a>
+                <a href="#" (click)="login()" class="btn btn-rose btn-link btn-lg">Ingresar</a>
               </div>
             </div>
+
+            <div class="loader" *ngIf="loading">
+              <svg class="circular" viewBox="25 25 50 50">
+                <circle
+                  class="path"
+                  cx="50"
+                  cy="50"
+                  r="20"
+                  fill="none"
+                  stroke-width="2"
+                  stroke-miterlimit="10"
+                />
+              </svg>
+            </div>
+      
           </form>
         </div>
       </div>
@@ -67,31 +60,27 @@
         <nav class="pull-left">
           <ul>
             <li>
-              <a href="https://www.creative-tim.com">
-                Creative Tim
+              <a href="#">
+                CREAXIS
               </a>
             </li>
             <li>
-              <a href="https://creative-tim.com/about-us">
-                About Us
+              <a href="#">
               </a>
             </li>
             <li>
-              <a href="http://blog.creative-tim.com">
-                Blog
+              <a href="#">
               </a>
             </li>
             <li>
-              <a href="https://www.creative-tim.com/license">
-                Licenses
+              <a href="#">
               </a>
             </li>
           </ul>
         </nav>
         <div class="copyright pull-right">
           &copy;
-            {{test | date: 'yyyy'}}, made with <i class="material-icons">favorite</i> by
-          <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+            {{test | date: 'yyyy'}}
         </div>
       </div>
     </footer>

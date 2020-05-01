@@ -1,0 +1,166 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <button
+        mat-raised-button
+        class="btn btn-primary"
+        [matTooltipPosition]="'above'"
+        matTooltip="Atras"
+        (click)="backToRamo()"
+      >
+        <i class="material-icons">keyboard_backspace</i>
+      </button>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card" *ngIf="miRamo">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
+            </div>
+            <h4 class="card-title">{{ miRamo.nombre }}</h4>
+          </div>
+
+          <div class="card-body">
+            <ul class="nav nav-pills nav-pills-primary">
+              <li class="nav-item">
+                <a class="nav-link active" href="#pill1" data-toggle="tab"
+                  >General</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#pill2" class="nav-link" data-toggle="tab"
+                  >Coberturas</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#pill3" class="nav-link" data-toggle="tab"
+                  >Variables</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#pill4" class="nav-link" data-toggle="tab"
+                  >Variables de Reclamos</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#pill5" class="nav-link" data-toggle="tab"
+                  >Estados de Reclamo</a
+                >
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="pill1">
+                <button
+                  mat-raised-button
+                  class="btn btn-success"
+                  matTooltip="Guardar"
+                  [matTooltipPosition]="'above'"
+                  (click)="setRamo()"
+                >
+                  <i class="material-icons">save</i>
+                </button>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <form *ngIf="miRamo">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <!-- TextField Nombre-->
+                              <mat-form-field>
+                                <input
+                                  matInput
+                                  placeholder="Nombre"
+                                  value=""
+                                  name="nombre"
+                                  [(ngModel)]="miRamo.nombre"
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <!-- Selector de individual colectivo -->
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-form-field>
+                                <mat-select
+                                  placeholder="Categoria"
+                                  [(ngModel)]="miRamo.categoria"
+                                  name="categoria"
+                                >
+                                  <mat-option
+                                    *ngFor="let cat of categorias"
+                                    [value]="cat.value"
+                                  >
+                                    {{ cat.viewValue }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-4">
+                              <mat-form-field>
+                                <input
+                                  matInput
+                                  placeholder="% ISV"
+                                  name="pctISV"
+                                  type="text"
+                                  [ngModel]="miRamo.pctISV | number: '1.2-2'"
+                                  (ngModelChange)="tempPctISV = $event"
+                                  (focusout)="miRamo.pctISV = tempPctISV"
+                                />
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-slide-toggle
+                                [(ngModel)]="miRamo.mostrarDependientes"
+                                name="mostrarDependientes"
+                                color="warn"
+                                >Aplica Dependientes</mat-slide-toggle
+                              >
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-slide-toggle
+                                [(ngModel)]="miRamo.mostrarBeneficiarios"
+                                name="mostrarBeneficiarios"
+                                color="warn"
+                                >Aplica Beneficiarios</mat-slide-toggle
+                              >
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="pill2">
+                <app-ramo-coberturas [idRamo]="miRamo.ID"></app-ramo-coberturas>
+              </div>
+
+              <div class="tab-pane" id="pill3">
+                <app-ramo-variables [idRamo]="miRamo.ID"></app-ramo-variables> -->
+              </div>
+              <div class="tab-pane" id="pill4">
+                <app-ramo-variables-reclamos [idRamo] = "miRamo.ID"></app-ramo-variables-reclamos>
+              </div>
+              <div class="tab-pane" id="pill5">
+                <app-ramo-estados-reclamos [idRamo] = "miRamo.ID"></app-ramo-estados-reclamos>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
